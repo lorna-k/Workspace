@@ -1,16 +1,18 @@
 .posts-section {
    /*margin-left: 200px;
-   width:400px;*/
+   */
+   width:400px;
 
 }
 .content{
-   position: relative;
-   top: 82px;
+   /*position: relative;*/
+   /*top: 82px;*/
 }
 
-.feed-section {   
+.feed-section {
+	width: 300px;   
 /* position: fixed;
-       top: 82px;
+    top: 82px;
     right: 300px;
     bottom: 10px;
     width: 300px;
