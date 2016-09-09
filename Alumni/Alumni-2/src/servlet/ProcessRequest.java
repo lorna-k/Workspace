@@ -41,7 +41,6 @@ public class ProcessRequest extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		System.out.println("Here");
 		DataAccess dataAccess=new DataAccess();
 		String accepted=request.getParameter("accept");
 		String rejected=request.getParameter("reject");
@@ -72,7 +71,7 @@ public class ProcessRequest extends HttpServlet {
 						
 				}
 				else
-					response.sendRedirect("./index.html");
+					response.sendRedirect("./login.html");
 				
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
