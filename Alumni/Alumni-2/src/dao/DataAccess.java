@@ -47,14 +47,13 @@ public class DataAccess
 	    	
 	    	if(logUsers.getString(5).equals(password))
 	    	{
-	    		System.out.println("Welcome "+logUsers.getString(2));
-	    		
-	    		return true;
+	    		//System.out.println("Welcome "+logUsers.getString(2));
+	    		return true;//new User(logUsers.getString(1),logUsers.getString(2),logUsers.getString(3),logUsers.getString(4),logUsers.getString(5),logUsers.getString(6));
 	    	}
 	    	else
 	    	{
 	    		System.out.println("Incorrect Password: "+password+" "+logUsers.getString(2));
-	    		return false;
+	    		return false;// new User('null','null','null','null','null','null');
 	    	}
 	    }
 	    else
@@ -62,7 +61,7 @@ public class DataAccess
 	    	System.out.println("User "+id+" does not exists in the system please register!");
 	    }
 	    
-	    return false;
+	    return  false;//new User('null','null','null','null','null','null');
     }
     
     public void addUser(User user) throws ClassNotFoundException,SQLException
