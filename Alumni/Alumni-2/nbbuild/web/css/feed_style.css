@@ -1,7 +1,7 @@
 .posts-section {
    /*margin-left: 200px;
    */
-   width:400px;
+   width:320px;
 
 }
 .content{
@@ -10,7 +10,8 @@
 }
 
 .feed-section {
-	width: 300px;   
+	width: 220px; 
+	overflow-y: scroll;  
 /* position: fixed;
     top: 82px;
     right: 300px;
@@ -20,8 +21,12 @@
    /* position: relative;
     top: 80px;*/
   }
-@media screen and (max-width: 848px) {
+@media screen and (max-width: 328px) {
 	.feed-section {
 		display: none;
 	}
+}
+
+.timeline-Footer.u-cf{
+	display: none;
 }
