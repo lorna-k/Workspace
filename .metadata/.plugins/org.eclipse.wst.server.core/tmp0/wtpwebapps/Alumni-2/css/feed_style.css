@@ -1,0 +1,27 @@
+.posts-section {
+   /*margin-left: 200px;
+   */
+   width:400px;
+
+}
+.content{
+   /*position: relative;*/
+   /*top: 82px;*/
+}
+
+.feed-section {
+	width: 300px;   
+/* position: fixed;
+    top: 82px;
+    right: 300px;
+    bottom: 10px;
+    width: 300px;
+    background-color: #eee;*/
+   /* position: relative;
+    top: 80px;*/
+  }
+@media screen and (max-width: 848px) {
+	.feed-section {
+		display: none;
+	}
+}
