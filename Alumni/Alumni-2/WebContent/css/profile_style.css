@@ -2,13 +2,13 @@
 	width: 800px;
 	position: relative;
 	top:50px;
-	border:2px solid black;
+	/*border:2px solid black;*/
 	/**/
 	margin-right: auto;
 	margin-left: auto;
 }
 .cover-photo{
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 	height: 300px;
 	position: relative;
 }
@@ -40,7 +40,7 @@
 	color: white;
 }
 .profile-menu{
-	border: 1px solid gray;
+	/*border: 1px solid gray;*/
 	text-align: center;
 
 }
@@ -59,23 +59,15 @@
 	text-decoration: none;
 	color: black;
 }
-/*.affix {
-      top:100px;
-      width: 100%;
-      z-index: 9999 !important;
-  }*/
-  .navbar {
-      margin-bottom: 0px;
-  }
 
   #nav.affix{
      position: fixed;
-     top: 0;
-     z-index: 1;
-     width: 100%;
+     top: 50px;
+     background-color: white;
+     width: 75.6%;
   }
-  #section1 {padding-top:50px;height:500px;color: black; background-color: #F1F1F1;}
-  #section2 {padding-top:50px;height:500px;color: black; }
-  #section3 {padding-top:50px;height:500px;color: black; background-color: #F1F1F1;}
-  #section4 {padding-top:50px;height:500px;color: black; }
-  #section5 {padding-top:50px;height:500px;color: black; background-color: #F1F1F1;}
+  #section1 {padding-top:60px;height:500px;color: black; background-color: #F1F1F1;}
+  #section2 {padding-top:60px;height:500px;color: black; background-color: #F7F7F7}
+  #section3 {padding-top:60px;height:500px;color: black; background-color: #F1F1F1;}
+  #section4 {padding-top:60px;height:500px;color: black; background-color: #F7F7F7}
+  #section5 {padding-top:60px;height:500px;color: black; background-color: #F1F1F1;}
