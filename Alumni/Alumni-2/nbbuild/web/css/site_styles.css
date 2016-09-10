@@ -128,6 +128,7 @@
     padding-top: 60px;
     text-align: center;
     background-size: cover;
+    background-color: #FFF;
 }
 .info-heading{
     text-align: center;
@@ -153,6 +154,7 @@
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 60px;
+    color: #FFF;
 }
 .footer-top .after {
     padding-top: 100px;
@@ -163,13 +165,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
+/*    display: none;*/
     color: #FFF;
 }
-.footer-top:hover .after {
+/*.footer-top:hover .after {
     display: block;
     background: rgba(0, 0, 0, .7);
-}
+}*/
 .footer-top-btn > a{
     border: 2px solid #1FBAD6;
     background-color: #1BA0E1;
@@ -186,8 +188,13 @@
 }
 .footer-top > img{
     height: 348px;
+    position:absolute;
+    left: 0;
+    top: 0;
+    right:0;
     width: 100%;
     background: rgba(0, 0, 0, .5);
+    z-index: -1;
 }
 /******************************************Footer / Site Links************************************/
 .footer-main{

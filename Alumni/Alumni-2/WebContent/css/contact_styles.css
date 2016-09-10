@@ -2,18 +2,18 @@
   width: 950px;
   overflow: hidden;
   margin: 4px auto 0 auto;
-  padding: 0;}
+  padding: 0;}*/
 
-#left_content { 
+.left-conact-us { 
   float: left;
   text-align: justify;
-  width: 450px;
+  width: 400px;
   padding: 20px 0 5px 25px;
   margin: 0;}
 
-#right_content { 
+.right-contact-us { 
   float: right;
   text-align: justify;
-  width: 450px;
+  width: 400px;
   padding: 20px 0 5px 25px;
-  margin: 0;}*/
+  margin: 0;}

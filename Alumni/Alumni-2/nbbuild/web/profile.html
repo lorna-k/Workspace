@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/nav_style.css">
 	<link rel="stylesheet" href="css/site_styles.css">
-	<link rel="stylesheet" type="text/css" href="css/feed_style.css">
+	<link rel="stylesheet" type="text/css" href="css/profile_style.css">
 	<!-- font -->
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
@@ -44,10 +44,10 @@
 	});
 	</script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".profile-menu" data-offset="50">
 	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
 		<nav class="clearfix">
-			<a href="index.html" class="nav-title"><img class="nav-logo" src="http://www.uct.ac.za/images/uct.ac.za/about/intro/logo/transparent_round_logo.gif"></a>
+			<a href="index.html" class="nav-title"><img class="nav-logo" src="uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			<ul class="clearfix">
 				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
@@ -59,6 +59,53 @@
 			</ul>
 			<a href="#" id="pull">Menu</a>
 		</nav>
+	</div>
+	<div class="content-wrapper">
+		<div class="cover-photo container-fluid">
+			<img src="http://mybroadband.co.za/news/wp-content/uploads/2016/04/University-of-Cape-Town-UCT.jpg">
+			<div class="profile-header">
+				<div class="name-holder">Jane Doe</div>	
+				<img class="profile-photo" src="default-profile.png">
+			</div>		
+		</div>
+		<div class="profile-menu" id="myNavbar" data-spy="affix" data-offset-top="197">
+			
+				<a href="#section1">Personal</a>
+          <a href="#section2">Education</a>
+          <a href="#section3">Experience</a>
+			<a href="#section4">Skils</a>
+			<a href="#section5">Interests</a>
+			<!-- <a href="">Personal</a>
+			<a href="">Education</a>
+			<a href="">Experience</a>
+			<a href="">Skills</a>
+			<a href="">Interests</a> -->
+		</div>
+		<div id="section1" class="container-fluid">
+  <h1>Personal</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div id="section2" class="container-fluid">
+  <h1>Education</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div id="section3" class="container-fluid">
+  <h1>Experience</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div id="section4" class="container-fluid">
+  <h1>Skills</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div id="section5" class="container-fluid">
+  <h1>Interests</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
 	</div>
 
 </body>

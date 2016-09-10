@@ -10,6 +10,7 @@
 	<link  rel="stylesheet" href="css/animate.css" />
 	<link  rel="stylesheet" href="css/nav_style.css" />
 	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/contact_styles.css">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -40,92 +41,102 @@
 	</script>
 </head>
 <body>
-	<div nav-container>
+	<div class="nav-container">
 		<nav class="clearfix">
-			<a href="index.html" class="nav-title"><img class="nav-logo" src="http://www.uct.ac.za/images/uct.ac.za/about/intro/logo/transparent_round_logo.gif"></a>
+			<a href="index.html" class="nav-title"><img class="nav-logo" src="uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			<a><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
 		</nav>
 	</div>
 
 	<div class="container">
-		<h4>Contact Us</h4>
-		<div class="container">
-			<p><b>Postal Adress: </b>Department of Computer Science</p>
-			<p></b>University of Cape Town, 7001
-			</br>Private Bag X3
-			</br>Rondebosch
-			</br>7701</p>
-			<p><b>Telephone Number : </b>+27 21 650 2663</p>
-			<p><b>Fax Number : </b>+27 21 650 3551</p>
-			<p><b>Email : </b><a href=""> help@alumni.uct.ac.za></a></p>
+		<div class="right-contact-us">
+			<img style="height:350px; width:350px; " src="https://www.cs.uct.ac.za/images/insertPic.jpg">
 		</div>
-		<h4>Leave a comment</h4>
-	<div class="container">
-		<form id="contact" action="contact us.html" method="post">
-			<div class="form_settings">
-				<p>	
-					Name<input class="contact" id="nametext" type="text" autofocus name="your_name"  placeholder="e.g. Jon Snow"  required/>
+		<div class="left-contact-us">
+			<h4>Contact Us</h4>
+			<div class="container">
+				<p><b>Postal Adress: </b></br>
+					Department of Computer Science
+					University of Cape Town, 7001</br>
+					Private Bag X3</br>
+					Rondebosch</br>
+					7701</br>
 				</p>
-				<p>
-					<span>Email Address</span><input class="contact" id="emailtext" type="email" name="your_email" placeholder="e.g. jonsnow@winterfell.com"  required/>
-				</p>
-				<p>
-					<span>Phone #</span><input class="contact" id="numbertext"type="tel" name="your_number" placeholder="e.g. +27 783652492"  required/>
-				</p>
-				<p>
-					<span>Message</span><textarea class="contact textarea" id="messagetext" rows="5" cols="50" name="your_message"  required></textarea>
-				</p>
-				
-				<p style="padding-top: 15px">
-					<span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="send" onclick="save()"/>
-				</p>
+				<p><b>Telephone Number : </b></br>+27 21 650 2663</p>
+				<p><b>Fax Number : </b></br>+27 21 650 3551</p>
+				<p><b>Email : </b><a href=""></br> help@alumni.uct.ac.za></a></p>
 			</div>
-		</form>
-	</div>
-	</div>
+		</div>
+		
+		
+		<h5>Leave a comment</h5>
+			<div class="container">
+				<form id="contact" action="contact us.html" method="post">
+					<div class="form-group">
+						<p class="form-group">	
+							Name: <input class="contact" id="nametext" type="text" autofocus name="your_name"  placeholder="e.g. Hussein Suleman"  required/>
+						</p>
+						<p class="form-group">
+							<span>Email Address: </span><input class="contact" id="emailtext" type="email" name="your_email" placeholder="e.g. hussein@cs.uct.ac.za"  required/>
+						</p>
+						<p class="form-group">
+							<span>Phone No: </span><input class="contact" id="numbertext"type="tel" name="your_number" placeholder="e.g. +27 783652492"  required/>
+						</p>
+						<p class="form-group">
+							<span>Message: </span><textarea class="contact textarea" id="messagetext" rows="5" cols="50" name="your_message"  required></textarea>
+						</p>
 
-	<div class="footer-main">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-6 col-sm-3 col-md-3">
-					<h3>Quicklinks</h3>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about_us.html">About Us</a></li>
-						<li><a href="contact_us.html">Contact Us</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-6 col-sm-3 col-md-3">
-					<h3>Short cuts</h3>
-					<ul>
-						<li><a href="https://vula.uct.ac.za">Vula</a></li>
-						<li><a href="https://mail.uct.ac.za/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.uct.ac.za%2fowa%2f">Staff Email</a></li>
-						<li><a href="http://www.myuct.ac.za/">Student Email</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-6 col-sm-3 col-md-3">
-					<h3>More Info</h3>
-					<ul>
-						<li><a href="https://www.cs.uct.ac.za/">CS Website</a></li>
-						<li><a href="https://www.cs.uct.ac.za/current-students">Current Students</a></li>
-						<li><a href="https://www.cs.uct.ac.za/applications">Postgrad Application</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3">
-					<h3>Connect</h3>
-					<ul>
-						<li><a href="https://www.facebook.com/groups/uctcs/">Facebook</a></li>
-						<li><a href="">Instagram</a></li>
-						<li><a href="https://twitter.com/slumou">Twitter</a></li>
-					</ul>
-				</div>
+						<p style="padding-top: 15px">
+							<span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="send" onclick="save()"/>
+						</p>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
 
-	<div class="footer-bottom">
-		<p> Alumni Network UCT  -  © Copyright 2016  -  All right reserved</p>
-	</div>
-</body>
-</html>
+		<div class="footer-main">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-6 col-sm-3 col-md-3">
+						<h3>Quicklinks</h3>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about_us.html">About Us</a></li>
+							<li><a href="contact_us.html">Contact Us</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-3">
+						<h3>Short cuts</h3>
+						<ul>
+							<li><a href="https://vula.uct.ac.za">Vula</a></li>
+							<li><a href="https://mail.uct.ac.za/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.uct.ac.za%2fowa%2f">Staff Email</a></li>
+							<li><a href="http://www.myuct.ac.za/">Student Email</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-3">
+						<h3>More Info</h3>
+						<ul>
+							<li><a href="https://www.cs.uct.ac.za/">CS Website</a></li>
+							<li><a href="https://www.cs.uct.ac.za/current-students">Current Students</a></li>
+							<li><a href="https://www.cs.uct.ac.za/applications">Postgrad Application</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h3>Connect</h3>
+						<ul>
+							<li><a href="https://www.facebook.com/groups/uctcs/">Facebook</a></li>
+							<li><a href="">Instagram</a></li>
+							<li><a href="https://twitter.com/slumou">Twitter</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<p> Alumni Network UCT  -  © Copyright 2016  -  All right reserved</p>
+		</div>
+	</body>
+	</html>
