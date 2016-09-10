@@ -43,6 +43,9 @@
 		});
 	});
 	</script>
+	<script type=""> 
+		$('#nav').affix({});
+	</script>
 </head>
 <body data-spy="scroll" data-target=".profile-menu" data-offset="50">
 	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
@@ -61,16 +64,16 @@
 		</nav>
 	</div>
 	<div class="content-wrapper">
-		<div class="cover-photo container-fluid">
+		<div class="cover-photo">
 			<img src="http://mybroadband.co.za/news/wp-content/uploads/2016/04/University-of-Cape-Town-UCT.jpg">
 			<div class="profile-header">
 				<div class="name-holder">Jane Doe</div>	
 				<img class="profile-photo" src="default-profile.png">
 			</div>		
 		</div>
-		<div class="profile-menu" id="myNavbar" data-spy="affix" data-offset-top="197">
+		<div class="profile-menu" id="nav" data-spy="affix" data-offset-top="300">
 			
-				<a href="#section1">Personal</a>
+		<a href="#section1">Personal</a>
           <a href="#section2">Education</a>
           <a href="#section3">Experience</a>
 			<a href="#section4">Skils</a>

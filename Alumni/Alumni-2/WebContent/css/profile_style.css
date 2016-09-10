@@ -14,7 +14,7 @@
 }
 
 .cover-photo>img{
-	width: 97%;
+	width: 100%;
 	height: 100%;
 	z-index:-1;
 	position: absolute;
@@ -40,8 +40,9 @@
 	color: white;
 }
 .profile-menu{
-	display: inline;
+	border: 1px solid gray;
 	text-align: center;
+
 }
 
 .profile-menu a{
@@ -58,21 +59,23 @@
 	text-decoration: none;
 	color: black;
 }
-.affix {
-      top:0;
+/*.affix {
+      top:100px;
       width: 100%;
       z-index: 9999 !important;
-  }
+  }*/
   .navbar {
       margin-bottom: 0px;
   }
 
-  .affix ~ .container-fluid {
-     position: relative;
-     top: 50px;
+  #nav.affix{
+     position: fixed;
+     top: 0;
+     z-index: 1;
+     width: 100%;
   }
-  #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
-  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
-  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
-  #section4 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
-  #section5 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+  #section1 {padding-top:50px;height:500px;color: black; background-color: #F1F1F1;}
+  #section2 {padding-top:50px;height:500px;color: black; }
+  #section3 {padding-top:50px;height:500px;color: black; background-color: #F1F1F1;}
+  #section4 {padding-top:50px;height:500px;color: black; }
+  #section5 {padding-top:50px;height:500px;color: black; background-color: #F1F1F1;}
