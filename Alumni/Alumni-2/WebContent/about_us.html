@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>About Us</title>
+	<meta charset="UTF-8">
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- css -->
+	<link  rel="stylesheet" href="css/site_styles.css" />
+	<link  rel="stylesheet" href="css/animate.css" />
+	<link  rel="stylesheet" href="css/nav_style.css" />
+	<link rel="stylesheet" href="css/normalize.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+	$(function() {
+		var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if(w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+	<div nav-container>
+		<nav class="clearfix">
+			<a href="index.html" class="nav-title"><img class="nav-logo" src="http://www.uct.ac.za/images/uct.ac.za/about/intro/logo/transparent_round_logo.gif"></a>
+			<span class="header-title" style="color:white;">UCT Alumni Network</span>
+			<a><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
+		</nav>
+	</div>
+	<div class="container">
+		<h1>About Us</h1>
+		<div class="about-info" style="height:420px">
+
+		</div>
+	</div>
+		<div class="footer-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 col-sm-3 col-md-3">
+					<h3>Quicklinks</h3>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about_us.html">About Us</a></li>
+						<li><a href="contact_us.html">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-3">
+					<h3>Short cuts</h3>
+					<ul>
+						<li><a href="https://vula.uct.ac.za">Vula</a></li>
+						<li><a href="https://mail.uct.ac.za/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.uct.ac.za%2fowa%2f">Staff Email</a></li>
+						<li><a href="http://www.myuct.ac.za/">Student Email</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-3">
+					<h3>More Info</h3>
+					<ul>
+						<li><a href="https://www.cs.uct.ac.za/">CS Website</a></li>
+						<li><a href="https://www.cs.uct.ac.za/current-students">Current Students</a></li>
+						<li><a href="https://www.cs.uct.ac.za/applications">Postgrad Application</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h3>Connect</h3>
+					<ul>
+						<li><a href="https://www.facebook.com/groups/uctcs/">Facebook</a></li>
+						<li><a href="">Instagram</a></li>
+						<li><a href="https://twitter.com/slumou">Twitter</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		<p> Alumni Network UCT  -  © Copyright 2016  -  All right reserved</p>
+	</div>
+
+</body>
+</html>
