@@ -18,7 +18,8 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -27,16 +28,40 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+	
+	<script>
+		
+		 var el =  document.getElementById('#uploadID');
+		 console.log("11");
+		var changed = function()
+		{
+		  /* var preview = document.querySelector('#preview'); */
+		  console.log("1");
+		  var file = document.querySelector('input[type=file]').files[0];
+		  if(file.name!=null)
+		  {
+			  var reader = new FileReader();
+			  var binaryString = this.result;
+			  console.log(binaryString );
+			 
+			  
+		    $('#file_button').addClass('btn-success');
+			$( '#file_button' ).text(file.name);
+		  }
+		}
+	
+	</script>
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
-
+	
+	
 <title>Feeds</title>
 </head>
 <body>
 	<h1 align="center">Feeds</h1>
 	<div align="center">
-		<p> <h4> welcome <%= request.getSession().getAttribute("currentUser") %>.!</h4></p>
-		<p>You Profile:<a href="../profile.html"><%= request.getSession().getAttribute("currentUser") %></a></p>
+		 <h4> welcome <%= request.getSession().getAttribute("currentUserName") %> .!</h4>
+		<p>You Profile:<a href="../profile.html"><%= request.getSession().getAttribute("currentUserName") %></a></p>
+		<p>View Tables:<a href="PendingUsers.jsp">View Tabels</a></p>
 	</div>
 	
 	<!-- |||||||||||||||||||||||||||||||||||||||||||||||||| This is the post uplad section ||||||||||||||||||||||||||||||||||||||||||||||||||-->
@@ -44,26 +69,30 @@
 	<hr/>
 	
 	<div>
-		<div id="text_area"  >
-			<textarea class="form-control" id="txt_area" placeholder="type your post caption here" rows="3"   ></textarea>
-		</div>
-		
-		<hr/>
-		<div  id="upload_buttons" align="center">
+		<form method="post" action="../Post" enctype="multipart/form-data">
 			
-				<button type="button" class="btn btn-success" id="post" style="width:200px;">Share!</button>
-				<label class="btn btn-primary btn-file" style="width:200px;" id="file_button">
-					Upload <input type="file"  id="uploadID" style="display: none;">
-				</label>
-				
-				<!-- <input type="file" /> -->
-				<span class='label label-info' id="info"></span>
+				<textarea class="form-control" id="txt_area" name="caption" placeholder="type your post caption here" rows="3"   ></textarea>
+			
+			
+			<hr/>
 		
-		</div>
+			<div  id="upload_buttons" align="center">
+				
+					<button type="submit" class="btn btn-success" id="post" style="width:200px;">Share!</button>
+					<label class="btn btn-primary btn-file" style="width:200px;" id="file_button">
+						Upload <input type="file" name="photo" id="uploadID" onchange="changed()" style="display: none;">
+					</label>
+					
+					<span class='label label-info' id="info"></span>
+			
+			</div>
+			
+		</form>
 	</div>
 	<hr/>
 	
 	<!--||||||||||||||||||||||||||||||||||||||||||||||||||  Closing the post upload setion ||||||||||||||||||||||||||||||||||||||||||||||||||-->
 	
+
 </body>
 </html>
