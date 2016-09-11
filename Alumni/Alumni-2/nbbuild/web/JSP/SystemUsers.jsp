@@ -35,7 +35,7 @@
 		                <TH>Name</TH>
 		                <TH>Surname</TH>
 		                <TH>Email</TH>
-		                <TH>Password</TH>
+		                <TH>Password (hidden)</TH>
 		                <TH>Account Type</TH>
 		            <!--<TH>Accept</TH>
 		                <TH>Reject</TH>  --> 
@@ -50,7 +50,7 @@
 		                <TD> <%= resultset.getString(2) %></TD>
 		                <TD> <%= resultset.getString(3) %></TD>
 		                <TD> <%= resultset.getString(4) %></TD>
-		                <TD> <%= resultset.getString(5) %></TD>
+		                <TD> ****************</TD>
 		                <TD> <%= resultset.getString(6) %></TD>
 		            <!--<TD><input type="submit" name="accept" value="<%=id%>" style="width:100%" /></TD>
 		                <TD><input type="submit" name="reject" value="<%=id%>" style="width:100%" /></TD>-->
