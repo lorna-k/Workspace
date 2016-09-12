@@ -38,13 +38,12 @@ public class DataAccess
     
     public boolean loginUser(String id,String password) throws ClassNotFoundException, SQLException 
     {
-    	ResultSet logUsers=DBUtils.getPreparedSatement("select * from Users WHERE ID ='"+id+"'").executeQuery();
+    	ResultSet logUsers = DBUtils.getPreparedSatement("select * from Users WHERE ID ='"+id+"'").executeQuery();
 	    
 	    if((logUsers.next()))
 	    {
 	    	//logUsers.next();
-	    	
-	    	
+	    		    	
 	    	if(logUsers.getString(5).equals(password))
 	    	{
 	    		//System.out.println("Welcome "+logUsers.getString(2));
