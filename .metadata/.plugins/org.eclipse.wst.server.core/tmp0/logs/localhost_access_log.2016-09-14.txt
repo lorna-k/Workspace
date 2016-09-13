@@ -1,0 +1,10 @@
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:00:36 +0200] "POST /Alumni-2/Post HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:00:37 +0200] "GET /Alumni-2/JSP/Feed.jsp HTTP/1.1" 200 7558
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:01:13 +0200] "POST /Alumni-2/Post HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:01:13 +0200] "GET /Alumni-2/JSP/Feed.jsp HTTP/1.1" 200 7831
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:06:18 +0200] "GET /Alumni-2/JSP/Feed.jsp HTTP/1.1" 200 7854
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:06:18 +0200] "GET /Alumni-2/css/normalize.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:06:18 +0200] "GET /Alumni-2/css/nav_style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:06:18 +0200] "GET /Alumni-2/css/site_styles.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:06:18 +0200] "GET /Alumni-2/css/feed_style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:00:06:19 +0200] "GET /Alumni-2/uct-logo.png HTTP/1.1" 304 -
