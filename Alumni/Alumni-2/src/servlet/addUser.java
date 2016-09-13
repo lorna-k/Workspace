@@ -42,7 +42,6 @@ public class addUser extends HttpServlet {
 	{
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
 		String id = request.getParameter("ID");
         String fname = request.getParameter("first_name");
    	    String lname = request.getParameter("last_name");

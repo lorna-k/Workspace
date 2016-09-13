@@ -1,0 +1,203 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.sql.*" %>
+<%@ page import="dao.DataAccess" %>
+<%@ page import="servlet.Post" %>
+<%@ page import="java.io.*"%>
+
+<% Class.forName("com.mysql.jdbc.Driver"); %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!--|||||||||||||||||| I am sure that we do not have to copy and poster the style tages in every page  ||||||||||||||||||-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="ISO-8859-1">
+	
+	<!-- font -->
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
+	<!-- JQuery -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/nav_style.css">
+	<link rel="stylesheet" href="../css/site_styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/feed_style.css">
+	<link rel="stylesheet" type="text/css" href="../css/Posts_style.css">
+	
+	
+	
+	<script>
+	$(function() {
+		var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if(w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+	 });
+	 </script>
+	
+	
+
+
+</head>
+<body>
+     <div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
+		<nav class="clearfix">
+			<a href="index.html" class="nav-title"><img class="nav-logo" src="uct-logo.png"></a>
+			<span class="header-title" style="color:white;">UCT Alumni Network</span>
+			<ul class="clearfix">
+				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+				<li><a href="profile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+				<li><a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
+				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+				<li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
+				<li><a href=""><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
+			</ul>
+			<a href="#" id="pull">Menu</a>
+		</nav>
+	</div>
+	<div class="content" style="position:relative; top:75px">
+		<div class="container ">
+			<div class="row">
+				<div class="posts-section col-md-6 col-md-offset-1">
+				
+				
+	<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+		
+		
+
+		<h1 align="center">Feeds</h1>
+		<div align="center">
+			 <h4> welcome <%= request.getSession().getAttribute("currentUserName") %> .!</h4>
+			<p>You Profile:<a href="../profile.html"><%= request.getSession().getAttribute("currentUserName") %></a></p>
+			<p>View Tables:<a href="PendingUsers.jsp">View Tabels</a></p>
+		</div>
+		
+		<!-- |||||||||||||||||||||||||||||||||||||||||||||||||| This is the post uplad section ||||||||||||||||||||||||||||||||||||||||||||||||||-->
+		
+		<hr/>
+		
+		<div>
+			<form method="post" action="../Post" >
+				
+					<textarea class="form-control" id="txt_area" name="caption" placeholder="type your post caption here" rows="3"   ></textarea>
+				
+				
+				<hr/>
+			
+				<div  id="upload_buttons" align="center">
+					
+						<button type="submit" class="btn btn-primary" name="post" value="posting" style="width:200px;">Post!</button>
+						<!-- <label class="btn btn-primary btn-file" style="width:200px;" id="file_button">
+							Upload <input type="file" name="photo" id="uploadID" onchange="changed()" style="display: none;">
+						</label>
+				         -->
+				
+				</div>
+				
+				<div>
+						
+					<%
+					    
+					Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+					
+			        Statement statement = connection.createStatement() ;
+					ResultSet resultset =  statement.executeQuery("select * from Posts ORDER BY PostId desc") ;
+					
+					  
+					while(resultset.next())
+					{
+					%>
+					
+					 <!-- Name heading label of the post owner -->
+					 <div   id="pic_name" >
+					     <div align="center"  class="col-m-offset-4 col-xs-offset-4  name" >
+					     	<%=resultset.getString(2)+" "+resultset.getString(3)%>
+					     </div>
+					 </div>
+					 
+					 
+					<!-- Post message -->
+					<div  align="center" class="message_frame "  >
+						<p ><%=resultset.getString(4)%></p>
+					</div>
+					<div align="center" class="col-md-offset-4 col-xs-offset-4 comment" >
+						<div  class="likes col-md-2 col-xs-4" style="border:2px solid black;"><strong style="color:red; margin-right: 5px;">Likes</strong><%=resultset.getString(6)%></div>
+						<div  class="col-md-7 col-xs-5 comments" style="border:2px solid #346257;">Comment Here!</div>
+						<div  style="border:2px solid black" class="col-md-offset-9 col-xs-offset-9"  > <small style="color:red;"><%=resultset.getString(1)%></small></div>
+					</div>
+					
+					
+				    <div   align="center" "comment-base animated zoomIn" >
+						
+						
+						<ol class="list-group ">
+								
+								<%
+								
+								Connection connection2 = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+								
+						        Statement statement2 = connection2.createStatement() ;
+								ResultSet resultset2 =  statement2.executeQuery("select * from Comments WHERE ID = '"+resultset.getString(1)+"' ORDER BY ID desc") ;
+								while(resultset2.next())
+								{
+									if(resultset.getString(1).equals(resultset2.getString(1)) )
+									{
+										%>
+										<li class="list-group-item" >
+											<div align="center">
+												<p><strong><i style="color:blue"><%=resultset2.getString(2)+" "+resultset2.getString(3)%></i></strong></p>
+												<p><%=resultset2.getString(4)%></p>
+												
+											</div>
+										</li>
+										<%
+									}
+								 }
+								%>
+								
+						</ol>
+							<!-- <input style="margin-bottom:10px" placeholder="Sender" class="form-control" name="userName"  /> -->
+							<textarea style="margin-bottom:10px" placeholder="Comment here" rows="2" class="form-control" name="<%=resultset.getString(1)%>"></textarea>
+							<button type="submit" name="sendComment" value="<%=resultset.getString(1)%>" class="btn btn-primary" style="width:150px">Send</button>
+					</div> 
+	
+					 
+					<%
+					}
+					%>
+				
+				</div>
+				
+			</form>
+		</div>
+		<hr/>
+	
+		<!--||||||||||||||||||||||||||||||||||||||||||||||||||  Closing the post upload setion ||||||||||||||||||||||||||||||||||||||||||||||||||-->
+	
+</body>
+</html>
