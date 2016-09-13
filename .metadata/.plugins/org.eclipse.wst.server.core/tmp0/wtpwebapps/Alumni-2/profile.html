@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/nav_style.css">
 	<link rel="stylesheet" href="css/site_styles.css">
 	<link rel="stylesheet" type="text/css" href="css/profile_style.css">
-	<!-- font -->
+	<!-- The fonts-->
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
@@ -41,6 +41,7 @@
 		$('#nav').affix({});
 	</script>
 </head>
+
 <body data-spy="scroll" data-target=".profile-menu" data-offset="50">
 	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
 		<nav class="clearfix">
@@ -67,21 +68,78 @@
 		</div>
 		<div class="profile-menu" id="nav" data-spy="affix" data-offset-top="280">
 			
-		<a href="#section1">Personal</a>
-          <a href="#section2">Education</a>
-          <a href="#section3">Experience</a>
+			<a href="#section1">Personal</a>
+          	<a href="#section2">Education</a>
+          	<a href="#section3">Experience</a>
 			<a href="#section4">Skils</a>
 			<a href="#section5">Interests</a>
-			<!-- <a href="">Personal</a>
-			<a href="">Education</a>
-			<a href="">Experience</a>
-			<a href="">Skills</a>
-			<a href="">Interests</a> -->
 		</div>
 		<div id="section1" class="container-fluid">
   <h1>Personal</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  
+  <form class="form-horizontal">
+  <div class="form-group">
+    <label for="id" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-box" name="First_Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fname" class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-box" name="First_Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lname" class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-box" name="Last_Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Phone" class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-box" name="Phone">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Occupation" class="col-sm-2 control-label">Occupation</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-box" name="Occupation">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Phone" class="col-sm-2 control-label">Address</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="Phone">
+    </div>
+  </div>
+  <div class="form-group">
+  	<label for="Phone" class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="Address_Line2">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Phone" class="col-sm-2 control-label">City</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-box" name="City">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Country" class="col-sm-2 control-label">Country</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-box" name="Country">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Postal_Code" class="col-sm-2 control-label">Postal Code</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control input-box" name="Postal_Code">
+    </div>
+  </div>
+
+</form>
 </div>
 <div id="section2" class="container-fluid">
   <h1>Education</h1>

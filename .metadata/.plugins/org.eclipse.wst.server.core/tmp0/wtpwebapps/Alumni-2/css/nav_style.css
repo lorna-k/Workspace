@@ -75,7 +75,7 @@ nav a#pull {
 }
 
 /*Styles for screen 600px and lower*/
-@media screen and (max-width: 848px) {
+@media screen and (max-width: 648px) {
 	.nav-logo{
 		width: 100%;
 		height: inherit;
