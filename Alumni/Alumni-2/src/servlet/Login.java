@@ -84,8 +84,8 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("currentUserPassword",rs.getString(5));
 						request.getSession().setAttribute("currentUserType",rs.getString(6));
 						
-						//response.sendRedirect("./JSP/Feed.jsp");
-						response.sendRedirect("feed.html");
+						response.sendRedirect("./JSP/Feed.jsp");
+						//response.sendRedirect("feed.html");
 						
 				}
 				else
