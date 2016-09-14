@@ -37,6 +37,7 @@
 		                <TH>Email</TH>
 		                <TH>Password (hidden)</TH>
 		                <TH>Account Type</TH>
+                                 <TH>Delete User</TH>
 		            <!--<TH>Accept</TH>
 		                <TH>Reject</TH>  --> 
 		            </TR>
@@ -52,6 +53,7 @@
 		                <TD> <%= resultset.getString(4) %></TD>
 		                <TD> ****************</TD>
 		                <TD> <%= resultset.getString(6) %></TD>
+                                <TD><input type="submit" name="delete" value="<%=id%>" style="width:100%" /></TD>
 		            <!--<TD><input type="submit" name="accept" value="<%=id%>" style="width:100%" /></TD>
 		                <TD><input type="submit" name="reject" value="<%=id%>" style="width:100%" /></TD>-->
 		            </TR>

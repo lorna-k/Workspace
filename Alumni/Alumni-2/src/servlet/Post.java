@@ -83,22 +83,22 @@ public class Post extends HttpServlet {
 				try 
 				{
 	
-					rs = DBUtils.getPreparedSatement("select * from CVs WHERE ID ='"+request.getSession().getAttribute("currentUserID")+"'").executeQuery();
-					rs.next();
-					ProfilePic=rs.getString(6);
-					Location=rs.getString(10);
+					//rs = DBUtils.getPreparedSatement("select * from CVs WHERE ID ='"+request.getSession().getAttribute("currentUserID")+"'").executeQuery();
+					//rs.next();
+					//ProfilePic=rs.getString(6);
+					//Location=rs.getString(10);
 					
 					
 					//Adding the Post to the reject post database
 	    		    
-					PreparedStatement ps=DBUtils.getPreparedSatement("insert into Posts values(?,?,?,?,?,?,?)");
-			        ps.setString(1, LocalDateTime.now()+"");
-			        ps.setString(2,request.getSession().getAttribute("currentUserName")+"");
-			        ps.setString(3, request.getSession().getAttribute("currentUserSurname")+"");
+					PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Posts(PostId,Name,Surname,Caption) VALUES(?,?,?,?)");
+			        ps.setString(1, LocalDateTime.now().toString());
+			        ps.setString(2,request.getSession().getAttribute("currentUserName").toString());
+			        ps.setString(3, request.getSession().getAttribute("currentUserSurname").toString());
 			        ps.setString(4,request.getParameter("caption"));
-			        ps.setString(5, ProfilePic);
-			        ps.setInt (6, 0);
-			        ps.setString(7,Location);
+			        //ps.setString(5, ProfilePic);
+			        //ps.setInt (5, 0);
+			        //ps.setString(7,Location);
 	
 			        ps.executeUpdate();
 			        
