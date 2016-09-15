@@ -14,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Student
@@ -125,6 +127,33 @@ public class DataAccess
 		
     }
     
+    public void deleteUser(String data)
+    {
+    	System.out.println(data+" "+"was delete");
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        String SQL = "Delete from Users WHERE ID ='"+data+"'";
+        try {
+            stmt.executeUpdate(SQL);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Removed From Users ");
+	        
+			
+	
+		
+    }
+
     public void acceptedUser(String data)
     {
     	System.out.println(data+" "+"was Accepted");

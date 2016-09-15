@@ -63,6 +63,7 @@ public class ProcessRequest extends HttpServlet {
 		DataAccess dataAccess=new DataAccess();
 		String accepted=request.getParameter("accept");
 		String rejected=request.getParameter("reject");
+                String deleted=request.getParameter("delete");
 		
 		//# Possible request 1
 		//Admin Processing users requests from the Pending user table
@@ -77,44 +78,50 @@ public class ProcessRequest extends HttpServlet {
 			dataAccess.rejectedUser(rejected);
 			response.sendRedirect("./JSP/PendingUsers.jsp");
 		}
+		else if (request.getParameter("delete") != null)
+		{
+			dataAccess.deleteUser(deleted);
+			response.sendRedirect("./JSP/SystemUsers.jsp");
+		}
 		
 		//# Possible request 2
 		//Login user
-		if(request.getParameter("id")!=null && request.getParameter("password")!=null )
-		{
-			
-			try {
-				if(dataAccess.loginUser(request.getParameter("id"), request.getParameter("password")))
-				{
-						System.out.println("Redirecting to Feed page...");
-						
-						ResultSet rs=DBUtils.getPreparedSatement("select * from Users WHERE ID ='"+request.getParameter("id")+"'").executeQuery();
-						rs.next();
-						
-						//Getting the neccessary details of the logged user
-						request.getSession().setAttribute("currentUserID",rs.getString(1));
-						request.getSession().setAttribute("currentUserName",rs.getString(2));
-						request.getSession().setAttribute("currentUserSurname",rs.getString(3));
-						request.getSession().setAttribute("currentUserEmail",rs.getString(4));
-						request.getSession().setAttribute("currentUserPassword",rs.getString(5));
-						request.getSession().setAttribute("currentUserType",rs.getString(6));
-						
-						response.sendRedirect("./JSP/Feed.jsp");
-						//response.sendRedirect("feed.html");
-						
-				}
-				else
-					response.sendRedirect("./login.html");
-				
-			} catch (ClassNotFoundException | SQLException e) 
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-				
-		
-			
-		}
+//		if(request.getParameter("id")!=null && request.getParameter("password")!=null )
+//		{
+//			
+//			try {
+//				if(dataAccess.loginUser(request.getParameter("id"), request.getParameter("password")))
+//				{
+//						System.out.println("Redirecting to Feed page...");
+//						
+//						ResultSet rs=DBUtils.getPreparedSatement("select * from Users WHERE ID ='"+request.getParameter("id")+"'").executeQuery();
+//						rs.next();
+//						
+//						//Getting the neccessary details of the logged user
+//						request.getSession().setAttribute("currentUserID",rs.getString(1));
+//						request.getSession().setAttribute("currentUserName",rs.getString(2));
+//						request.getSession().setAttribute("currentUserSurname",rs.getString(3));
+//						request.getSession().setAttribute("currentUserEmail",rs.getString(4));
+//						request.getSession().setAttribute("currentUserPassword",rs.getString(5));
+//						request.getSession().setAttribute("currentUserType",rs.getString(6));
+//						
+//						//response.sendRedirect("./JSP/Feed.jsp");
+//						response.sendRedirect("feed.html");
+//						
+//				}
+//				else
+//					response.sendRedirect("./login.html");
+//				
+//			} catch (ClassNotFoundException | SQLException e) 
+//			{
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//				
+//		
+//			
+//		}
+
 	}
 		
 		
