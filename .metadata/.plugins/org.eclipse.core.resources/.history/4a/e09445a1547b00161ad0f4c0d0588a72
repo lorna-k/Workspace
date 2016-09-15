@@ -48,12 +48,12 @@ public class Login extends HttpServlet {
 
          
         //Check whether user has entered all fields
-        if(loginId.equals("") || loginPassword.equals(""))
+        if(loginId.equals("") || loginPassword == "")
         {
            // request.setAttribute("errorMsg", "All fields must be entered");
             request.getSession().setAttribute("error_message","All fields must be entered");
            // getServletContext().getRequestDispatcher("./JSP/AdminPage.jsp").forward(request, response);
-            response.sendRedirect("./JSP/Login.jsp");
+            response.sendRedirect("./JSP/Feed.jsp");
         }
         
         //Check whether user is system administrator

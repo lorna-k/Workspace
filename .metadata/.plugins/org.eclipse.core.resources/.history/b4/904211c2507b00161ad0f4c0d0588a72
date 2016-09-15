@@ -48,22 +48,22 @@ public class Login extends HttpServlet {
 
          
         //Check whether user has entered all fields
-        if(loginId.equals("") || loginPassword.equals(""))
+        if(loginId.equals("") || loginPassword == "")
         {
            // request.setAttribute("errorMsg", "All fields must be entered");
             request.getSession().setAttribute("error_message","All fields must be entered");
-           // getServletContext().getRequestDispatcher("./JSP/AdminPage.jsp").forward(request, response);
-            response.sendRedirect("./JSP/Login.jsp");
+            getServletContext().getRequestDispatcher("./JSP/AdminPage.jsp").forward(request, response);
         }
         
         //Check whether user is system administrator
         else if (loginId.equals("admin") && loginPassword.equals("admin")) 
         {
-            //HttpSession session = request.getSession();
-            //session.setAttribute("Username", loginId);
+            HttpSession session = request.getSession();
+            session.setAttribute("Username", loginId);
+            response.sendRedirect("./JSP/AdminPage.jsp");  //redirect to admin page
             request.getSession().setAttribute("Admin","true");
             System.out.println("Admin has logged in");
-            response.sendRedirect("./JSP/AdminPage.jsp");  //redirect to admin page
+
         }
         //System user login
         else 
@@ -87,7 +87,7 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("currentUserPassword",rs.getString(5));
 						request.getSession().setAttribute("currentUserType",rs.getString(6));
 						
-						request.getSession().setAttribute("error_message","null");
+						request.getSession().setAttribute("error_message",null);
 						response.sendRedirect("./JSP/Feed.jsp");
 						//response.sendRedirect("feed.html");
 						
