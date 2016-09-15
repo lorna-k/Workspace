@@ -59,6 +59,7 @@
 				
 				
 				<%
+				
 				String error_message= request.getSession().getAttribute("error_message")+"";
 			    if(!(error_message.equals("null")))
 			    {
