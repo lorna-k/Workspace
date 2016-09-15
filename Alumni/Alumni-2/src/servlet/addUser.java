@@ -60,7 +60,7 @@ public class addUser extends HttpServlet {
 			e.printStackTrace();
 		}
        
-        response.sendRedirect("./JSP/PendingUsers.jsp");
+        response.sendRedirect("./signedup.html");
         
 	}
 
