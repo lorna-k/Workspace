@@ -82,7 +82,7 @@ public class addUser extends HttpServlet {
 		}
 		else
 		{
-			message+= "Username incorrect, doesnt match staff or student number format \n";
+			message+= "Username format incorrect (.example XXXYYY001) \n";
 			return false;
 		}
 		
@@ -121,7 +121,7 @@ public class addUser extends HttpServlet {
 		    }	
 		    else{
 		    	if(i == ps.length() - 1 && gotUpper == false)
-		    		message+="password should contain at least 1 upper case \n";
+		    		message+="Password should contain at least 1 upper case \n";
 		    }
 		    	
 		   
@@ -132,7 +132,7 @@ public class addUser extends HttpServlet {
 		    	gotDigit = true;
 		    else
 		    	if(i == ps.length() - 1 && gotDigit == false)
-		    		message+="password should contain at least 1 digit \n";
+		    		message+="Password should contain at least 1 digit \n";
 		    //Process char
 		}
 		if(gotUpper && gotDigit)
