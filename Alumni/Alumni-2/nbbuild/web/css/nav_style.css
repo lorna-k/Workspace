@@ -13,7 +13,7 @@
 
 /* Basic Styles */
 body {
-	background-color: #ece8e5;
+	background-color: #ece8e5 !important;
 }
 nav {
 	height: 50px;
