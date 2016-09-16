@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<style>
+	a
+	{
+		text-decoration: none;
+	}
+	a:hover 
+	{
+		color:#455868;
+	}
+
+</style>
+<body>
+	<div  style="font-size:50px; font-family:Arial Black" align="center">
+	
+		You have successfully Signed up, 
+		your request to join will be reviewed 
+		, we will keep in touch with you shortly on the status 
+		of you request.
+		
+		
+		
+		
+		<p><a href="imdex.html">HOME</a></p>
+	</div>
+</body>
+</html>

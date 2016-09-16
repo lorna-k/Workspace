@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<p  style="font-size:50px; font-family:Arial Black" align="center">
+	
+		You have successfully Signed up, 
+		your request to join will be reviewed 
+		, we will keep in touch with you shortly on the status 
+		of you request.
+		
+		<a href="imdex.html">HOME</a>  
+	</p>
+</body>
+</html>
