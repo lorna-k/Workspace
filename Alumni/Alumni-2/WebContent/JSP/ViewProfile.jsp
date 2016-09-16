@@ -52,7 +52,7 @@ Author     : Lorna Nqodi
 <body>
 	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
 		<nav class="clearfix">
-			<a href="index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
+			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			<ul class="clearfix">
 				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
