@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -7,10 +9,10 @@
 	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- css -->
-	<link  rel="stylesheet" href="css/site_styles.css" />
-	<link  rel="stylesheet" href="css/animate.css" />
-	<link  rel="stylesheet" href="css/nav_style.css" />
-	<link rel="stylesheet" href="css/normalize.css">
+	<link  rel="stylesheet" href="../css/site_styles.css" />
+	<link  rel="stylesheet" href="../css/animate.css" />
+	<link  rel="stylesheet" href="../css/nav_style.css" />
+	<link rel="stylesheet" href="../css/normalize.css">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -42,19 +44,36 @@
 </head>
 <body>
 	<div nav-container>
-		<nav class="clearfix">
-			<a href="index.html" class="nav-title"><img class="nav-logo" src="uct-logo.png"></a>
+		<nav style="padding-top:10px">
+			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
-			<a><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
+			<a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
 		</nav>
 	</div>	
-	<div class="wrapper animated zoomIn" style="position:relative; top: 10px;">
+	
+	
+	<div class="wrapper " style="position:relative; top: 10px;">
 
 		<div class="container">
 			<div class="col-md-8" style="margin-left:200px; margin-top:15vh">
+				
+				
+				<%
+				
+				String error_message= request.getSession().getAttribute("error_message")+"";
+			    if(!(error_message.equals("null")))
+			    {
+			    %>
+				<div class="alert alert-danger">
+				  <strong>Danger!</strong> <%= error_message %>
+				</div>
+			    <%
+			     }
+			    %>
+				
 				<h1>Login</h1>
 				<br/>
-				<form action="Login" method="post" class="form-group" >
+				<form action="../Login" method="post" class="form-group" >
 
 					<div class="form-group">
 						<label for="email">Email address:</label>

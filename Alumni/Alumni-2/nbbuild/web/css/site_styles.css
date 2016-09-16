@@ -55,7 +55,33 @@
 * { 
     box-sizing: border-box; 
 }
+#search-dropdown{
 
+    box-shadow: none;
+    width: 9%;
+    height: 43%;
+    margin-bottom: 4px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 4%;
+}
+#search-text{
+   
+    height: 40%;
+    width: 11%;
+    border-radius: 5px;
+    border: none;
+    padding-left: 3px;
+    height: 43%;
+
+}
+#search-button{
+    vertical-align: middle;
+    height: 43%;
+    width: 24px;
+    border-radius: 5px;
+    border: none;
+}
 /***************************************Index Page******************************************/
 .wallpaper{
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("wallpaper.jpg");

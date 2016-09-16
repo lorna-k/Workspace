@@ -88,7 +88,6 @@ Author     : Lorna Nqodi
         	<div id="section1" class="col-md-10 col-md-offset-1 col-sm-12 container-fluid">
 			    
 				  <dl class="dl-horizontal">
-				  	<h1>Personal</h1>
 					  <dt>Username</dt> <dd>nqdlor001</dd>
 					  <dt>Name</dt> <dd> Lorna Nqodi</dd>
 					  <dt>Email</dt> <dd><address><a href="mailto:#">nqdlor001@myuct.ac.za</a></address></dd>
