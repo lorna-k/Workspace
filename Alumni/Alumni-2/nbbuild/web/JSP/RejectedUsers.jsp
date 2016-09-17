@@ -14,9 +14,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<!--|||||||||||||||||| I am sure that we do not have to copy and poster the style tages in every page  ||||||||||||||||||-->
-
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta charset="ISO-8859-1">
 	
@@ -62,7 +59,7 @@
 
 </head>
  <body>
-	   <div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
+	   <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
 			<nav class="clearfix">
 				<a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 				<span class="header-title" style="color:white;">UCT Alumni Network</span>

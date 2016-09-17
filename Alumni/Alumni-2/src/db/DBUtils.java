@@ -52,7 +52,7 @@ public class DBUtils
       {
         
         System.out.println("Opened database successfully");
-        getPreparedSatement("Select *from Users");
+        getPreparedSatement("Select * from Users");
       }
         
     

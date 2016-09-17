@@ -85,7 +85,6 @@ public class DataAccess
     
     public void rejectedUser(String data)
     {
-    	System.out.println(data+" "+"was rejected");
     	
     	try 
     	{
@@ -119,7 +118,8 @@ public class DataAccess
 	        Statement stmt = DBUtils.getConnection().createStatement();
 	        String SQL = "Delete from Pending_Users WHERE ID ='"+data+"'";
 	        stmt.executeUpdate(SQL);
-	        System.out.println("Removed From Pendind Users and Added to Rejected Users db!");
+                System.out.println(data+" "+"was rejected");
+	        System.out.println("Removed From Pending Users and Added to Rejected Users db!");
 	        
 			
 		}
@@ -133,7 +133,7 @@ public class DataAccess
     
     public void deleteUser(String data)
     {
-    	System.out.println(data+" "+"was delete");
+    	System.out.println(data+" "+"was deleted");
     	
     		    
 	        //Deleting the user from the users databse
@@ -243,9 +243,5 @@ public class DataAccess
         
         return usersList;
     }
-    
-    
-
-    
-    
+   
 }
