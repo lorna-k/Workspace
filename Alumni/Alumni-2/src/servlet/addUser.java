@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DataAccess;
+import db.DBUtils;
 import model.User;
 
 /**
@@ -51,16 +54,23 @@ public class addUser extends HttpServlet {
         String password = request.getParameter("passwrd");
         String accountType = request.getParameter("accountType");
         String email = request.getParameter("email");
-   	 
+   	 	
+        System.out.println(fname);
         User user=new User(id,fname,lname,email,password,accountType);
         DataAccess da=new DataAccess();
         try 
         {
         	boolean uNCheck =checkUsername(id);
+        	boolean exist =checkExistance(id);
             boolean emailCheck =checkEmail(email);
             boolean passwordCheck =checkPassword(password);
+            boolean userType=checkUserType(accountType);
+            boolean userName=userName(fname);
+            boolean userSurname=userSurname(lname);
             
-        	if(uNCheck && emailCheck && passwordCheck )
+        
+            
+        	if(uNCheck && emailCheck && passwordCheck && exist && userType && userName && userSurname )
         	{
         		da.addNewUser(user);
         		request.getSession().setAttribute("error_mssg","null");
@@ -70,9 +80,10 @@ public class addUser extends HttpServlet {
         	{
         		//System.out.println(message);
         		request.getSession().setAttribute("error_mssg",message);
-        		message=null;
+        		
         		//System.out.println(message);
                 response.sendRedirect("./JSP/addUser.jsp");
+                message="";
         	}
         	
 		} catch (ClassNotFoundException | SQLException e) {
@@ -85,6 +96,46 @@ public class addUser extends HttpServlet {
   
         
 	}
+	
+	public boolean userName(String fname)
+	{
+		if(fname.length()>0)
+		{
+			return true;
+		}
+		else
+		{
+			message+= "#Enter first name "+"\n";
+			return false;
+		}
+	}
+	
+	public boolean userSurname(String lname)
+	{
+		if(lname.length()>0)
+		{
+			return true;
+		}
+		else
+		{
+			message+= "#Enter last name "+"\n";
+			return false;
+		}
+	}
+	
+	public boolean checkUserType(String accountType)
+	{
+		if(accountType!=null)
+		{
+			return true;
+		}
+		else
+		{
+			message+= "#Choose user type "+"\n";
+			return false;
+		}
+	}
+	
 	public  boolean checkUsername(String username)
 	{
 		String uN = username;
@@ -96,10 +147,63 @@ public class addUser extends HttpServlet {
 		}
 		else
 		{
-			message+= "Username format incorrect (.example XXXYYY001) \n";
+			message+= "#Username format incorrect (.example XXXYYY001) "+"\n";
 			return false;
 		}
 		
+	}
+	
+	public boolean checkExistance(String ID)
+	{
+		ResultSet resulSet_SystemUsers;
+		ResultSet resulSet_PendingUsers;
+	    LinkedList<String> arrID;
+		try 
+		{
+			resulSet_SystemUsers = DBUtils.getPreparedSatement("select * from Users ").executeQuery();
+			resulSet_PendingUsers= DBUtils.getPreparedSatement("select * from Pending_Users ").executeQuery();
+			
+			
+			arrID =new LinkedList<String>();
+			while(resulSet_SystemUsers.next())
+			{
+			    if(!(arrID.contains(resulSet_SystemUsers.getString(1))))
+			    {
+				   arrID.add(resulSet_SystemUsers.getString(1));
+				 
+			    }
+			}
+			
+			while(resulSet_PendingUsers.next())
+			{
+			    if(!(arrID.contains(resulSet_PendingUsers.getString(1))))
+			    {
+				   arrID.add(resulSet_PendingUsers.getString(1));
+				 
+			    }
+			}
+			
+		 /*  for(String element: arrID)
+		    {
+			   System.out.println(element);
+		   
+		    }*/
+		  
+			if(arrID.contains(ID.toLowerCase()) || arrID.contains(ID.toUpperCase()) )
+			{
+				message+= "#User "+ID+" Already Exists"+"\n";
+				System.out.println("User "+ID+" Already Exists");
+				return false;
+			}
+			
+			
+		} 
+		catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return true;
 	}
 	
 	public boolean isNumeric(String s) {
@@ -117,7 +221,7 @@ public class addUser extends HttpServlet {
 		}
 		else
 		{
-			message+= "Email format incorrect, should contain @";
+			message+= "#Email format incorrect, should contain @"+"\n";
 			return false;
 		}
 		
@@ -136,7 +240,7 @@ public class addUser extends HttpServlet {
 		    }	
 		    else{
 		    	if(i == ps.length() - 1 && gotUpper == false)
-		    		message+="Password should contain at least 1 upper case \n";
+		    		message+="#Password should contain at least 1 upper case "+"\n";
 		    }
 		    	
 		   
@@ -147,7 +251,7 @@ public class addUser extends HttpServlet {
 		    	gotDigit = true;
 		    else
 		    	if(i == ps.length() - 1 && gotDigit == false)
-		    		message+="Password should contain at least 1 digit \n";
+		    		message+="#Password should contain at least 1 digit "+"\n";
 		    //Process char
 		}
 		if(gotUpper && gotDigit)

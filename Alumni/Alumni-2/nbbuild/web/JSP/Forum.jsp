@@ -40,9 +40,7 @@
     </head>
     <body>
         <!-- Storing users name in a variable -->
-        <%
-            String username = request.getSession().getAttribute("currentUserName");
-        %>
+       
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
                 <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
