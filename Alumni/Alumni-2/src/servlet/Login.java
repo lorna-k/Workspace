@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
         //retrieve values from html page
         String loginId = request.getParameter("id");
         String loginPassword = request.getParameter("password");
-        System.out.println(loginId + " " +loginPassword);
+//        System.out.println(loginId + " " +loginPassword);
          
         //Check whether user has entered all fields
         if(loginId.equals("") || loginPassword.equals(""))
@@ -68,10 +68,7 @@ public class Login extends HttpServlet {
         }
         //System user login
         else 
-        {
-            if(request.getParameter("id")!=null && request.getParameter("password")!=null )
-		{
-			
+        {   //removed the if statement for it was redundant
 			try {
 				if(dataAccess.loginUser(request.getParameter("id"), request.getParameter("password"),request))
 				{
@@ -104,7 +101,6 @@ public class Login extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}			
-		}
         }
     }
 }

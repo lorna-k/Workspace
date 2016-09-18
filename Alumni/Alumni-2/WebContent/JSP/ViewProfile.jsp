@@ -25,29 +25,7 @@ Author     : Lorna Nqodi
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-	<script>
-	$(function() {
-		var pull 		= $('#pull');
-		menu 		= $('nav ul');
-		menuHeight	= menu.height();
-
-		$(pull).on('click', function(e) {
-			e.preventDefault();
-			menu.slideToggle();
-		});
-
-		$(window).resize(function(){
-			var w = $(window).width();
-			if(w > 320 && menu.is(':hidden')) {
-				menu.removeAttr('style');
-			}
-		});
-	});
-	</script>
-	<script type=""> 
-	$('#nav').affix({});
-	</script>
+	<script src="../jQuery/navigation-script.js"></script>
 </head>
 <body>
 	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">

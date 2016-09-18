@@ -31,33 +31,18 @@
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
         <!-- JQuery -->
+        <script src="../jQuery/navigation-script.js"></script>
+        <!-- bootstrap -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script>
-        $(function() {
-            var pull        = $('#pull');
-            menu        = $('nav ul');
-            menuHeight  = menu.height();
 
-            $(pull).on('click', function(e) {
-                e.preventDefault();
-                menu.slideToggle();
-            });
-
-            $(window).resize(function(){
-                var w = $(window).width();
-                if(w > 320 && menu.is(':hidden')) {
-                    menu.removeAttr('style');
-                }
-            });
-        });
-        </script>
-        <script type=""> 
-        $('#nav').affix({});
-        </script>
     </head>
     <body>
+        <!-- Storing users name in a variable -->
+        <%
+            String username = request.getSession().getAttribute("currentUserName");
+        %>
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
                 <a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
@@ -81,7 +66,7 @@
                             <div class="post-box">
                                 <div class="editor">
                                     <div class="editor-header">
-                                        
+                                        <!-- Display Name of logged in user-->
                                         <a href=""> <%= request.getSession().getAttribute("currentUserName") %> </a>
                                         
                                         </div>
