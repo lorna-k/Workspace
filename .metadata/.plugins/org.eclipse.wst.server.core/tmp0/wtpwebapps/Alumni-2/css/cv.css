@@ -1,0 +1,139 @@
+body {
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	background:#e8e8e8;
+}
+p {
+	margin-bottom:0;
+}
+p:first-child {
+	margin-top:0;
+}
+img {
+	max-width:100%;
+	height:auto;
+}
+/*---html tags end----*/
+/*////////////////////*/
+/*---site structure---*/
+.site-wrapper {
+	width:100%;
+	height:100%;
+	position:relative;
+}
+.site-center {
+	width:100%;
+	max-width:980px;
+	height:100%;
+	margin:0 auto;
+	position:relative;
+}
+.content-offset {
+	height:100%;
+}
+.content-frame {
+	display: table;
+	width: 100%;
+	position:relative;
+	overflow:hidden;
+	font-family: 'RalewayMedium', Arial, Helvetica, sans-serif;
+	line-height: 25px;
+	font-size: 15px;
+	letter-spacing:normal;
+	background:#f5f5f5;
+}
+html>/**/body .content-frame {
+	min-height: 100%;
+}
+
+.row {
+	display: table-row;
+	height: 1px;
+	overflow: hidden;
+}
+html>body .row.expand {
+	height: auto;
+}
+#content {
+	text-align:justify;
+  min-width:100px;
+}
+.inner-padding {
+	padding: 0px 32px 10px 63px;
+}
+.header-padding {
+	padding:20px 16px 10px 47px;
+	position:relative;
+}
+.header-content {
+	width:100%;
+	position:relative;
+}
+.fixed-wrapper {
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+}
+.fixed-content {
+	min-height:100%;
+	position:fixed;
+
+}
+
+/*----responsive css------*/
+/*////////////////////////*/
+/*---fixed sidebar size---*/
+.fixed-wrapper, .fixed-content {
+	max-width:260px;/*desktop value 280px*/
+	padding-top: 15px;
+}
+
+.content-offset {
+	margin-left:301px; /*fixed-wrapper width +21px (desktop 301px)*/
+  min-width:100px;
+}
+/*-fixed sidebar size end-*/
+/*////////////////////////*/
+/*---responsive css end---*/
+ #section1 {
+ 	min-height:100px;
+ 	color: black; 
+ 	
+ }
+  #section2 {
+  	padding-top:20px;
+  	min-height:100px;
+  	color: black; 
+  }
+  #section3 
+  {padding-top:20px;
+  	min-height:100px;
+  	color: black; 
+  }
+
+img.cv-photo{
+	width: 180px;
+	height: auto;
+	border-radius: 100px;
+	border: 2px solid black;
+	text-align: center;
+}
+.name-label{
+	text-align: center;
+	font-size: 35px;
+	font-weight: bold;
+}
+span.skills-btn {
+	text-decoration: none;
+	padding: 10px;
+	font-size:13px;
+	background-color: #444444 ;
+	color: white;
+	border: 2px solid #D84D0A;
+}
+span.skills-btn:hover{
+	color: #D84D0A;
+}

@@ -89,7 +89,7 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("currentUserType",rs.getString(6));
 						
 						request.getSession().setAttribute("error_message","null");
-						response.sendRedirect("./JSP/Feed.jsp");
+						response.sendRedirect("./JSP/Forum.jsp");
 						//response.sendRedirect("feed.html");
 						
 				}

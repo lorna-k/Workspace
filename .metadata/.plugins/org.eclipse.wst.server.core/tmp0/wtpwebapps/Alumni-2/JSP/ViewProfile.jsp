@@ -52,7 +52,7 @@ Author     : Lorna Nqodi
 <body>
 	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
 		<nav class="clearfix">
-			<a href="index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
+			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			<ul class="clearfix">
 				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
@@ -88,7 +88,6 @@ Author     : Lorna Nqodi
         	<div id="section1" class="col-md-10 col-md-offset-1 col-sm-12 container-fluid">
 			    
 				  <dl class="dl-horizontal">
-				  	<h1>Personal</h1>
 					  <dt>Username</dt> <dd>nqdlor001</dd>
 					  <dt>Name</dt> <dd> Lorna Nqodi</dd>
 					  <dt>Email</dt> <dd><address><a href="mailto:#">nqdlor001@myuct.ac.za</a></address></dd>
