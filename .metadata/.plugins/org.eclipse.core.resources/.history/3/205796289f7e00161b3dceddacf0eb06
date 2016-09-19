@@ -78,10 +78,10 @@ public class addUser extends HttpServlet {
         	}
         	else
         	{
-        		System.out.println("dfgh"+" "+message);
+        		//System.out.println(message);
         		request.getSession().setAttribute("error_mssg",message);
         		
-        		System.out.println(message);
+        		//System.out.println(message);
                 response.sendRedirect("./JSP/addUser.jsp");
                 //message="";
         	}
@@ -106,7 +106,6 @@ public class addUser extends HttpServlet {
 		else
 		{
 			message+= "#Enter first name "+"\n";
-			System.out.println("#Enter first name "+"\n");
 			return false;
 		}
 	}
@@ -120,7 +119,6 @@ public class addUser extends HttpServlet {
 		else
 		{
 			message+= "#Enter last name "+"\n";
-			System.out.println("#Enter last name "+"\n");
 			return false;
 		}
 	}
@@ -134,7 +132,6 @@ public class addUser extends HttpServlet {
 		else
 		{
 			message+= "#Choose user type "+"\n";
-			System.out.println("#Choose user type "+"\n");
 			return false;
 		}
 	}
@@ -151,7 +148,6 @@ public class addUser extends HttpServlet {
 		else
 		{
 			message+= "#Username format incorrect (.example XXXYYY001) "+"\n";
-			System.out.println("#Username format incorrect (.example XXXYYY001) "+"\n");
 			return false;
 		}
 		
@@ -226,7 +222,6 @@ public class addUser extends HttpServlet {
 		else
 		{
 			message+= "#Email format incorrect, should contain @"+"\n";
-			System.out.println("#Email format incorrect, should contain @"+"\n");
 			return false;
 		}
 		
@@ -245,11 +240,7 @@ public class addUser extends HttpServlet {
 		    }	
 		    else{
 		    	if(i == ps.length() - 1 && gotUpper == false)
-		    	{
 		    		message+="#Password should contain at least 1 upper case "+"\n";
-		    		System.out.println("#Password should contain at least 1 upper case "+"\n");
-		    		
-		    	}
 		    }
 		    	
 		   
@@ -260,20 +251,16 @@ public class addUser extends HttpServlet {
 		    	gotDigit = true;
 		    else
 		    	if(i == ps.length() - 1 && gotDigit == false)
-		    	{
 		    		message+="#Password should contain at least 1 digit "+"\n";
-		    		System.out.println("#Password should contain at least 1 digit "+"\n");
-		    	}
 		    //Process char
 		}
 		if(gotUpper && gotDigit)
 		{
-
-			return true;
+			return false;
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 		
 		 

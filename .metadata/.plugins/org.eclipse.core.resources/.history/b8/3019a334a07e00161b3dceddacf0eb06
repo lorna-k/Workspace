@@ -83,7 +83,7 @@ public class addUser extends HttpServlet {
         		
         		System.out.println(message);
                 response.sendRedirect("./JSP/addUser.jsp");
-                //message="";
+                message="";
         	}
         	
 		} catch (ClassNotFoundException | SQLException e) {
@@ -268,12 +268,11 @@ public class addUser extends HttpServlet {
 		}
 		if(gotUpper && gotDigit)
 		{
-
-			return true;
+			return false;
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 		
 		 
