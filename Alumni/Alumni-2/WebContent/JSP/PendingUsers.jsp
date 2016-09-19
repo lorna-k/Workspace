@@ -87,8 +87,7 @@
             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
             Statement statement = connection.createStatement() ;
-            ResultSet resultset = 
-            statement.executeQuery("select * from Pending_Users") ; 
+            ResultSet resultset = statement.executeQuery("select * from Pending_Users") ; 
         %>
         <div align="center">
 			<form action="${pageContext.request.contextPath}/ProcessRequest" method="post">
