@@ -11,16 +11,16 @@
 
 <% Class.forName("com.mysql.jdbc.Driver"); %>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Administrator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta charset="ISO-8859-1">
-	
 	<!-- css -->
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" href="../css/nav_style.css">
 	<link rel="stylesheet" href="../css/site_styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/admin_styles.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/feed_style.css">
 	
 	<!-- font -->
@@ -53,9 +53,6 @@
 	 });
 	 </script>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	
-	
-   <title>Feeds</title>
 
 </head>
  <body>
@@ -73,7 +70,14 @@
 				<a href="#" id="pull">Menu</a>
 			</nav>
 		</div>
-	
+         <div class="left-navbar">
+		<a href="../index.html">Home</a>
+                <a href="PendingUsers.jsp">Pending Users</a>
+                <a href="SystemUsers.jsp">System Users</a>
+		<a href="RejectedUsers.jsp">Rejected Users</a>
+
+	</div>
+	<div class="right-content">
         <H1 align="center" style="margin-top:20vh;font-family:Aria">Rejected Users</H1>
 
         <% 
@@ -118,18 +122,18 @@
 	        </form>
 	        
 	        
-	        <ul style="list-style: none;">
+<!--	        <ul style="list-style: none;">
 	        	<li><strong style="font-size:20px">View Tables</strong></li>
 	        	<li><a href="SystemUsers.jsp">System Users</a></li>
 	        	<li><a href="PendingUsers.jsp">Pending Users</a></li>
 	        </ul>
-	        
+	        -->
 	        
 	      
 	        
         </div>
          
-             
+        </div>  
              
     </BODY>
 </HTML>
