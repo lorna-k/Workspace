@@ -132,29 +132,3 @@
 
 </body>
 </html>
-<!--      <form action="${pageContext.request.contextPath}/Image" method="post">
-        <%   
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        OutputStream img;
-        try{
-        stmt = DBUtils.getPreparedSatement("select * from Images");
-        rs = stmt.executeQuery();
-        if(rs.next()){
-        byte barray = rs.getByte(2);
-        response.setContentType("image/jpg");
-        img = response.getOutputStream();
-        img.write(barray);%>
-        <img alt="Profile-Photo" src="barray" >
-        <% img.flush();
-        img.close();
-    }
-
-        }
-        catch (Exception e ) 
-        {
-            e.printStackTrace();
-        }
-        %>
-
-</form> -->
