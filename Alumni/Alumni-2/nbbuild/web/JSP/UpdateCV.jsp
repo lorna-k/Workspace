@@ -1,9 +1,8 @@
 <%-- 
-    Document   : CV
-    Created on : 16 Sep 2016, 3:27:56 PM
+    Document   : UpdateCV
+    Created on : 19 Sep 2016, 9:37:34 PM
     Author     : Lorna Nqodi
-    --%>
-
+--%>
     <%@page import="db.DBUtils"%>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@ page language="java"%>
@@ -83,6 +82,7 @@
         </div>
 
         <div id="content" class="row expand">
+            <form method="post">
           <div class="inner-padding">
 
             <div id="section1" class="container-fluid">
@@ -123,38 +123,9 @@
      </div> 
 
 </div>
-
+</form>
 </div>
 </div>
 </div>
 </div>
 </div>
-
-</body>
-</html>
-<!--      <form action="${pageContext.request.contextPath}/Image" method="post">
-        <%   
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        OutputStream img;
-        try{
-        stmt = DBUtils.getPreparedSatement("select * from Images");
-        rs = stmt.executeQuery();
-        if(rs.next()){
-        byte barray = rs.getByte(2);
-        response.setContentType("image/jpg");
-        img = response.getOutputStream();
-        img.write(barray);%>
-        <img alt="Profile-Photo" src="barray" >
-        <% img.flush();
-        img.close();
-    }
-
-        }
-        catch (Exception e ) 
-        {
-            e.printStackTrace();
-        }
-        %>
-
-</form> -->

@@ -73,6 +73,37 @@ public class DataAccess
         i = stmt.executeUpdate();
         return i;
     }
+
+    public static void updateProfile(Profile p, String sql) throws ClassNotFoundException {
+        try {
+            
+            PreparedStatement stmt = DBUtils.getPreparedSatement(sql);
+            if(p.getId() !="" || p.getFname() !="" || p.getLname() !="" || p.getOccupation() !=""  || p.getCurrentCompany() !="" ||
+                    p.getAddress1()!="" || p.getAddress2() !="" || p.getCity() !=""  || p.getPostalCode() !="" || p.getPhone() !="" || p.getEmail() !="" )
+            {
+                
+                stmt.setString(1, p.getId());
+                stmt.setString(2, p.getFname());
+                stmt.setString(3, p.getLname());
+                stmt.setString(4, p.getOccupation());
+                stmt.setString(5, p.getCurrentCompany());
+                stmt.setString(6, p.getAddress1());
+                stmt.setString(7, p.getAddress2());
+                stmt.setString(8, p.getCity());
+                stmt.setString(9, p.getPostalCode());
+                stmt.setString(10, p.getPhone());
+                stmt.setString(11, p.getEmail());
+                
+                System.out.println( p.getId()+" "+p.getFname() + " "+ p.getLname() +" "+p.getOccupation()+" "+ " " + p.getCurrentCompany()+ " " +
+                        p.getAddress1() + " " + p.getAddress2() + " " + p.getCity() + " "+ p.getPostalCode() +" "+ p.getPhone() + " " + p.getEmail());
+                stmt.executeQuery();
+                System.out.println("data-access");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println("Profile Added");
+    }
     
     public void addNewUser(User user) throws ClassNotFoundException,SQLException
     {

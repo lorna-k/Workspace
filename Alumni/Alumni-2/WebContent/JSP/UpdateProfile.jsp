@@ -1,9 +1,8 @@
 <%-- 
-    Document   : CV
-    Created on : 16 Sep 2016, 3:27:56 PM
+    Document   : UpdateProfile
+    Created on : 19 Sep 2016, 4:09:57 PM
     Author     : Lorna Nqodi
-    --%>
-
+--%>
     <%@page import="db.DBUtils"%>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@ page language="java"%>
@@ -16,12 +15,12 @@
     <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Profile</title>
+        <title>Update Profile</title>
         <!-- css -->
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/nav_style.css">
         <link rel="stylesheet" href="../css/site_styles.css">
-        <link rel="stylesheet" type="text/css" href="../css/cv.css">
+        <link rel="stylesheet" type="text/css" href="../css/updateProfile.css">
         <!-- The fonts-->
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
@@ -52,26 +51,38 @@
           <div class="site-center">
             <div class="fixed-wrapper">
               <div class="fixed-content">
+                  
+                <form method="post" action="../UpdateProfile" class="update-form">
+                    
                 <div class="profile-photo">
                     <img class="cv-photo" src="../default-profile.png">
                 </div>
-                <label class="name-label">Lorna Nqodi</label>
+                    First Name<br>
+                    <input name="fname" class="input-box"><br>
+                    Last  Name<br>
+                    <input name="lname" class="input-box"><br>
 
-                <div class="personal-details">
-                    <label name="occupation">Student</label><br>
-                </div>
-                <div>
-                    <address>
-                      <strong name="company">University of Cape Town</strong><br> <!-- company/institution -->
-                      1355 Market Street, Suite 900<br> <!-- adressline1 -->
-                      CA 94103<br>                      <!-- addressLine2 -->
-                      <abbr title=Phone">P:</abbr> (123) 456-7890
-                  </address>
-              </div>
-              <address>
-                  <a name="email" href="mailto:#">nqdlor001@myuct.ac.za</a>
-              </address>
-                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
+                    Occupation<br>
+                    <input name="occupation" class="input-box"><br>
+
+                    <h5 style="text-decoration:underline;">Work Details</h5>
+                        Company or Institution<br>
+                        <input name="currentCompany" class="input-box"><br> <!-- company/institution -->
+                        Address Line 1<br>
+                        <input name="address1" class="input-box"><br> <!-- adressline1 -->
+                        Address Line 2<br>
+                        <input name="address2" class="input-box"><br>                      <!-- addressLine2 -->
+                        City<br>
+                        <input name="city" class="input-box"><br>
+                        Postal Code<br>
+                        <input name="phone" class="input-box"><br>
+                        Phone<br>
+                        <input name="postalCode" class="input-box"><br>
+                        Email<br>
+                        <input type="email" name="email" class="input-box"><br>
+
+                        <button style="border: 2px solid #D84D0A; font-size:10px; border-radius:3px; margin-top:5px;" type="submit">Update Profile</button>
+            </form>
           </div>
       </div>
       <div class="content-offset">
@@ -132,29 +143,3 @@
 
 </body>
 </html>
-<!--      <form action="${pageContext.request.contextPath}/Image" method="post">
-        <%   
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        OutputStream img;
-        try{
-        stmt = DBUtils.getPreparedSatement("select * from Images");
-        rs = stmt.executeQuery();
-        if(rs.next()){
-        byte barray = rs.getByte(2);
-        response.setContentType("image/jpg");
-        img = response.getOutputStream();
-        img.write(barray);%>
-        <img alt="Profile-Photo" src="barray" >
-        <% img.flush();
-        img.close();
-    }
-
-        }
-        catch (Exception e ) 
-        {
-            e.printStackTrace();
-        }
-        %>
-
-</form> -->

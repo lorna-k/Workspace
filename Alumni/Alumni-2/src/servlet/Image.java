@@ -38,27 +38,27 @@ public class Image extends HttpServlet {
 //        String username = request.getParameter("id")
 //        ResultSet rs=DBUtils.getPreparedSatement("select photo from Images WHERE ID ='"+data+"'").executeQuery();
             
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        OutputStream img;
-        try{
-            //stmt = DBUtils.getPreparedSatement"select photo from Images where id = ");PreparedStatement stmt = conn.prepareStatement("select photo from users where id=?");
-            rs = stmt.executeQuery();
-            if(rs.next()){
-               byte barray = rs.getByte(2);
-               response.setContentType("image/jpg");
-//               response.getOutputStream().write(rs.getBytes("photo"));
-               img = response.getOutputStream();
-               img.write(barray);
-               img.flush();
-               img.close();
-            }
-            
-        }
-        catch (Exception e ) 
-    	{
-            e.printStackTrace();
-	}
+//        PreparedStatement stmt = null;
+//        ResultSet rs = null;
+//        OutputStream img;
+//        try{
+//            //stmt = DBUtils.getPreparedSatement"select photo from Images where id = ");PreparedStatement stmt = conn.prepareStatement("select photo from users where id=?");
+//            rs = stmt.executeQuery();
+//            if(rs.next()){
+//               byte barray = rs.getByte(2);
+//               response.setContentType("image/jpg");
+////               response.getOutputStream().write(rs.getBytes("photo"));
+//               img = response.getOutputStream();
+//               img.write(barray);
+//               img.flush();
+//               img.close();
+//            }
+//            
+//        }
+//        catch (Exception e ) 
+//    	{
+//            e.printStackTrace();
+//	}
     }
 
 }

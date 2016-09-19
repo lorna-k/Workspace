@@ -71,6 +71,7 @@
               <address>
                   <a name="email" href="mailto:#">nqdlor001@myuct.ac.za</a>
               </address>
+                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
           </div>
       </div>
       <div class="content-offset">
