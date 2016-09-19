@@ -28,17 +28,17 @@ Author     : Lorna Nqodi
 	<script src="../jQuery/navigation-script.js"></script>
 </head>
 <body>
-	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
+	<div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
 		<nav class="clearfix">
 			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			<ul class="clearfix">
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-				<li><a href="profile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-				<li><a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
+				<li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
-				<li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
-				<li><a href=""><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
+				<li><a href="people.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
+				<li><a href="../index"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
 			</ul>
 			<a href="#" id="pull">Menu</a>
 		</nav>

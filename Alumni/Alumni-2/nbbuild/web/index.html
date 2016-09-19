@@ -38,15 +38,18 @@
 	</script>
 </head>
 <body>
-	<div id="home" class="wallpaper">
+	
+	<form action="index" method="post" class="form-group">
+	
+	<div id="home" class="nav-container wallpaper">
 		<nav class="clearfix">
 			<div class="nav-title">
 				<a href="index.html"><img class="nav-logo" src="uct-logo.png"></a>
 				<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			
 			<span class="nav-btns clearfix">
-				<a class="login-btn" href="./JSP/Login.jsp" style="padding-left:20px;padding-right:20px" >Login</a>
-				<a class="register-btn" href="./JSP/addUser.jsp">Register</a>
+				<input value="Login" name="login" class="login-btn" type="submit" style="padding-left:20px;padding-right:20px" />
+				<input value="Register" name="adduser" type="submit" class="register-btn"  />
 			</span>
 			</div>
 			<!-- <a href="#" id="pull">Alumni Network</a> -->
@@ -61,6 +64,8 @@
 			</div>
 		</div></div>
 	</div>
+	
+	</form>
 	<div class="mid-section" style="background-color: #FFF;">
 	<div class="container" >
 		<div class="row info-section" id="info-section">
@@ -96,9 +101,12 @@
 	<div class="footer-top">
 		<img src="https://cdn.shopify.com/s/files/1/0041/0802/files/grovemade-deskcollection-maple-collection-A3.jpg?3312">
 		Staying connected has never been so easy
+                <form action="index" method="post" class="form-group">
 		<div class="footer-top-btn">
-				<a href="../JSP/addUser.jsp">Click here to sign up</a>
+<!--				<a href="../JSP/addUser.jsp" name="adduser">Click here to sign up</a>-->
+                                <input value="Click here to sign up" name="adduser" type="submit"  />
 		</div>
+                </form>
 		<!-- <div class="after"></div> -->
 	</div>
 	<div class="footer-main">
@@ -132,7 +140,7 @@
 					<h3>Connect</h3>
 					<ul>
 						<li><a href="https://www.facebook.com/groups/uctcs/">Facebook</a></li>
-						<li><a href="">Instagram</a></li>
+						<li><a href="mailto:Alumniproject2016@gmail.com">Email</a></li>
 						<li><a href="https://twitter.com/slumou">Twitter</a></li>
 					</ul>
 				</div>

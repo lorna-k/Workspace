@@ -77,7 +77,7 @@ textarea.vert { resize:vertical; }
 }
 
 .editor-buttons{
-  padding: 7px;
+  padding: 5px 5px 5px 10px;
   outline: none;
   height: 35px;
   /*border-top: 0.1px solid #ccc;*/
@@ -116,8 +116,9 @@ textarea.vert { resize:vertical; }
   text-decoration:none; 
   padding-left:10px; 
   padding-right:10px; 
-  padding-top:3px;
-  padding-bottom:3px;
+  padding-top:2px;
+  padding-bottom:2px;
+  margin-bottom:2px;
 }
 .post-btn a:hover{
   text-decoration: none;
