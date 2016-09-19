@@ -45,14 +45,14 @@ Author     : Lorna Nqodi
 		});
 	});
 	</script>
-	<script type=""> 
+	<script> 
 	$('#nav').affix({});
 	</script>
 </head>
 <body>
-	<div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
+	<div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
 		<nav class="clearfix">
-			<a href="index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
+			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			<ul class="clearfix">
 				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
@@ -80,8 +80,8 @@ Author     : Lorna Nqodi
         		<a href="#section1">Personal</a>
 		      	<a href="#section2">Education</a>
 		      	<a href="#section3">Experience</a>
-				<a href="#section4">Skills</a>
-				<a href="#section5">Interests</a>
+                        <a href="#section4">Skills</a>
+			<a href="#section5">References</a>
         	</div>
         </div>
         <div class="row">
@@ -91,7 +91,7 @@ Author     : Lorna Nqodi
 					  <div class="form-group">
 					    <label for="id" class="col-sm-2 control-label">Username</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control input-box" name="First_Name">
+					      <p class="form-control-static" name="id">nqdlor001</p>
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -105,13 +105,8 @@ Author     : Lorna Nqodi
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control input-box" name="Last_Name">
 					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label for="Phone" class="col-sm-2 control-label">Phone</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control input-box" name="Phone">
-					    </div>
-					  </div>
+					  </div>				  
+					  
 					  <div class="form-group">
 					    <label for="Occupation" class="col-sm-2 control-label">Occupation</label>
 					    <div class="col-sm-10">
@@ -119,19 +114,25 @@ Author     : Lorna Nqodi
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="Phone" class="col-sm-2 control-label">Address</label>
+					    <label for="Occupation" class="col-sm-2 control-label">Company</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="Phone">
+					      <input type="text" class="form-control input-box" name="Occupation" placeholder="Company / Institution">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					  	<label for="Phone" class="col-sm-2 control-label"></label>
+					    <label for="Adress" class="col-sm-2 control-label">Address</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" name="Address_Line1">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					  	<label for="Adress" class="col-sm-2 control-label"></label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" name="Address_Line2">
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label for="Phone" class="col-sm-2 control-label">City</label>
+					    <label for="City" class="col-sm-2 control-label">City</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control input-box" name="City">
 					    </div>
@@ -146,6 +147,18 @@ Author     : Lorna Nqodi
 					    <label for="Postal_Code" class="col-sm-2 control-label">Postal Code</label>
 					    <div class="col-sm-10">
 					      <input type="number" class="form-control input-box" name="Postal_Code">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="Phone" class="col-sm-2 control-label">Phone</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control input-box" name="Phone">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="Email" class="col-sm-2 control-label">Email</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control input-box" id="email">
 					    </div>
 					  </div>
 
@@ -165,19 +178,19 @@ Author     : Lorna Nqodi
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">Major</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control input-box" id="inputEmail3">
+				      <input type="text" class="form-control input-box" id="Major">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">Year</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control input-box" id="inputEmail3">
+				      <input type="text" class="form-control input-box" id="Year">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control input-box" id="inputEmail3">
+				      <input type="text" class="form-control input-box" id="email">
 				    </div>
 				  </div>
 				  
@@ -191,19 +204,19 @@ Author     : Lorna Nqodi
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">Current Job</label>
 				    <div class="col-sm-10">
-				      <input type="email" class="form-control input-box" id="inputEmail3">
+				      <input type="email" class="form-control input-box" id="CurrJob">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">Other job</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control input-box" id="inputEmail3">
+				      <input type="text" class="form-control input-box" id="OtherJob">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">Year</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control input-box" id="inputEmail3">
+				      <input type="text" class="form-control input-box" id="Year">
 				    </div>
 				  </div>
 				</form>
@@ -214,52 +227,81 @@ Author     : Lorna Nqodi
 			    <h1>Skills</h1>
 			    <form class="form-horizontal">
 				  <div class="form-group">
-				    <label for="inputEmail3" class="col-sm-2 control-label">Skill 1</label>
-				    <div class="col-sm-10">
-				      <input type="text" class="form-control input-box" id="inputEmail3">
-				    </div>
-				  </div>
-				  <div class="form-group">
-				    <label for="inputPassword3" class="col-sm-2 control-label">Skill 2</label>
-				    <div class="col-sm-10">
-				      <input type="text" class="form-control input-box" id="inputPassword3">
-				    </div>
-				  </div>
-				</form>
-			</div>
-        </div>
-        <div class="row">
-        	<div id="section5" class="col-md-10 col-md-offset-1 col-sm-12 container-fluid">
-			    <h1>Interests</h1>
-			    <form class="form-horizontal">
-				  <div class="form-group">
 				    <label class="sr-only" for="inputHelpBlock">Input with help text</label>
 		        <div class="col-sm-10">
-					<input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+					<input type="text" id="inputHelpBlock" class="form-control input-box" aria-describedby="helpBlock">
 								
-					<span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+					<span id="helpBlock" class="help-block">Enter programming language</span>
 				</div>				
 				    </div>
 				  <div class="form-group">
 				    <label class="sr-only" for="inputHelpBlock">Input with help text</label>
 						<div class="col-sm-10">
-							<input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+							<input type="text" id="inputHelpBlock" class="form-control input-box" aria-describedby="helpBlock">
 										
-							<span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+							<span id="helpBlock" class="help-block">Enter programming language</span>
 						</div>
 				  </div>
 				  <div class="form-group">
 				    <label class="sr-only" for="inputHelpBlock">Input with help text</label>
 					    <div class="col-sm-10">
-						<input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+						<input type="text" id="inputHelpBlock" class="form-control input-box" aria-describedby="helpBlock">
 									
-						<span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+						<span id="helpBlock" class="help-block">Enter programming language</span>
+					</div>
+				  </div>
+				  <div class="form-group">
+				    <label class="sr-only" for="inputHelpBlock">Skill or Programming Language</label>
+					    <div class="col-sm-10">
+						<input type="text" id="inputHelpBlock" class="form-control input-box" aria-describedby="helpBlock">
+									
+						<span id="helpBlock" class="help-block">Skill or Programming Language(optional)</span>
+					</div>
+				  </div>
+				  <div class="form-group">
+				    <label class="sr-only" for="inputHelpBlock">Skill or Programming Language(optional)</label>
+					    <div class="col-sm-10">
+						<input type="text" id="inputHelpBlock" class="form-control input-box" aria-describedby="helpBlock">
+									
+						<span id="helpBlock" class="help-block">Skill or Programming Language(optional)</span>
 					</div>
 				  </div>
 
 				</form>
 			</div>
         </div>
+        <div class="row">
+        	<div id="section3" class="col-md-10 col-md-offset-1 col-sm-12 container-fluid">
+			    <h1>Referees</h1>
+			    <form class="form-horizontal">
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+				    <div class="col-sm-10">
+				      <input type="email" class="form-control input-box" id="CurrJob">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control input-box" id="OtherJob">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control input-box" id="Year">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control input-box" id="OtherJob">
+				    </div>
+				  </div>
+				</form>
+			</div>
+        </div>
 	</div>
 </body>
 </html>
+

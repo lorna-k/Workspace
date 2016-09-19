@@ -51,12 +51,12 @@
 
 	<div class="container">
 		<div class="right-contact-us">
-			<img style="height:350px; width:350px; " src="https://www.cs.uct.ac.za/images/insertPic.jpg">
+			<img style="height:350px; width:400px; " src="https://www.cs.uct.ac.za/images/insertPic.jpg">
 		</div>
 		<div class="left-contact-us">
 			<h4>Contact Us</h4>
 			<div class="container">
-				<p><b>Postal Adress: </b></br>
+				<p><b>Postal Address: </b></br>
 					Department of Computer Science
 					University of Cape Town, 7001</br>
 					Private Bag X3</br>
@@ -72,29 +72,27 @@
 		
 		<h5>Leave a comment</h5>
 			<div class="container">
-				<form id="contact" action="contact us.html" method="post">
-					<div class="form-group">
-						<p class="form-group">	
-							Name: <input class="contact" id="nametext" type="text" autofocus name="your_name"  placeholder="e.g. Hussein Suleman"  required/>
-						</p>
-						<p class="form-group">
-							<span>Email Address: </span><input class="contact" id="emailtext" type="email" name="your_email" placeholder="e.g. hussein@cs.uct.ac.za"  required/>
-						</p>
-						<p class="form-group">
-							<span>Phone No: </span><input class="contact" id="numbertext"type="tel" name="your_number" placeholder="e.g. +27 783652492"  required/>
-						</p>
-						<p class="form-group">
-							<span>Message: </span><textarea class="contact textarea" id="messagetext" rows="5" cols="50" name="your_message"  required></textarea>
-						</p>
+				<div id="comment_form">
+	
+                                    <div>
+                                            <input type="text" name="name" id="name" value="" placeholder="Name">
+                                    </div>
+                                    <div>
+                                            <input type="email" name="email" id="email" value="" placeholder="Email">
+                                    </div>
+                                    <div>
+                                            <input type="url" name="website" id="website" value="" placeholder="Website URL">
+                                    </div>
+                                    <div>
+                                            <textarea rows="10" name="comment" id="comment" placeholder="Write your query here"></textarea>
+                                    </div>
+                                    <div>
+                                            <input type="submit" name="submit" value="Add Comment">
+                                    </div>
 
-						<p style="padding-top: 15px">
-							<span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="send" onclick="save()"/>
-						</p>
-					</div>
-				</form>
+                            </div>
 			</div>
 		</div>
-	</div>
 
 		<div class="footer-main">
 			<div class="container">

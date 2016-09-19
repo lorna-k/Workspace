@@ -29,18 +29,36 @@
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
         <!-- JQuery -->
-        <script src="../jQuery/navigation-script.js"></script>
-        <!-- bootstrap -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+        $(function() {
+            var pull        = $('#pull');
+            menu        = $('nav ul');
+            menuHeight  = menu.height();
 
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+        </script>
+        <script> 
+        $('#nav').affix({});
+        </script>
     </head>
     <body>
-
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
-                <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
+                <a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 <ul class="clearfix">
                     <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
@@ -61,13 +79,13 @@
                             <div class="post-box">
                                 <div class="editor">
                                     <div class="editor-header">
-                                        <!-- Display Name of logged in user-->
+                                        
                                         <a href=""> <%= request.getSession().getAttribute("currentUserName") %> </a>
                                         
                                         </div>
-                                    <input class="write-post" placeholder="Write a post"></input>
+                                    <input class="write-post" name="caption" placeholder="Write a post"></input>
                                     <div class="editor-buttons">
-                                        <a href="" class="post-btn">Post</a>
+                                        <button href=""  type="submit" class="post-btn" name="post" value="posting" >Post</button>
                                         <a href=""><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Upload</a>
                                     </div>
                                 </div>              
@@ -110,22 +128,24 @@
                                                 if(resultset.getString(1).equals(resultset2.getString(1)) )
                                                 {
                                                     %>
-                                          <div>
-                                            <strong><%=resultset2.getString(2)+" "+resultset2.getString(3)%>: </strong>
-                                            <%=resultset2.getString(4)%>
-                                        </div>
-                                          <%
+		                                          <div>
+		                                            <strong><%=resultset2.getString(2)+" "+resultset2.getString(3)%>: </strong>
+		                                            <%=resultset2.getString(4)%>
+		                                        </div>
+		                                          <%
                                                 }
                                              }
                                             %>
                                         </div>
                                         
-                                        <input class="write-comment" type="text" placeholder="Write a comment">
+                                        
+                                        
+                                        <input class="write-comment"    name="<%=resultset.getString(1)%>" type="text" placeholder="Write a comment">
                                         
                                     </div>
                                 </div>
                                 <!-- Closing connection to database -->
-                                <%
+                                   <%
                                     }
                                     %>
                             </div>
