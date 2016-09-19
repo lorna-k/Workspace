@@ -15,8 +15,6 @@
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-    <html>
-    <!DOCTYPE html>
     <html lang="en">
     <head>
         <title>Forum</title>
@@ -39,10 +37,7 @@
 
     </head>
     <body>
-        <!-- Storing users name in a variable -->
-        <%
-            String username = request.getSession().getAttribute("currentUserName");
-        %>
+
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
                 <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>

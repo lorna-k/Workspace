@@ -67,7 +67,5 @@ public class User
 		this.accountType = accountType;
 	}
 	
-	
-	
 
 }

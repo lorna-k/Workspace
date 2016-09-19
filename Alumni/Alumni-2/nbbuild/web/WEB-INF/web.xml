@@ -5,10 +5,6 @@
         <servlet-class>servlet.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Logout</servlet-name>
-        <servlet-class>servlet.Logout</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Image</servlet-name>
         <servlet-class>servlet.Image</servlet-class>
         <init-param>
@@ -18,19 +14,19 @@
     </servlet>
     <servlet>
         <servlet-name>Profile</servlet-name>
-        <servlet-class>servlet.Profile</servlet-class>
+        <servlet-class>servlet.EditProfile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Logout</servlet-name>
-        <url-pattern>/Logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Image</servlet-name>
         <url-pattern>/Image</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Profile</servlet-name>
