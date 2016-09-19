@@ -51,9 +51,26 @@
             });
         });
         </script>
+<<<<<<< HEAD
+        
+        <script type=""> 
+=======
         <script> 
+>>>>>>> af48b0471ef39428e6b3197730ff82dff52e9764
         $('#nav').affix({});
         </script>
+        
+        
+        <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=313231902363487";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+        
     </head>
     <body>
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
@@ -154,7 +171,9 @@
                 </div>
                 <div class="sidebar">
                     <div class="fb-feed" style="margin-bottom:20px;">
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNombulelo-senior-secondary-school-236973209727154%2F&tabs=timeline&width=238&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="240" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                            <!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNombulelo-senior-secondary-school-236973209727154%2F&tabs=timeline&width=238&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="240" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
+                   			<div class="fb-page" data-href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961">UCT CSC Alumni Network</a></blockquote></div>
+                    
                     </div>
                     <div class="twitter-feed">
                             <a class="twitter-timeline"  href="https://twitter.com/search?q=UCT%20Science" data-widget-id="774076283923816448">

@@ -273,7 +273,7 @@ public class addUser extends HttpServlet {
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 		
 		 

@@ -268,12 +268,12 @@ public class addUser extends HttpServlet {
 		}
 		if(gotUpper && gotDigit)
 		{
-
-			return true;
+			System.out.println("#Password should contain at least 1 digit "+"\n");
+			return false;
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 		
 		 
