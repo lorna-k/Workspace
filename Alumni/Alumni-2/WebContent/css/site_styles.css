@@ -94,22 +94,22 @@
 .nav-btns{
     float: right;
 }
-.nav-btns > a{
+.nav-btns > input{
     border: 2px solid #1FBAD6;
     border-radius: 5px;
     color: white;
     padding: 4px;
     width: 100px;
+    margin-top: 4px;
     text-align: center;
     font-size: 20px;
     display: inline;
     margin-right: 20px;
-    text-decoration: none;
+    background-color: #0099CC;
 
 }
-.nav-btns > a:hover{
+.nav-btns > input:hover{
     background-color: #1FBAD6;
-    text-decoration: none;
     color: white;
     transition: .3s;
 }
@@ -144,8 +144,7 @@
     width: 100px;
     text-align: center;
     font-size: 20px;
-    text-shadow: 1px 1px black;
-    background-color: #1FBAD6;
+    background-color: #0099CC;
     text-decoration: none;
     color: white;
     transition: .3s;
@@ -205,7 +204,7 @@
     display: block;
     background: rgba(0, 0, 0, .7);
 }*/
-.footer-top-btn > a{
+.footer-top-btn > input{
     border: 2px solid #1FBAD6;
     background-color: #1BA0E1;
     border-radius: 10px;
@@ -215,7 +214,7 @@
     font-size: 20px;
     text-decoration: none;
 }
-.footer-top-btn:hover > a{
+.footer-top-btn:hover > input{
     text-decoration: none;
     color: black;
 }

@@ -16,8 +16,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<!--|||||||||||||||||| I am sure that we do not have to copy and poster the style tages in every page  ||||||||||||||||||-->
-
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta charset="ISO-8859-1">
 	
@@ -63,16 +61,15 @@
 
 </head>
  <body>
-	   <div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
+	   <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
 			<nav class="clearfix">
 				<a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 				<span class="header-title" style="color:white;">UCT Alumni Network</span>
 				<ul class="clearfix">
 					<li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-					<li><a href="../profile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 					<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 					<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
-					<li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
+					<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
 					<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
 				</ul>
 				<a href="#" id="pull">Menu</a>

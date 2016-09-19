@@ -1,16 +1,18 @@
-/*#site_content { 
+.page-content { 
   width: 950px;
   overflow: hidden;
-  margin: 4px auto 0 auto;
-  padding: 0;}*/
+  margin: 10px auto 20px auto;
+  padding: 0;
+}
 
 .left-conact-us { 
+
   float: left;
   text-align: justify;
   position:relative;
   width: 400px;
-  padding: 20px 0 5px 25px;
-  margin: 0;}
+  padding: 50px 0 5px 25px;
+  margin: 20px 0 0 0;}
 
 .right-contact-us { 
   float: right;
