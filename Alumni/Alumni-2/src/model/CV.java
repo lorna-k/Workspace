@@ -9,7 +9,7 @@ package model;
  *
  * @author Lorna Nqodi
  */
-public class Profile {
+public class CV {
     private String id = "";
     private String fname = "";
     private String lname = "";
@@ -21,13 +21,13 @@ public class Profile {
     private String postalCode = "";
     private String phone = "";
     private String email = "";
-    private String highest_degree = "";
+    private String highestDegree = "";
     private String inst1 = "";
-    private String major1_1 = "";
-    private String major1_2 = "";
-    private String highest_degree_year = "";
+    private String major1 = "";
+    private String major2 = "";
+    private String gradYear = "";
     private String school = "";
-    private String school_year = "";
+    private String schoolYear = "";
     private String job1 = "";
     private String job1Company = "";
     private String job1Year = "";
@@ -39,98 +39,10 @@ public class Profile {
     private String skill3 = "";
     private String skill4 = "";
     private String skill5 = "";
-    private String refName1;
+    private String refName1 = "";;
     private String refEmail1 = "";
-    private String refName2;
-    private String refEmail2;
-    
-
-    public String getRefEmail1() {
-        return refEmail1;
-    }
-
-    public void setRefEmail1(String refEmail1) {
-        this.refEmail1 = refEmail1;
-    }
-
-    public String getRefName1() {
-        return refName1;
-    }
-
-    public void setRefName1(String refName1) {
-        this.refName1 = refName1;
-    }
-
-    public String getRefName2() {
-        return refName2;
-    }
-
-    public void setRefName2(String refName2) {
-        this.refName2 = refName2;
-    }
-
-    public String getRefEmail2() {
-        return refEmail2;
-    }
-
-    public void setRefEmail2(String refEmail2) {
-        this.refEmail2 = refEmail2;
-    }
-
-    public String getCurrentCompany() {
-        return currentCompany;
-    }
-
-    public void setCurrentCompany(String currentCompany) {
-        this.currentCompany = currentCompany;
-    }
-    
-    public Profile() {
-       super();
-    }   
-    
-//    public Profile(String id, String fname, String lname, String occupation, String address1, 
-//            String address2, String city, String postalCode, String phone, String email, String highest_degree, 
-//            String inst1, String major1_1, String major1_2, String highest_degree_year, String degree2, String inst2, String major2_1, String major2_2, 
-//            String degree2Year, String school, String school_year,String job1, String job1Company, String job1Year, String job2, String job2Company, 
-//            String job2Year, String skill1, String skill2, String skill3, String skill4, String skill5, String refName1)
-//    {
-//        this.id = id;
-//        this.fname = fname;
-//        this.lname = lname;
-//        this.occupation = occupation;
-//        this.address1 = address1;
-//        this.address2 = address2;
-//        this.city = city;
-//        this.postalCode = postalCode;
-//        this.phone = phone;
-//        this.email = email;
-//        this.highest_degree = highest_degree;
-//        this.inst1 = inst1;
-//        this.major1_1 = major1_1;
-//        this.major1_2 = major1_2;
-//        this.highest_degree_year = highest_degree_year;
-//        this.degree2 = degree2;
-//        this.inst2 = inst2;
-//        this.major2_1 = major2_1;
-//        this.major2_2 = major2_2;
-//        this.degree2Year = degree2Year;
-//        this.school = school;
-//        this.school_year = school_year;
-//        this.skill1 = skill1;
-//        this.skill2 = skill2;
-//        this.skill3 = skill3;
-//        this.skill4 = skill4;
-//        this.skill5 = skill5;
-//    }
-    
-        public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    private String refName2 = "";
+    private String refEmail2 = "";
 
     public String getFname() {
         return fname;
@@ -154,6 +66,14 @@ public class Profile {
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
+    }
+
+    public String getCurrentCompany() {
+        return currentCompany;
+    }
+
+    public void setCurrentCompany(String currentCompany) {
+        this.currentCompany = currentCompany;
     }
 
     public String getAddress1() {
@@ -204,12 +124,20 @@ public class Profile {
         this.email = email;
     }
 
-    public String getHighest_degree() {
-        return highest_degree;
+    public String getId() {
+        return id;
     }
 
-    public void setHighest_degree(String highest_degree) {
-        this.highest_degree = highest_degree;
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public String getHighestDegree() {
+        return highestDegree;
+    }
+
+    public void setHighestDegree(String highestDegree) {
+        this.highestDegree = highestDegree;
     }
 
     public String getInst1() {
@@ -220,28 +148,28 @@ public class Profile {
         this.inst1 = inst1;
     }
 
-    public String getMajor1_1() {
-        return major1_1;
+    public String getMajor1() {
+        return major1;
     }
 
-    public void setMajor1_1(String major1_1) {
-        this.major1_1 = major1_1;
+    public void setMajor1(String major1) {
+        this.major1 = major1;
     }
 
-    public String getMajor1_2() {
-        return major1_2;
+    public String getMajor2() {
+        return major2;
     }
 
-    public void setMajor1_2(String major1_2) {
-        this.major1_2 = major1_2;
+    public void setMajor2(String major2) {
+        this.major2 = major2;
     }
 
-    public String getHighest_degree_year() {
-        return highest_degree_year;
+    public String getGradYear() {
+        return gradYear;
     }
 
-    public void setHighest_degree_year(String highest_degree_year) {
-        this.highest_degree_year = highest_degree_year;
+    public void setGradYear(String gradYear) {
+        this.gradYear = gradYear;
     }
 
     public String getSchool() {
@@ -252,12 +180,12 @@ public class Profile {
         this.school = school;
     }
 
-    public String getSchool_year() {
-        return school_year;
+    public String getSchoolYear() {
+        return schoolYear;
     }
 
-    public void setSchool_year(String school_year) {
-        this.school_year = school_year;
+    public void setSchoolYear(String schoolYear) {
+        this.schoolYear = schoolYear;
     }
 
     public String getJob1() {
@@ -308,7 +236,6 @@ public class Profile {
         this.job2Year = job2Year;
     }
 
-    
     public String getSkill1() {
         return skill1;
     }
@@ -348,4 +275,38 @@ public class Profile {
     public void setSkill5(String skill5) {
         this.skill5 = skill5;
     }
+
+    public String getRefName1() {
+        return refName1;
+    }
+
+    public void setRefName1(String refName1) {
+        this.refName1 = refName1;
+    }
+
+    public String getRefEmail1() {
+        return refEmail1;
+    }
+
+    public void setRefEmail1(String refEmail1) {
+        this.refEmail1 = refEmail1;
+    }
+
+    public String getRefName2() {
+        return refName2;
+    }
+
+    public void setRefName2(String refName2) {
+        this.refName2 = refName2;
+    }
+
+    public String getRefEmail2() {
+        return refEmail2;
+    }
+
+    public void setRefEmail2(String refEmail2) {
+        this.refEmail2 = refEmail2;
+    }
+    
+    
 }

@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
+import model.CV;
 import model.Profile;
 /**
  *
@@ -25,55 +26,6 @@ import model.Profile;
  */
 public class DataAccess 
 {
-
-    public static int updateUserProfile(Profile profile, String sql) throws SQLException, ClassNotFoundException 
-    {
-        int i = 0;
-        Connection conn = DBUtils.getConnection();
-        PreparedStatement stmt = DBUtils.getPreparedSatement(sql);
-        stmt.setString(1, profile.getId());
-        stmt.setString(2, profile.getFname());
-        stmt.setString(3, profile.getLname());
-        stmt.setString(4, profile.getOccupation());
-        stmt.setString(5, profile.getAddress1());
-        stmt.setString(6, profile.getAddress2());
-        stmt.setString(7, profile.getCity());
-        stmt.setString(8, profile.getPostalCode());
-        stmt.setString(9, profile.getPhone());
-        stmt.setString(10, profile.getEmail());
-        stmt.setString(11, profile.getHighest_degree());
-        stmt.setString(12, profile.getInst1());
-        stmt.setString(13, profile.getMajor1_1());
-        stmt.setString(14, profile.getMajor1_2());
-        stmt.setString(15, profile.getHighest_degree_year());
-        stmt.setString(16, profile.getDegree2());
-        stmt.setString(17, profile.getInst2());
-        stmt.setString(18, profile.getMajor2_1());
-        stmt.setString(19, profile.getMajor2_2());
-        stmt.setString(20, profile.getDegree2Year());
-        stmt.setString(21, profile.getSchool());
-        stmt.setString(22, profile.getSchool_year());
-        stmt.setString(23, profile.getJob1());
-        stmt.setString(24, profile.getJob1Company());
-        stmt.setString(25, profile.getJob1Year());
-        stmt.setString(26, profile.getJob2());
-        stmt.setString(27, profile.getJob2Company());
-        stmt.setString(28, profile.getJob2Year());
-        stmt.setString(29, profile.getSkill1());
-        stmt.setString(30, profile.getSkill2());
-        stmt.setString(31, profile.getSkill3());
-        stmt.setString(32, profile.getSkill4());
-        stmt.setString(33, profile.getSkill5()); 
-        stmt.setString(34, profile.getRefName1());
-        stmt.setString(35, profile.getRefEmail1());
-        stmt.setString(36, profile.getRefName2());
-        stmt.setString(37, profile.getRefEmail2());
-        stmt.setString(38, profile.getCurrentCompany());
-        
-        i = stmt.executeUpdate();
-        return i;
-    }
-
     public static void updateProfile(Profile p, String sql) throws ClassNotFoundException {
         try {
             
@@ -103,6 +55,18 @@ public class DataAccess
             ex.printStackTrace();
         }
         System.out.println("Profile Added");
+    }
+
+    public static void updateCV(CV cv) {
+        try {
+            String sql = "insert into CVs values()";
+            PreparedStatement ps = DBUtils.getPreparedSatement(sql);
+            //ps.setString(1, sql);
+            
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        
     }
     
     public void addNewUser(User user) throws ClassNotFoundException,SQLException

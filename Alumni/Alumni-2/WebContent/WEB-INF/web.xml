@@ -20,6 +20,10 @@
         <servlet-name>UpdateProfile</servlet-name>
         <servlet-class>servlet.UpdateProfile</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateCV</servlet-name>
+        <servlet-class>servlet.UpdateCV</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>UpdateProfile</servlet-name>
         <url-pattern>/UpdateProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCV</servlet-name>
+        <url-pattern>/UpdateCV</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
