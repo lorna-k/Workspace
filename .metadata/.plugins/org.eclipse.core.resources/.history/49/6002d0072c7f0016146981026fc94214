@@ -57,7 +57,7 @@ public class UpdateCV extends HttpServlet {
         String school = request.getParameter("school");
         String schoolYear = request.getParameter("schoolYear");
         String job1 = request.getParameter("Job1");
-        String job1Company = request.getParameter("job1Company");
+        String company1 = request.getParameter("company1");
         String job1Year = request.getParameter("job1Year");
         String job2 = request.getParameter("job2");
         String job2Company = request.getParameter("job2Company");
@@ -82,7 +82,7 @@ public class UpdateCV extends HttpServlet {
         cv.setSchool(school);
         cv.setSchoolYear(schoolYear);
         cv.setJob1(job1);
-        cv.setJob1Company(job1Company);
+        cv.setJob1Company(job2Company);
         cv.setJob1Year(job1Year);
         cv.setJob2(job2);
         cv.setJob2Company(job2Company);
@@ -95,13 +95,8 @@ public class UpdateCV extends HttpServlet {
         cv.setRefName1(refName1);
         cv.setRefEmail1(refEmail1);
         cv.setRefName2(refName2);
-        cv.setRefEmail2(refEmail2);  
-        
-        String sql = "INSERT into CVs values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        
-        DataAccess.updateCV(cv,sql);
-        
-        
+        cv.setRefEmail2(refEmail2);    
+        DataAccess.updateCV(cv);
         
         
     }

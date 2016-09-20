@@ -162,142 +162,15 @@ public class DataAccess
     public static void updateCV(CV cv,String sql) {
         try 
         {
-           
-        	
-        	PreparedStatement stmt = DBUtils.getPreparedSatement(sql);
-            
-            
-            ResultSet resulSet = DBUtils.getPreparedSatement("select * from CVs ").executeQuery();
-            LinkedList<String> arrID =new LinkedList<String>();
-    		while(resulSet.next())
-    		{
-    		    if(!(arrID.contains(resulSet.getString(1))))
-    		    {
-    			   arrID.add(resulSet.getString(1));
-    			 
-    		    }
-    		}
-    		
-    		String userID=cv.getId();
-    		if(arrID.contains(userID.toLowerCase()) || arrID.contains(userID.toUpperCase()))
-    		{
-    			
-    			ResultSet resulSet_CV = DBUtils.getPreparedSatement("select * from CVs WHERE ID = '"+cv.getId() +"'").executeQuery();
-    			
-    			PreparedStatement ps=DBUtils.getPreparedSatement("DELETE from CVs WHERE ID = '"+cv.getId() +"'");
-    			
-    			ps.executeUpdate();
-   
-            
-	            if(cv.getId() !="" || cv.getHighestDegree()!="" || cv.getInst1()!="" || cv.getMajor1()!=""  || cv.getMajor2() !="" ||
-	                    cv.getGradYear()!="" || cv.getSchool() !="" || cv.getSchoolYear() !=""  || cv.getJob1()!="" ||cv.getJob1Company()!="" || cv.getJob1Year()!="" || cv.getJob2()!="" ||cv.getJob2Company()!="" || cv.getJob2Year()!="" || cv.getSkill1()!="" || cv.getSkill2()!="" || cv.getSkill3()!="" || cv.getSkill4()!="" || cv.getSkill5()!="" || cv.getRefName1()!="" || cv.getRefEmail1()!="" || cv.getRefName2()!="" || cv.getRefEmail2()!="")
-	            {
-	                
-	                stmt.setString(1, resulSet_CV.getString(1));
-	                stmt.setString(2, resulSet_CV.getString(2));
-	                stmt.setString(3, resulSet_CV.getString(3));
-	                stmt.setString(4, resulSet_CV.getString(4));
-	                stmt.setString(5, resulSet_CV.getString(5));
-	                stmt.setString(6, resulSet_CV.getString(6));
-	                stmt.setString(7, resulSet_CV.getString(7));
-	                stmt.setString(8, resulSet_CV.getString(8));
-	                stmt.setString(9, resulSet_CV.getString(9));
-	                stmt.setString(10, resulSet_CV.getString(10));
-	                stmt.setString(11, resulSet_CV.getString(11));
-	                
-	                stmt.setString(12,cv.getHighestDegree());
-	                stmt.setString(13,cv.getInst1());
-	                stmt.setString(14,cv.getMajor1());
-	                stmt.setString(15,cv.getMajor2() );
-	                stmt.setString(16,cv.getGradYear());
-	                stmt.setString(17,cv.getSchool());
-	                stmt.setString(18,cv.getSchoolYear() );
-	                stmt.setString(19,cv.getJob1());
-	                stmt.setString(20,cv.getJob1Company());
-	                stmt.setString(21,cv.getJob1Year());
-	                stmt.setString(22,cv.getJob2());
-	                
-	                stmt.setString(23,cv.getJob2Company());
-	                stmt.setString(24,cv.getJob2Year());
-	                stmt.setString(25,cv.getSkill1());
-	                stmt.setString(26,cv.getSkill2());
-	                stmt.setString(27,cv.getSkill3());
-	                stmt.setString(28,cv.getSkill4());
-	                stmt.setString(29,cv.getSkill5());
-	                stmt.setString(30,cv.getRefName1());
-	                stmt.setString(31,cv.getRefEmail1());
-	                stmt.setString(32,cv.getRefName2());
-	                
-	                stmt.setString(33,cv.getRefEmail2());
-	              
-	                stmt.executeUpdate();
-	                
-	                System.out.println("data-access");
-	            }
-            
-            
-    		}
-    		
-    		
-    		else  if(cv.getId() !="" || cv.getHighestDegree()!="" || cv.getInst1()!="" || cv.getMajor1()!=""  || cv.getMajor2() !="" ||
-                    cv.getGradYear()!="" || cv.getSchool() !="" || cv.getSchoolYear() !=""  || cv.getJob1()!="" ||cv.getJob1Company()!="" || cv.getJob1Year()!="" || cv.getJob2()!="" ||cv.getJob2Company()!="" || cv.getJob2Year()!="" || cv.getSkill1()!="" || cv.getSkill2()!="" || cv.getSkill3()!="" || cv.getSkill4()!="" || cv.getSkill5()!="" || cv.getRefName1()!="" || cv.getRefEmail1()!="" || cv.getRefName2()!="" || cv.getRefEmail2()!="")
-            {
-                
-                stmt.setString(1,"");
-                stmt.setString(2,"");
-                stmt.setString(3, "");
-                stmt.setString(4, "");
-                stmt.setString(5, "");
-                stmt.setString(6, "");
-                stmt.setString(7, "");
-                stmt.setString(8,"");
-                stmt.setString(9, "");
-                stmt.setString(10, "");
-                stmt.setString(11,"");
-                
-                stmt.setString(12,cv.getHighestDegree());
-                stmt.setString(13,cv.getInst1());
-                stmt.setString(14,cv.getMajor1());
-                stmt.setString(15,cv.getMajor2() );
-                stmt.setString(16,cv.getGradYear());
-                stmt.setString(17,cv.getSchool());
-                stmt.setString(18,cv.getSchoolYear() );
-                stmt.setString(19,cv.getJob1());
-                stmt.setString(20,cv.getJob1Company());
-                stmt.setString(21,cv.getJob1Year());
-                stmt.setString(22,cv.getJob2());
-                
-                stmt.setString(23,cv.getJob2Company());
-                stmt.setString(24,cv.getJob2Year());
-                stmt.setString(25,cv.getSkill1());
-                stmt.setString(26,cv.getSkill2());
-                stmt.setString(27,cv.getSkill3());
-                stmt.setString(28,cv.getSkill4());
-                stmt.setString(29,cv.getSkill5());
-                stmt.setString(30,cv.getRefName1());
-                stmt.setString(31,cv.getRefEmail1());
-                stmt.setString(32,cv.getRefName2());
-                
-                stmt.setString(33,cv.getRefEmail2());
-                
-                
-                stmt.executeUpdate();
-                System.out.println("data-access");
-            }
-        	
-        	
-        	
-        	
-        	
+            String sql = "insert into CVs values()";
+            PreparedStatement ps = DBUtils.getPreparedSatement(sql);
+            //ps.setString(1, sql);
             
         } 
         catch (ClassNotFoundException ex) 
         {
             ex.printStackTrace();
-        } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        }
         
     }
     
