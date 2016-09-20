@@ -82,7 +82,7 @@
         </div>
 
         <div id="content" class="row expand">
-            <form method="post" action="../UpdateCV" >
+            <form method="post" action="../UpdateCV">
           <div class="inner-padding">
 
             <div id="section1" class="container-fluid">
@@ -108,7 +108,7 @@
               Job Title<br>
               <input type="text" name="job1" class="input-box"><br>
               Company Name or Institution<br>
-              <input type="text" name="company1" class="input-box"><br>
+              <input type="text" name="job1Company" class="input-box"><br>
               Year <br>
               <input type="text" name="job1Year" class="input-box"><br>
               Job Title<br>
@@ -141,6 +141,7 @@
         Email<br>
         <input type="email" name="refEmail2" class="input-box"><br>
      </div> 
+     <button style="border: 2px solid #D84D0A; font-size:20px; border-radius:3px; margin-top:5px;" type="submit">Update CV</button>
 
 </div>
 </form>

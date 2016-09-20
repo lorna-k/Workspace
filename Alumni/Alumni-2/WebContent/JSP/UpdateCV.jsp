@@ -82,7 +82,7 @@
         </div>
 
         <div id="content" class="row expand">
-            <form method="post" action="../UpdateCV" >
+            <form method="post" action="../UpdateCV">
           <div class="inner-padding">
 
             <div id="section1" class="container-fluid">
@@ -141,6 +141,7 @@
         Email<br>
         <input type="email" name="refEmail2" class="input-box"><br>
      </div> 
+     <button style="border: 2px solid #D84D0A; font-size:20px; border-radius:3px; margin-top:5px;" type="submit">Update CV</button>
 
 </div>
 </form>
