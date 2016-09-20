@@ -183,7 +183,7 @@ public class DataAccess
     		{
     			
     			ResultSet resulSet_CV = DBUtils.getPreparedSatement("select * from CVs WHERE ID = '"+cv.getId() +"'").executeQuery();
-    			resulSet_CV.next();
+    			resulSet_CV.result.next();
     			PreparedStatement ps=DBUtils.getPreparedSatement("DELETE from CVs WHERE ID = '"+cv.getId() +"'");
     			
     			ps.executeUpdate();
