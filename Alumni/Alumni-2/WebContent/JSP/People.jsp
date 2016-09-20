@@ -59,6 +59,18 @@
             <nav class="clearfix">
                 <a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
+                <select class="marshal_details" id="search-dropdown"> 
+							<option value="" class="" disabled="" selected="">-Search people by-</option>
+							<option value="0">All</option> 
+							<option value="0">City</option> 
+							<option value="0">Graduation year</option> 
+							<option value="0">Company name</option>	 
+							<option value="0">Name</option>						
+						</select> 
+
+			
+						<input id="search-text" type="text" name="search" placeholder="Search..">
+						<button class="icon" id="search-button"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
                 <ul class="clearfix">
                     <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>

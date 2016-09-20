@@ -71,14 +71,15 @@
               <address>
                   <a name="email" href="mailto:#">nqdlor001@myuct.ac.za</a>
               </address>
-                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
+                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Edit Profile</a>
           </div>
       </div>
       <div class="content-offset">
           <div class="content-frame"> 
             <div id="header" class="row">
               <div class="header-padding">
-                <div class="header-content"> <h1>Curriculum Vitae</h1></div>
+                <div class="header-content"> <h1>Curriculum Vitae</h1>
+                <a  href="UpdateCV.jsp" class="btn btn-default navbar-btn">Edit CV</a></div>
             </div>
         </div>
 

@@ -15,7 +15,7 @@
     <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Profile</title>
+        <title>Update CV</title>
         <!-- css -->
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/nav_style.css">
@@ -64,7 +64,7 @@
                       <strong name="company">University of Cape Town</strong><br> <!-- company/institution -->
                       1355 Market Street, Suite 900<br> <!-- adressline1 -->
                       CA 94103<br>                      <!-- addressLine2 -->
-                      <abbr title=Phone">P:</abbr> (123) 456-7890
+                      <abbr title="Phone">P:</abbr> (123) 456-7890
                   </address>
               </div>
               <address>
@@ -82,44 +82,64 @@
         </div>
 
         <div id="content" class="row expand">
-            <form method="post">
+            <form method="post" action="../UpdateCV" >
           <div class="inner-padding">
 
             <div id="section1" class="container-fluid">
               <h3 class="cv-section">Education</h3>
-              <p><strong>University of Cape Town</strong> 
-                <span class="year">(2016)</span><br> <!-- institution , year -->
-                    BSc Computer Science, Business Computing <!-- degree major 1 major 2 -->
-              <p><strong>Ugie High School</strong> <span class="year">(2011)</span> </p>       <!-- high School year -->
+              Highest Degree<br>
+              <input name="highestDegree" type="text" class="input-box"><br>
+              Major<br>
+              <input type="text" name="major1" class="input-box"><br>
+              2nd Major (optional)<br>
+              <input name="major2" type="text" class="input-box"><br>
+              Institution<br>
+              <input name="inst1" type="text" class="input-box"><br>
+              Year of Graduation<br>
+              <input name="gradYear" class="input-box"><br>
+              High School Attended<br>
+              <input name="school" type="text" class="input-box"><br>
+              Matric Year<br>
+              <input type="text" name="schoolYear" class="input-box"><br>
                                                     
           </div>
           <div id="section2" class="container-fluid">
-            <h3 class="cv-section">Experience</h3>                     
-            <p><strong>Software Intern</strong> <span class="year">(2013)</span><br>  <!-- job1 -->
-                Liquid Thought Solutions</p>                <!-- company1 -->
-            <p><strong>User Experience Testing</strong> <span class="year">(2014)</span> <br> <!-- job2 -->
-                Digiata Cape Town</p>                               <!-- company2 -->
-                                                                <!-- job3 -->
-                                                                <!-- company3 -->
-        </div>
+              <h3 class="cv-section">Work Experience</h3>
+              Job Title<br>
+              <input type="text" name="job1" class="input-box"><br>
+              Company Name or Institution<br>
+              <input type="text" name="company1" class="input-box"><br>
+              Year <br>
+              <input type="text" name="job1Year" class="input-box"><br>
+              Job Title<br>
+              <input type="text" name="job2" class="input-box"><br>
+              Company Name or Institution<br>
+              <input name="job2Company" type="text" class="input-box"><br>
+              Year <br>
+              <input name="job2Year" type="text" class="input-box"><br>
+                                 
+          </div>
         <div id="section3" class="container-fluid">
          <h3 class="cv-section">Skills</h3>
-         <span class="skills-btn">Java</span>           <!-- skill1 -->
-         <span class="skills-btn">html</span>           <!-- skill2 -->
-         <span class="skills-btn">CSS</span>            <!-- skill3 -->
-         <span class="skills-btn">Python</span>         <!-- skill4 -->
-         <span class="skills-btn">Angular JS</span>     <!-- skill5 -->
+         Enter a list of skills you have obtained e.g.(C++, Java, Python)
+         <ol>
+             <li><input type="text" name="skill1" class="input-box"> </li>
+             <li><input type="text" name="skill2" class="input-box"></li>
+             <li><input type="text" name="skill3" class="input-box"></li>
+             <li><input type="text" name="skill4" class="input-box"></li>
+             <li><input type="text" name="skill5" class="input-box"> </li>
+         </ol>        
      </div> 
      <div id="section4" class="container-fluid">
         <h3 class="cv-section">References</h3>
-        <p>Sonia Berman
-        <address>
-            <a name="email" href="mailto:#">sonia@cs.uct.ac.za</a>
-        </address><br>
-        <p>Max Price
-        <address>
-            <a name="email" href="mailto:#">maxprice@cs.uct.ac.za</a>
-        </address>
+        Reference Name<br>
+        <input type="text" name="refName1" class="input-box"><br>
+        Email<br>
+        <input type="email" name="refEmail1" class="input-box"><br>
+        Reference Name<br>
+        <input type="text" name="refName2" class="input-box"><br>
+        Email<br>
+        <input type="email" name="refEmail2" class="input-box"><br>
      </div> 
 
 </div>
