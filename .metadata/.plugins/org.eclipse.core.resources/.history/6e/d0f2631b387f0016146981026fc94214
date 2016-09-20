@@ -193,7 +193,7 @@ public class DataAccess
 	                    cv.getGradYear()!="" || cv.getSchool() !="" || cv.getSchoolYear() !=""  || cv.getJob1()!="" ||cv.getJob1Company()!="" || cv.getJob1Year()!="" || cv.getJob2()!="" ||cv.getJob2Company()!="" || cv.getJob2Year()!="" || cv.getSkill1()!="" || cv.getSkill2()!="" || cv.getSkill3()!="" || cv.getSkill4()!="" || cv.getSkill5()!="" || cv.getRefName1()!="" || cv.getRefEmail1()!="" || cv.getRefName2()!="" || cv.getRefEmail2()!="")
 	            {
 	                
-	            	System.out.println(resulSet_CV.getString(1)+" "+resulSet_CV.getString(2)+" "+resulSet_CV.getString(3)+" "+resulSet_CV.getString(4)+" "+resulSet_CV.getString(5)+" "+resulSet_CV.getString(6)+" "+resulSet_CV.getString(7)+" "+resulSet_CV.getString(8)+" "+resulSet_CV.getString(9)+" "+resulSet_CV.getString(10)+" "+resulSet_CV.getString(11));
+	            	System.out.println(resulSet_CV.getString(1)+" "+resulSet_CV.getString(2)+" "+resulSet_CV.getString(3)+" "+resulSet_CV.getString(4)+" "+resulSet_CV.getString(5)+" "+resulSet_CV.getString(6)+" "+resulSet_CV.getString(7)+" "+resulSet_CV.getString(1)+" "+resulSet_CV.getString(1)+" "+resulSet_CV.getString(1)+" "+resulSet_CV.getString(1));
 	                stmt.setString(1, resulSet_CV.getString(1));
 	                stmt.setString(2, resulSet_CV.getString(2));
 	                stmt.setString(3, resulSet_CV.getString(3));

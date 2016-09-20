@@ -48,7 +48,7 @@ public class UpdateCV extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String id = request.getSession().getAttribute("currentUserID")+"";
+        String id = "";
         String highestDegree = request.getParameter("highestDegree");
         String major1 = request.getParameter("major1");
         String inst1 = request.getParameter("inst1");
