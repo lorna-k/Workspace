@@ -52,7 +52,7 @@
             <div class="fixed-wrapper">
               <div class="fixed-content">
                   
-                <form method="post" action="../UpdateProfile" class="update-form">
+                <form  action="../UpdateProfile" method="post" class="update-form">
                     
                 <div class="profile-photo">
                     <img class="cv-photo" src="../default-profile.png">
