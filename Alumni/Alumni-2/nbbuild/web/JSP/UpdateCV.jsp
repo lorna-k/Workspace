@@ -108,7 +108,7 @@
               Job Title<br>
               <input type="text" name="job1" class="input-box"><br>
               Company Name or Institution<br>
-              <input type="text" name="company1" class="input-box"><br>
+              <input type="text" name="job1Company" class="input-box"><br>
               Year <br>
               <input type="text" name="job1Year" class="input-box"><br>
               Job Title<br>
