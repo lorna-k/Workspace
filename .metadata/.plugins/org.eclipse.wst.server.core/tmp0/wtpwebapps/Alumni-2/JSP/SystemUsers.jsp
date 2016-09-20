@@ -11,19 +11,16 @@
 
 <% Class.forName("com.mysql.jdbc.Driver"); %>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<!--|||||||||||||||||| I am sure that we do not have to copy and poster the style tages in every page  ||||||||||||||||||-->
-
+	<title>Administrator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta charset="ISO-8859-1">
-	
 	<!-- css -->
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" href="../css/nav_style.css">
 	<link rel="stylesheet" href="../css/site_styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/admin_styles.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/feed_style.css">
 	
 	<!-- font -->
@@ -57,26 +54,30 @@
 	 </script>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	
-	
-   <title>Feeds</title>
-
 </head>
  <body>
-	   <div nav-container style="position:fixed; top:0; left:0; right:0; z-index:1">
+	   <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
 			<nav class="clearfix">
 				<a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 				<span class="header-title" style="color:white;">UCT Alumni Network</span>
 				<ul class="clearfix">
 					<li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-					<li><a href="../profile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 					<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 					<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
-					<li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
+					<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
 					<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
 				</ul>
 				<a href="#" id="pull">Menu</a>
 			</nav>
 		</div>
+     <div class="left-navbar">
+		<a href="../index.html">Home</a>
+                <a href="PendingUsers.jsp">Pending Users</a>
+                <a href="SystemUsers.jsp">System Users</a>
+		<a href="RejectedUsers.jsp">Rejected Users</a>
+
+	</div>
+	<div class="right-content">
 	
         <H1 align="center" style="margin-top:15vh;font-family:Aria"> Users</H1>
 
@@ -123,17 +124,17 @@
 		        
 	        </form>
 	        
-	        <ul style="list-style: none;">
+<!--	        <ul style="list-style: none;">
 	        	<li><strong style="font-size:20px">View Tables</strong></li>
 	        	<li><a href="PendingUsers.jsp">Pending Users</a></li>
 	        	<li><a href="RejectedUsers.jsp">Rejected Users</a></li>
-	        </ul>
+	        </ul>-->
 	         
 	        
         </div>
          
              
-             
+        </div>     
     </BODY>
 </HTML>
 

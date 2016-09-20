@@ -78,7 +78,81 @@ public class DataAccess
         try {
             
             PreparedStatement stmt = DBUtils.getPreparedSatement(sql);
-            if(p.getId() !="" || p.getFname() !="" || p.getLname() !="" || p.getOccupation() !=""  || p.getCurrentCompany() !="" ||
+            
+            
+            ResultSet resulSet = DBUtils.getPreparedSatement("select * from CVs ").executeQuery();
+            LinkedList<String> arrID =new LinkedList<String>();
+    		while(resulSet.next())
+    		{
+    		    if(!(arrID.contains(resulSet.getString(1))))
+    		    {
+    			   arrID.add(resulSet.getString(1));
+    			 
+    		    }
+    		}
+    		
+    		String userID=p.getId();
+    		if(arrID.contains(userID.toLowerCase()) || arrID.contains(userID.toUpperCase()))
+    		{
+    			
+    			ResultSet resulSet_CV = DBUtils.getPreparedSatement("select * from CVs WHERE ID = '"+p.getId() +"'").executeQuery();
+    			
+    			PreparedStatement ps=DBUtils.getPreparedSatement("DELETE from CVs WHERE ID = '"+p.getId() +"'");
+    			
+    			ps.executeUpdate();
+   
+            
+	            if(p.getId() !="" || p.getFname() !="" || p.getLname() !="" || p.getOccupation() !=""  || p.getCurrentCompany() !="" ||
+	                    p.getAddress1()!="" || p.getAddress2() !="" || p.getCity() !=""  || p.getPostalCode() !="" || p.getPhone() !="" || p.getEmail() !="" )
+	            {
+	                
+	                stmt.setString(1, p.getId());
+	                stmt.setString(2, p.getFname());
+	                stmt.setString(3, p.getLname());
+	                stmt.setString(4, p.getOccupation());
+	                stmt.setString(5, p.getCurrentCompany());
+	                stmt.setString(6, p.getAddress1());
+	                stmt.setString(7, p.getAddress2());
+	                stmt.setString(8, p.getCity());
+	                stmt.setString(9, p.getPostalCode());
+	                stmt.setString(10, p.getPhone());
+	                stmt.setString(11, p.getEmail());
+	                
+	                stmt.setString(12,resulSet_CV.getString(12));
+	                stmt.setString(13,resulSet_CV.getString(13));
+	                stmt.setString(14,resulSet_CV.getString(14));
+	                stmt.setString(15,resulSet_CV.getString(15));
+	                stmt.setString(16,resulSet_CV.getString(16));
+	                stmt.setString(17,resulSet_CV.getString(17));
+	                stmt.setString(18,resulSet_CV.getString(18));
+	                stmt.setString(19,resulSet_CV.getString(19));
+	                stmt.setString(20,resulSet_CV.getString(20));
+	                stmt.setString(21,resulSet_CV.getString(21));
+	                stmt.setString(22,resulSet_CV.getString(22));
+	                
+	                stmt.setString(23,resulSet_CV.getString(23));
+	                stmt.setString(24,resulSet_CV.getString(24));
+	                stmt.setString(25,resulSet_CV.getString(25));
+	                stmt.setString(26,resulSet_CV.getString(26));
+	                stmt.setString(27,resulSet_CV.getString(27));
+	                stmt.setString(28,resulSet_CV.getString(28));
+	                stmt.setString(29,resulSet_CV.getString(29));
+	                stmt.setString(30,resulSet_CV.getString(30));
+	                stmt.setString(31,resulSet_CV.getString(31));
+	                stmt.setString(32,resulSet_CV.getString(32));
+	                
+	                stmt.setString(33,resulSet_CV.getString(33));
+	              
+	                stmt.executeUpdate();
+	                
+	                System.out.println("data-access");
+	            }
+            
+            
+    		}
+    		
+    		
+    		else if(p.getId() !="" || p.getFname() !="" || p.getLname() !="" || p.getOccupation() !=""  || p.getCurrentCompany() !="" ||
                     p.getAddress1()!="" || p.getAddress2() !="" || p.getCity() !=""  || p.getPostalCode() !="" || p.getPhone() !="" || p.getEmail() !="" )
             {
                 
@@ -94,12 +168,40 @@ public class DataAccess
                 stmt.setString(10, p.getPhone());
                 stmt.setString(11, p.getEmail());
                 
-                System.out.println( p.getId()+" "+p.getFname() + " "+ p.getLname() +" "+p.getOccupation()+" "+ " " + p.getCurrentCompany()+ " " +
-                        p.getAddress1() + " " + p.getAddress2() + " " + p.getCity() + " "+ p.getPostalCode() +" "+ p.getPhone() + " " + p.getEmail());
-                stmt.executeQuery();
+                stmt.setString(12,"");
+                stmt.setString(13,"");
+                stmt.setString(14,"");
+                stmt.setString(15,"");
+                stmt.setString(16,"");
+                stmt.setString(17,"");
+                stmt.setString(18,"");
+                stmt.setString(19,"");
+                stmt.setString(20,"");
+                stmt.setString(21,"");
+                stmt.setString(22,"");
+                
+                stmt.setString(23,"");
+                stmt.setString(24,"");
+                stmt.setString(25,"");
+                stmt.setString(26,"");
+                stmt.setString(27,"");
+                stmt.setString(28,"");
+                stmt.setString(29,"");
+                stmt.setString(30,"");
+                stmt.setString(31,"");
+                stmt.setString(32,"");
+                
+                stmt.setString(33,"");
+                
+                
+                stmt.executeUpdate();
                 System.out.println("data-access");
             }
-        } catch (SQLException ex) {
+    		
+    		
+        } 
+        catch (SQLException ex) 
+        {
             ex.printStackTrace();
         }
         System.out.println("Profile Added");

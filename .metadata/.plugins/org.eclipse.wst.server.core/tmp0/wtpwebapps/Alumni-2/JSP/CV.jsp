@@ -38,12 +38,12 @@
                 <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 <ul class="clearfix">
-                    <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                    <li><a href="profile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+                    <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
                     <li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
                     <li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>            
-                    <li><a href=""><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
+                    <li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>            
+                    <li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
                 </ul>
                 <a href="#" id="pull">Menu</a>
             </nav>
@@ -71,6 +71,7 @@
               <address>
                   <a name="email" href="mailto:#">nqdlor001@myuct.ac.za</a>
               </address>
+                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
           </div>
       </div>
       <div class="content-offset">
@@ -131,29 +132,3 @@
 
 </body>
 </html>
-<!--      <form action="${pageContext.request.contextPath}/Image" method="post">
-        <%   
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        OutputStream img;
-        try{
-        stmt = DBUtils.getPreparedSatement("select * from Images");
-        rs = stmt.executeQuery();
-        if(rs.next()){
-        byte barray = rs.getByte(2);
-        response.setContentType("image/jpg");
-        img = response.getOutputStream();
-        img.write(barray);%>
-        <img alt="Profile-Photo" src="barray" >
-        <% img.flush();
-        img.close();
-    }
-
-        }
-        catch (Exception e ) 
-        {
-            e.printStackTrace();
-        }
-        %>
-
-</form> -->
