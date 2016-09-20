@@ -239,46 +239,46 @@ public class DataAccess
     		}
     		
     		
-    		else  if(cv.getId() !="" || cv.getHighestDegree()!="" || cv.getInst1()!="" || cv.getMajor1()!=""  || cv.getMajor2() !="" ||
-                    cv.getGradYear()!="" || cv.getSchool() !="" || cv.getSchoolYear() !=""  || cv.getJob1()!="" ||cv.getJob1Company()!="" || cv.getJob1Year()!="" || cv.getJob2()!="" ||cv.getJob2Company()!="" || cv.getJob2Year()!="" || cv.getSkill1()!="" || cv.getSkill2()!="" || cv.getSkill3()!="" || cv.getSkill4()!="" || cv.getSkill5()!="" || cv.getRefName1()!="" || cv.getRefEmail1()!="" || cv.getRefName2()!="" || cv.getRefEmail2()!="")
+    		else if(p.getId() !="" || p.getFname() !="" || p.getLname() !="" || p.getOccupation() !=""  || p.getCurrentCompany() !="" ||
+                    p.getAddress1()!="" || p.getAddress2() !="" || p.getCity() !=""  || p.getPostalCode() !="" || p.getPhone() !="" || p.getEmail() !="" )
             {
                 
-                stmt.setString(1,"");
-                stmt.setString(2,"");
-                stmt.setString(3, "");
-                stmt.setString(4, "");
-                stmt.setString(5, "");
-                stmt.setString(6, "");
-                stmt.setString(7, "");
-                stmt.setString(8,"");
-                stmt.setString(9, "");
-                stmt.setString(10, "");
-                stmt.setString(11,"");
+                stmt.setString(1, p.getId());
+                stmt.setString(2, p.getFname());
+                stmt.setString(3, p.getLname());
+                stmt.setString(4, p.getOccupation());
+                stmt.setString(5, p.getCurrentCompany());
+                stmt.setString(6, p.getAddress1());
+                stmt.setString(7, p.getAddress2());
+                stmt.setString(8, p.getCity());
+                stmt.setString(9, p.getPostalCode());
+                stmt.setString(10, p.getPhone());
+                stmt.setString(11, p.getEmail());
                 
-                stmt.setString(12,cv.getHighestDegree());
-                stmt.setString(13,cv.getInst1());
-                stmt.setString(14,cv.getMajor1());
-                stmt.setString(15,cv.getMajor2() );
-                stmt.setString(16,cv.getGradYear());
-                stmt.setString(17,cv.getSchool());
-                stmt.setString(18,cv.getSchoolYear() );
-                stmt.setString(19,cv.getJob1());
-                stmt.setString(20,cv.getJob1Company());
-                stmt.setString(21,cv.getJob1Year());
-                stmt.setString(22,cv.getJob2());
+                stmt.setString(12,"");
+                stmt.setString(13,"");
+                stmt.setString(14,"");
+                stmt.setString(15,"");
+                stmt.setString(16,"");
+                stmt.setString(17,"");
+                stmt.setString(18,"");
+                stmt.setString(19,"");
+                stmt.setString(20,"");
+                stmt.setString(21,"");
+                stmt.setString(22,"");
                 
-                stmt.setString(23,cv.getJob2Company());
-                stmt.setString(24,cv.getJob2Year());
-                stmt.setString(25,cv.getSkill1());
-                stmt.setString(26,cv.getSkill2());
-                stmt.setString(27,cv.getSkill3());
-                stmt.setString(28,cv.getSkill4());
-                stmt.setString(29,cv.getSkill5());
-                stmt.setString(30,cv.getRefName1());
-                stmt.setString(31,cv.getRefEmail1());
-                stmt.setString(32,cv.getRefName2());
+                stmt.setString(23,"");
+                stmt.setString(24,"");
+                stmt.setString(25,"");
+                stmt.setString(26,"");
+                stmt.setString(27,"");
+                stmt.setString(28,"");
+                stmt.setString(29,"");
+                stmt.setString(30,"");
+                stmt.setString(31,"");
+                stmt.setString(32,"");
                 
-                stmt.setString(33,cv.getRefEmail2());
+                stmt.setString(33,"");
                 
                 
                 stmt.executeUpdate();
@@ -294,10 +294,7 @@ public class DataAccess
         catch (ClassNotFoundException ex) 
         {
             ex.printStackTrace();
-        } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        }
         
     }
     

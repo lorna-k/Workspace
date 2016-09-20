@@ -95,13 +95,8 @@ public class UpdateCV extends HttpServlet {
         cv.setRefName1(refName1);
         cv.setRefEmail1(refEmail1);
         cv.setRefName2(refName2);
-        cv.setRefEmail2(refEmail2);  
-        
-        String sql = "INSERT into CVs values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        
-        DataAccess.updateCV(cv,sql);
-        
-        
+        cv.setRefEmail2(refEmail2);    
+        DataAccess.updateCV(cv);
         
         
     }
