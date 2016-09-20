@@ -9,6 +9,7 @@ import dao.DataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -50,7 +51,7 @@ public class UpdateProfile extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String id = request.getAttribute("currentUserID")+ "";
+        String id = request.getSession().getAttribute("currentUserID")+"";
         String fname = request.getParameter("fname");
         String lname = request.getParameter("lname");
         String occupation = request.getParameter("occupation");
@@ -75,7 +76,10 @@ public class UpdateProfile extends HttpServlet {
         p.setPhone(phone);
         p.setEmail(email);
         
-        String sql = "INSERT into Profiles values(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT into CVs values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        
+       
+        //String sql = "INSERT into Profiles (id,fname,lname,occupation,currentCompny,address1,address2,city,postalCode,phone,email)  values(?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE  ID=values(id), fname=values(fname), lname=values(lname), occupation=values(occupation), currentCompany=values(currentCompany), address1=values(address1), address2=values(address2), city=values(city), postalCode=values(postalCode), phone=values(phone), email=values(email)";
         try {
             DataAccess.updateProfile(p, sql);
             System.out.println("u-profile");

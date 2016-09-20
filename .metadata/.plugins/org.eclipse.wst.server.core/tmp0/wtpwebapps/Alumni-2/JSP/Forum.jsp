@@ -15,8 +15,6 @@
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-    <html>
-    <!DOCTYPE html>
     <html lang="en">
     <head>
         <title>Forum</title>
@@ -53,8 +51,12 @@
             });
         });
         </script>
+<<<<<<< HEAD
         
         <script type=""> 
+=======
+        <script> 
+>>>>>>> af48b0471ef39428e6b3197730ff82dff52e9764
         $('#nav').affix({});
         </script>
         
@@ -76,12 +78,12 @@
                 <a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 <ul class="clearfix">
-                    <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                    <li><a href="profile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>            
-                    <li><a href=""><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
+                    <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
+				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
+				<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
                 </ul>
                 <a href="#" id="pull">Menu</a>
             </nav>

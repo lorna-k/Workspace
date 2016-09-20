@@ -43,7 +43,7 @@
 	</script>
 </head>
 <body>
-	<div nav-container>
+	<div class="nav-container">
 		<nav style="padding-top:10px">
 			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
@@ -76,8 +76,8 @@
 				<form action="../Login" method="post" class="form-group" >
 
 					<div class="form-group">
-						<label for="email">Email address:</label>
-						<input  placeholder="Student/Staff Number" type="text" class="form-control" name="id"/>
+						<label for="email">Username:</label>
+						<input  placeholder="Student / Staff Number" type="text" class="form-control" name="id"/>
 					</div>
 
 					<div class="form-group">
