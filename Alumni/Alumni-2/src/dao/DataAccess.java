@@ -26,6 +26,9 @@ import model.Profile;
  */
 public class DataAccess 
 {
+    public static void viewProfile(String uid){
+        
+    }
     public static void updateProfile(Profile p, String sql) throws ClassNotFoundException {
         try {
             

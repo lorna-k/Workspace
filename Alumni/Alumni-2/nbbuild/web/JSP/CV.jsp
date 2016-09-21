@@ -48,6 +48,12 @@
                 <a href="#" id="pull">Menu</a>
             </nav>
         </div>
+        <% 
+            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+
+            Statement statement = connection.createStatement() ;
+            ResultSet resultset = statement.executeQuery("select * from CVs") ; 
+        %>
         <div class="site-wrapper">
           <div class="site-center">
             <div class="fixed-wrapper">
@@ -71,7 +77,8 @@
               <address>
                   <a name="email" href="mailto:#">nqdlor001@myuct.ac.za</a>
               </address>
-                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Edit Profile</a>
+                <form   method="post" >
+                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Edit Profile</a></form>
           </div>
       </div>
       <div class="content-offset">
@@ -79,7 +86,10 @@
             <div id="header" class="row">
               <div class="header-padding">
                 <div class="header-content"> <h1>Curriculum Vitae</h1>
-                <a  href="UpdateCV.jsp" class="btn btn-default navbar-btn">Edit CV</a></div>
+                    <form method="post" action="../UpdateCV">
+                        <a  href="UpdateCV.jsp" class="btn btn-default navbar-btn">Edit CV</a>
+                    </form>
+                </div>
             </div>
         </div>
 

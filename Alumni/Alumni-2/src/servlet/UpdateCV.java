@@ -6,8 +6,13 @@
 package servlet;
 
 import dao.DataAccess;
+import db.DBUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +53,44 @@ public class UpdateCV extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String uid = request.getSession().getAttribute("currentUserID")+"";
+        String sqlQuery = "SELECT * from CVs WHERE ID = '"+uid+"'";
+        try {
+            ResultSet rs = DBUtils.getPreparedSatement(sqlQuery).executeQuery();
+            if(rs.next()){
+                request.getSession().setAttribute("highestDegree", rs.getString(12));
+            request.getSession().setAttribute("inst1", rs.getString(13));
+            request.getSession().setAttribute("major1", rs.getString(14));
+            request.getSession().setAttribute("major2", rs.getString(15));
+            request.getSession().setAttribute("gradYear", rs.getString(16));
+            request.getSession().setAttribute("scool", rs.getString(17));
+            request.getSession().setAttribute("schoolYear", rs.getString(18));
+            request.getSession().setAttribute("job1", rs.getString(19));
+            request.getSession().setAttribute("job1Company", rs.getString(20));
+            request.getSession().setAttribute("job1Year", rs.getString(21));
+            request.getSession().setAttribute("job2", rs.getString(22));
+            request.getSession().setAttribute("job2Company", rs.getString(23));
+            request.getSession().setAttribute("job2Year", rs.getString(24)); 
+            request.getSession().setAttribute("skill1", rs.getString(25));
+            request.getSession().setAttribute("skill2", rs.getString(26));
+            request.getSession().setAttribute("skill3", rs.getString(27));
+            request.getSession().setAttribute("skill4", rs.getString(28));
+            request.getSession().setAttribute("skill5", rs.getString(29));
+            request.getSession().setAttribute("refName1", rs.getString(30));
+            request.getSession().setAttribute("refEmail1", rs.getString(31));
+            request.getSession().setAttribute("refName2", rs.getString(32));
+            request.getSession().setAttribute("refEmail2", rs.getString(33)); 
+            }
+                      
+            
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        
     	String id = request.getSession().getAttribute("currentUserID")+"";
         String highestDegree = request.getParameter("highestDegree");
         String major1 = request.getParameter("major1");
