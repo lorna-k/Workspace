@@ -51,26 +51,73 @@
           <div class="site-center">
             <div class="fixed-wrapper">
               <div class="fixed-content">
-                <div class="profile-photo">
-                    <img class="cv-photo" src="../default-profile.png">
-                </div>
-                <label class="name-label">Lorna Nqodi</label>
+    <% 
+            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
-                <div class="personal-details">
-                    <label name="occupation">Student</label><br>
-                </div>
-                <div>
-                    <address>
-                      <strong name="company">University of Cape Town</strong><br> <!-- company/institution -->
-                      1355 Market Street, Suite 900<br> <!-- adressline1 -->
-                      CA 94103<br>                      <!-- addressLine2 -->
-                      <abbr title="Phone">P:</abbr> (123) 456-7890
-                  </address>
-              </div>
-              <address>
-                  <a name="email" href="mailto:#">nqdlor001@myuct.ac.za</a>
-              </address>
-                <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
+            Statement statement = connection.createStatement() ;
+            
+            String uid = request.getSession().getAttribute("currentUserID")+"";
+            
+            ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE ID = '"+uid+"'") ; 
+            resultset.next();
+                String fname = resultset.getString(2);
+                String lname = resultset.getString(3);
+                String occupation = resultset.getString(4);
+                String currentCompany = resultset.getString(5);
+                String address1 = resultset.getString(6);
+                String address2 = resultset.getString(7);
+                String city = resultset.getString(8);
+                String postalCode = resultset.getString(9);
+                String phone = resultset.getString(10);
+                String email = resultset.getString(11);
+                
+                String highestDegree = resultset.getString(12);
+                String inst1 = resultset.getString(13);
+                String major1 = resultset.getString(14);
+                String major2 = resultset.getString(15);
+                String gradYear = resultset.getString(16);
+                String school = resultset.getString(17);
+                String schoolYear = resultset.getString(18);
+                String job1 = resultset.getString(19);
+                String job1Company = resultset.getString(20);
+                String job1Year = resultset.getString(21);
+                String job2 = resultset.getString(22);
+                String job2Company = resultset.getString(23);
+                String job2Year = resultset.getString(24);
+                String skill1 = resultset.getString(25);
+                String skill2 = resultset.getString(26);
+                String skill3 = resultset.getString(27);
+                String skill4 = resultset.getString(28);
+                String skill5 = resultset.getString(29);
+                String refName1 = resultset.getString(30);
+                String refEmail1 = resultset.getString(31);
+                String refName2 = resultset.getString(32);
+                String refEmail2 = resultset.getString(33);
+            
+        %>
+                        <div class="profile-photo">
+                            <img class="cv-photo" src="../default-profile.png">
+                        </div>
+                        <label class="name-label"><%=fname%>  <%=lname%></label>
+
+                        <div class="personal-details">
+                            <label ><%=occupation%></label><br>
+                        </div>
+                        <div>
+                            <address>
+                              <strong><%=currentCompany%></strong><br> <!-- company/institution -->
+                              <%=address1%><br> <!-- adressline1 -->
+                              <%=address2%><br>                      <!-- addressLine2 -->
+                             <%=city%><br>
+                              <%=postalCode%><br>
+                              <abbr title="Phone">P:</abbr> <%=phone%>
+                          </address>
+                      </div>
+                      <address>
+                          <a href="mailto:#"><%=email%></a>
+                      </address>
+                  <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
+
           </div>
       </div>
       <div class="content-offset">
@@ -88,58 +135,58 @@
             <div id="section1" class="container-fluid">
               <h3 class="cv-section">Education</h3>
               Highest Degree<br>
-              <input name="highestDegree" value="${highestDegree}" type="text" class="input-box"><br>
+              <input name="highestDegree" value="<%=highestDegree%>" type="text" class="input-box"><br>
               Major<br>
-              <input type="text" value="${major1}" name="major1" class="input-box"><br>
+              <input type="text" value="<%=major1%>" name="major1" class="input-box"><br>
               2nd Major (optional)<br>
-              <input name="major2" value="${major2}" type="text" class="input-box"><br>
+              <input name="major2" value="<%=major1%>" type="text" class="input-box"><br>
               Institution<br>
-              <input name="inst1" value="${inst1}" type="text" class="input-box"><br>
+              <input name="inst1" value="<%=inst1%>" type="text" class="input-box"><br>
               Year of Graduation<br>
-              <input name="gradYear" value="${gradYear}" class="input-box"><br>
+              <input name="gradYear" value="<%=gradYear%>" class="input-box"><br>
               High School Attended<br>
-              <input name="school" value="${school}" type="text" class="input-box"><br>
+              <input name="school" value="<%=school%>" type="text" class="input-box"><br>
               Matric Year<br>
-              <input type="text" name="schoolYear" value="${text}" class="input-box"><br>
+              <input type="text" name="schoolYear" value="<%=schoolYear%>" class="input-box"><br>
                                                     
           </div>
           <div id="section2" class="container-fluid">
               <h3 class="cv-section">Work Experience</h3>
               Job Title<br>
-              <input type="text" name="job1" value="${job1}" class="input-box"><br>
+              <input type="text" name="job1" value="<%=job1%>" class="input-box"><br>
               Company Name or Institution<br>
-              <input type="text" name="job1Company" value="${job1Company}" class="input-box"><br>
+              <input type="text" name="job1Company" value="<%=job1Company%>" class="input-box"><br>
               Year <br>
-              <input type="text" name="job1Year" value="${job1Year}" class="input-box"><br>
+              <input type="text" name="job1Year" value="<%=job1Year%>" class="input-box"><br>
               Job Title<br>
-              <input type="text" name="job2" value="${job2}" class="input-box"><br>
+              <input type="text" name="job2" value="<%=job2%>" class="input-box"><br>
               Company Name or Institution<br>
-              <input name="job2Company" value="${job2Company}" type="text" class="input-box"><br>
+              <input name="job2Company" value="<%=job2Company%>" type="text" class="input-box"><br>
               Year <br>
-              <input name="job2Year" value="${job2Year}" type="text" class="input-box"><br>
+              <input name="job2Year" value="<%=job2Year%>" type="text" class="input-box"><br>
                                  
           </div>
         <div id="section3" class="container-fluid">
          <h3 class="cv-section">Skills</h3>
          Enter a list of skills you have obtained e.g.(C++, Java, Python)
          <ol>
-             <li><input type="text" name="skill1" value="${skill1}" class="input-box"> </li>
-             <li><input type="text" name="skill2" value="${skill2}" class="input-box"></li>
-             <li><input type="text" name="skill3" value="${skill3}" class="input-box"></li>
-             <li><input type="text" name="skill4" value="${skill4}" class="input-box"></li>
-             <li><input type="text" name="skill5" value="${skill5}" class="input-box"> </li>
+             <li><input type="text" name="skill1" value="<%=skill1%>" class="input-box"> </li>
+             <li><input type="text" name="skill2" value="<%=skill2%>" class="input-box"></li>
+             <li><input type="text" name="skill3" value="<%=skill3%>" class="input-box"></li>
+             <li><input type="text" name="skill4" value="<%=skill4%>" class="input-box"></li>
+             <li><input type="text" name="skill5" value="<%=skill5%>" class="input-box"> </li>
          </ol>        
      </div> 
      <div id="section4" class="container-fluid">
         <h3 class="cv-section">References</h3>
         Reference Name<br>
-        <input type="text" name="refName1" value="${refName1}" class="input-box"><br>
+        <input type="text" name="refName1" value="<%=refName1%>" class="input-box"><br>
         Email<br>
-        <input type="email" name="refEmail1" value="${refEmail1}" class="input-box"><br>
+        <input type="email" name="refEmail1" value="<%=refEmail1%>" class="input-box"><br>
         Reference Name<br>
-        <input type="text" name="refName2" value="${refName2}" class="input-box"><br>
+        <input type="text" name="refName2" value="<%=refName2%>" class="input-box"><br>
         Email<br>
-        <input type="email" name="refEmail2" value="${refEmail2}" class="input-box"><br>
+        <input type="email" name="refEmail2" value="<%=refEmail2%>" class="input-box"><br>
      </div> 
      <button style="border: 2px solid #D84D0A; font-size:20px; border-radius:3px; margin-top:5px;" type="submit">Update CV</button>
 

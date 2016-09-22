@@ -51,95 +51,120 @@
           <div class="site-center">
             <div class="fixed-wrapper">
               <div class="fixed-content">
-                  
+    <% 
+            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+
+            Statement statement = connection.createStatement() ;
+            
+            String uid = request.getSession().getAttribute("currentUserID")+"";
+            
+            ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE ID = '"+uid+"'") ; 
+                    resultset.next();
+                    String fname = resultset.getString(2);
+                    String lname = resultset.getString(3);
+                    String occupation = resultset.getString(4);
+                    String currentCompany = resultset.getString(5);
+                    String address1 = resultset.getString(6);
+                    String address2 = resultset.getString(7);
+                    String city = resultset.getString(8);
+                    String postalCode = resultset.getString(9);
+                    String phone = resultset.getString(10);
+                    String email = resultset.getString(11); 
+        %>
+               
                 <form  action="../UpdateProfile" method="post" class="update-form">
                     
                 <div class="profile-photo">
                     <img class="cv-photo" src="../default-profile.png">
                 </div>
                     First Name<br>
-                    <input name="fname" value="${fname}" class="input-box"><br>
+                    <input name="fname" value="<%=fname%>" class="input-box"><br>
                     Last  Name<br>
-                    <input name="lname" value="${lname}" class="input-box"><br>
+                    <input name="lname" value="<%=lname%>" class="input-box"><br>
 
                     Occupation<br>
-                    <input name="occupation" value="${occupation}" class="input-box"><br>
+                    <input name="occupation" value="<%=occupation%>" class="input-box"><br>
 
                     <h5 style="text-decoration:underline;">Work Details</h5>
                         Company or Institution<br>
-                        <input name="currentCompany" value="${currentCompany}" class="input-box"><br> <!-- company/institution -->
+                        <input name="currentCompany" value="<%=currentCompany%>" class="input-box"><br> <!-- company/institution -->
                         Address Line 1<br>
-                        <input name="address1" value="${address1}" class="input-box"><br> <!-- adressline1 -->
+                        <input name="address1" value="<%=address1%>" class="input-box"><br> <!-- adressline1 -->
                         Address Line 2<br>
-                        <input name="address2" value="${address2}" class="input-box"><br>                      <!-- addressLine2 -->
+                        <input name="address2" value="<%=address2%>" class="input-box"><br>                      <!-- addressLine2 -->
                         City<br>
-                        <input name="city" value="${city}" class="input-box"><br>
+                        <input name="city" value="<%=city%>" class="input-box"><br>
                         Postal Code<br>
-                        <input name="phone" value="${postalCode}" class="input-box"><br>
+                        <input name="phone" value="<%=postalCode%>" class="input-box"><br>
                         Phone<br>
-                        <input name="postalCode" value="${phone}" class="input-box"><br>
+                        <input name="postalCode" value="<%=phone%>" class="input-box"><br>
                         Email<br>
-                        <input type="email" value="${email}" name="email" class="input-box"><br>
+                        <input type="email" value="<%=email%>" name="email" class="input-box"><br>
 
                         <button style="border: 2px solid #D84D0A; font-size:10px; border-radius:3px; margin-top:5px;" type="submit">Update Profile</button>
             </form>
+                       
           </div>
       </div>
-      <div class="content-offset">
-          <div class="content-frame"> 
-            <div id="header" class="row">
-              <div class="header-padding">
-                <div class="header-content"> <h1>Curriculum Vitae</h1></div>
+        <div class="content-offset">
+            <div class="content-frame"> 
+                <div id="header" class="row">
+                    <div class="header-padding">
+                        <div class="header-content"> <h1>Curriculum Vitae</h1></div>
+                    </div>
+                </div>
+
+                <div id="content" class="row expand">
+                    <div class="inner-padding">  
+                            <div class="inner-padding">
+
+                                <div id="section1" class="container-fluid">
+                        <h3 class="cv-section">Education</h3>
+                        <!-- degree major 1 major 2 -->
+                        <p><strong><%=resultset.getString(12) %> <%=resultset.getString(14)%> <%=resultset.getString(15)%></strong> <br>
+                            <%=resultset.getString(13)%><br>
+                        <span class="year"><%=resultset.getString(16)%> </span><br> <!--  year --> 
+                        <p><strong><%=resultset.getString(17)%></strong> <br> <span class="year"><%=resultset.getString(18)%></span> </p>       <!-- high School year -->
+
+                    </div>
+                    <div id="section2" class="container-fluid">
+                        <h3 class="cv-section">Experience</h3>                     
+                        <p><strong><%=resultset.getString(19)%></strong> <br>  <!-- job1 -->
+                            <%=resultset.getString(20)%>  <br> <!-- company1 -->
+                            <span class="year"><%=resultset.getString(21)%></span>
+                        </p>               
+                        
+                        <p><strong><%=resultset.getString(22)%></strong> <br> <!-- job2 -->
+                            <%=resultset.getString(23)%>  <br> <!-- company2 -->
+                            <span class="year"><%=resultset.getString(24)%></span> 
+                        </p>                               
+                                                                    
+                    </div>
+                    <div id="section3" class="container-fluid">
+                        <h3 class="cv-section">Skills</h3>
+                            <span class="skills-btn"><%=resultset.getString(25)%></span>           <!-- skill1 -->
+                            <span class="skills-btn"><%=resultset.getString(26)%></span>           <!-- skill2 -->
+                            <span class="skills-btn"><%=resultset.getString(27)%></span>            <!-- skill3 -->
+                            <span class="skills-btn"><%=resultset.getString(28)%></span>         <!-- skill4 -->
+                            <span class="skills-btn"><%=resultset.getString(29)%></span>     <!-- skill5 -->
+                    </div> 
+                    <div id="section4" class="container-fluid">
+                        <h3 class="cv-section">References</h3>
+                        <p><%=resultset.getString(30)%>
+                        <address>
+                            <a name="email" href="mailto:#"><%=resultset.getString(31)%></a>
+                        </address>
+                        <p><%=resultset.getString(32)%>
+                        <address>
+                            <a name="email" href="mailto:#"><%=resultset.getString(33)%></a>
+                        </address>
+                    </div> 
+                </div>
+                            </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div id="content" class="row expand">
-          <div class="inner-padding">
-
-            <div id="section1" class="container-fluid">
-              <h3 class="cv-section">Education</h3>
-              <p><strong>University of Cape Town</strong> 
-                <span class="year">(2016)</span><br> <!-- institution , year -->
-                    BSc Computer Science, Business Computing <!-- degree major 1 major 2 -->
-              <p><strong>Ugie High School</strong> <span class="year">(2011)</span> </p>       <!-- high School year -->
-                                                    
-          </div>
-          <div id="section2" class="container-fluid">
-            <h3 class="cv-section">Experience</h3>                     
-            <p><strong>Software Intern</strong> <span class="year">(2013)</span><br>  <!-- job1 -->
-                Liquid Thought Solutions</p>                <!-- company1 -->
-            <p><strong>User Experience Testing</strong> <span class="year">(2014)</span> <br> <!-- job2 -->
-                Digiata Cape Town</p>                               <!-- company2 -->
-                                                                <!-- job3 -->
-                                                                <!-- company3 -->
-        </div>
-        <div id="section3" class="container-fluid">
-         <h3 class="cv-section">Skills</h3>
-         <span class="skills-btn">Java</span>           <!-- skill1 -->
-         <span class="skills-btn">html</span>           <!-- skill2 -->
-         <span class="skills-btn">CSS</span>            <!-- skill3 -->
-         <span class="skills-btn">Python</span>         <!-- skill4 -->
-         <span class="skills-btn">Angular JS</span>     <!-- skill5 -->
-     </div> 
-     <div id="section4" class="container-fluid">
-        <h3 class="cv-section">References</h3>
-        <p>Sonia Berman
-        <address>
-            <a name="email" href="mailto:#">sonia@cs.uct.ac.za</a>
-        </address><br>
-        <p>Max Price
-        <address>
-            <a name="email" href="mailto:#">maxprice@cs.uct.ac.za</a>
-        </address>
-     </div> 
-
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
+    </div>
 </body>
 </html>

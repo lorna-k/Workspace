@@ -51,17 +51,14 @@
             });
         });
         </script>
-<<<<<<< HEAD
-        
-        <script type=""> 
-=======
+
         <script> 
->>>>>>> af48b0471ef39428e6b3197730ff82dff52e9764
+
         $('#nav').affix({});
         </script>
         
         
-        <div id="fb-root"></div>
+<!--        <div id="fb-root"></div>-->
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
@@ -97,7 +94,7 @@
                                 <div class="editor">
                                     <div class="editor-header">
                                         
-                                        <a href=""> <%= request.getSession().getAttribute("currentUserName") %> </a>
+                                        <a href=""> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>
                                         
                                         </div>
                                     <input class="write-post" name="caption" placeholder="Write a post"></input>

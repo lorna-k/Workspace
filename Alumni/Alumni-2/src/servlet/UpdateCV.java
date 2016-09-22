@@ -60,27 +60,27 @@ public class UpdateCV extends HttpServlet {
             ResultSet rs = DBUtils.getPreparedSatement(sqlQuery).executeQuery();
             if(rs.next()){
                 request.getSession().setAttribute("highestDegree", rs.getString(12));
-            request.getSession().setAttribute("inst1", rs.getString(13));
-            request.getSession().setAttribute("major1", rs.getString(14));
-            request.getSession().setAttribute("major2", rs.getString(15));
-            request.getSession().setAttribute("gradYear", rs.getString(16));
-            request.getSession().setAttribute("scool", rs.getString(17));
-            request.getSession().setAttribute("schoolYear", rs.getString(18));
-            request.getSession().setAttribute("job1", rs.getString(19));
-            request.getSession().setAttribute("job1Company", rs.getString(20));
-            request.getSession().setAttribute("job1Year", rs.getString(21));
-            request.getSession().setAttribute("job2", rs.getString(22));
-            request.getSession().setAttribute("job2Company", rs.getString(23));
-            request.getSession().setAttribute("job2Year", rs.getString(24)); 
-            request.getSession().setAttribute("skill1", rs.getString(25));
-            request.getSession().setAttribute("skill2", rs.getString(26));
-            request.getSession().setAttribute("skill3", rs.getString(27));
-            request.getSession().setAttribute("skill4", rs.getString(28));
-            request.getSession().setAttribute("skill5", rs.getString(29));
-            request.getSession().setAttribute("refName1", rs.getString(30));
-            request.getSession().setAttribute("refEmail1", rs.getString(31));
-            request.getSession().setAttribute("refName2", rs.getString(32));
-            request.getSession().setAttribute("refEmail2", rs.getString(33)); 
+                request.getSession().setAttribute("inst1", rs.getString(13));
+                request.getSession().setAttribute("major1", rs.getString(14));
+                request.getSession().setAttribute("major2", rs.getString(15));
+                request.getSession().setAttribute("gradYear", rs.getString(16));
+                request.getSession().setAttribute("school", rs.getString(17));
+                request.getSession().setAttribute("schoolYear", rs.getString(18));
+                request.getSession().setAttribute("job1", rs.getString(19));
+                request.getSession().setAttribute("job1Company", rs.getString(20));
+                request.getSession().setAttribute("job1Year", rs.getString(21));
+                request.getSession().setAttribute("job2", rs.getString(22));
+                request.getSession().setAttribute("job2Company", rs.getString(23));
+                request.getSession().setAttribute("job2Year", rs.getString(24)); 
+                request.getSession().setAttribute("skill1", rs.getString(25));
+                request.getSession().setAttribute("skill2", rs.getString(26));
+                request.getSession().setAttribute("skill3", rs.getString(27));
+                request.getSession().setAttribute("skill4", rs.getString(28));
+                request.getSession().setAttribute("skill5", rs.getString(29));
+                request.getSession().setAttribute("refName1", rs.getString(30));
+                request.getSession().setAttribute("refEmail1", rs.getString(31));
+                request.getSession().setAttribute("refName2", rs.getString(32));
+                request.getSession().setAttribute("refEmail2", rs.getString(33)); 
             }
                       
             
@@ -99,7 +99,7 @@ public class UpdateCV extends HttpServlet {
         String gradYear = request.getParameter("gradYear");
         String school = request.getParameter("school");
         String schoolYear = request.getParameter("schoolYear");
-        String job1 = request.getParameter("Job1");
+        String job1 = request.getParameter("job1");
         String job1Company = request.getParameter("job1Company");
         String job1Year = request.getParameter("job1Year");
         String job2 = request.getParameter("job2");
