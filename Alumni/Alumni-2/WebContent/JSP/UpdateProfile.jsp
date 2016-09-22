@@ -117,6 +117,7 @@
                 <div id="content" class="row expand">
                     <div class="inner-padding">  
                             <div class="inner-padding">
+            <% if(resultset.next()){ %>
                                 <div id="section1" class="container-fluid">
                         <h3 class="cv-section">Education</h3>
                         <!-- degree major 1 major 2 -->
@@ -158,7 +159,7 @@
                             <a name="email" href="mailto:#"><%=resultset.getString(33)%></a>
                         </address>
                     </div> 
-
+<% } %>
                 </div>
                             </div>
                     </div>

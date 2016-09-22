@@ -95,7 +95,6 @@
                 String refEmail2 = resultset.getString(33);
             
         %>
-                 <form method="post" action="../ViewCV">
                         <div class="profile-photo">
                             <img class="cv-photo" src="../default-profile.png">
                         </div>
@@ -117,8 +116,6 @@
                       <address>
                           <a href="mailto:#"><%=email%></a>
                       </address>
-                  </form>
-
                   <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
 
           </div>
@@ -148,9 +145,9 @@
               Year of Graduation<br>
               <input name="gradYear" value="<%=gradYear%>" class="input-box"><br>
               High School Attended<br>
-              <input name="school" value="<%=schoo%>}" type="text" class="input-box"><br>
+              <input name="school" value="<%=school%>}" type="text" class="input-box"><br>
               Matric Year<br>
-              <input type="text" name="schoolYear" value="<%=text%>" class="input-box"><br>
+              <input type="text" name="schoolYear" value="<%=schoolYear%>" class="input-box"><br>
                                                     
           </div>
           <div id="section2" class="container-fluid">
