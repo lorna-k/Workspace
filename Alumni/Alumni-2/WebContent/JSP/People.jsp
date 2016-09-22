@@ -83,11 +83,14 @@
                 		<select class="marshal_details" id="search-dropdown" name="searcher"> 
 							<option value="" class="" disabled="" selected="">-Search people by-</option>
 							<option value="ALL">All</option> 
-							<option value="City">City</option> 
-							<option value="Graduation year">Graduation year</option> 
-							<option value="Current_Company">Company name</option>	 
 							<option value="First_Name">First Name</option>
-							<option value="Last_Name">Last Name</option>						
+							<option value="Last_Name">Last Name</option>
+							<option value="City">City</option> 
+							<option value="Highest_Degree_year">Recent grad year</option> 
+							<option value="Current_Company">Company name</option>
+							<option value="Occupation">Occupation</option>	 
+							<option value="Major1">Major</option>
+													
 						</select> 
 
 			
@@ -114,26 +117,34 @@
                                 		//request.getSession().getAttribute("search").toString();
                                 //request.getSession().getAttribute("searcher").toString();
                                 ResultSet resultset = null;
-                                if( search_1.equalsIgnoreCase("ALL") ){
+                                int ind_Fn = 2;
+                                resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Highest_Degree_Year,Highest_Degree,Major1,Major2,City,Occupation)) like lower('%"+search_2+"%')") ;
+                                /*if( search_1.equalsIgnoreCase("ALL") ){
                                 	 resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Major1,Major2,City)) like lower('%"+search_2+"%')") ;
+                                	 //resultset.next();
+                                	 //System.out.println(resultset.getString(1));
                                 }
-                                else if((search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && search_2!="")
+                                 else if((search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && search_2!="")
                                 {
-                                	resultset =  statement.executeQuery("SELECT * FROM CVs WHERE "+search_1+" = '"+search_2+"'") ;
-                                }
-                                else{
+                                	
+                                	resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Major1,Major2,City)) like lower('%"+search_2+"%')") ;
+
+                                	//resultset.next();
+                                } 
+                                 else{
                                 	resultset = null;
-                                }
+                                } */
+                              
                                 //else if(search_1!=null && (search_1!=null || search_2!=null)){
                                 	// resultset =  statement.executeQuery("SELECT * FROM CVs WHERE "+"City"+" = '"+"Cape Town"+"'") ;
                                 //}
                                 
                                 
                                 //"+ request.getSession().getAttribute("searcher").+" ='"+request.getSession().getAttribute("search")+"'
-                                
-                                 if(resultset != null ){
+                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && resultset.isBeforeFirst()){	
                                 	 while(resultset.next())
                                      {
+                                		 
                                      %>
                                      <div class="posts">
                                          <div class="editor">
@@ -150,28 +161,32 @@
 
                                          </div>
                                      </div>
-                                     <!-- Closing connection to database -->
-                                        <%
-                                         }
-                                         %>
-                                 <%}
+                                     
+                                      <%}
+                                	}
                                  else{%>
-                                 		 <div class="posts">
-                                         <div class="editor">
-                                             <div class="editor-header">
-                                             <!-- Display name of user who posted-->
-                                             
-                                             </div>
-                                             <div class="post-body message_frame" style="color: grey;">
-                                                 <p>Search "<%=search_2%>" Not found</p>
-                                                
-                                             </div>
-
+                                 
+                                	 <div class="posts">
+                                     <div class="editor">
+                                         <div class="editor-header">
+                                         <!-- Display name of user who posted-->
+                                         
                                          </div>
+                                         <div class="post-body message_frame" style="color: grey;">
+                                             <p>Search "<%=search_2%>" Not found</p>
+                                             <p>Enter a Valid search value</p>
+                                            
+                                         </div>
+
                                      </div>
+                                 </div>
+                                 		 
                                      
                                 	 
                                  <%}%>
+                                     <!-- Closing connection to database -->
+                                  
+                                
                                 
                                 
                             </div>
