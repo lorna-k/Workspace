@@ -88,58 +88,58 @@
             <div id="section1" class="container-fluid">
               <h3 class="cv-section">Education</h3>
               Highest Degree<br>
-              <input name="highestDegree" type="text" class="input-box"><br>
+              <input name="highestDegree" value="${highestDegree}" type="text" class="input-box"><br>
               Major<br>
-              <input type="text" name="major1" class="input-box"><br>
+              <input type="text" value="${major1}" name="major1" class="input-box"><br>
               2nd Major (optional)<br>
-              <input name="major2" type="text" class="input-box"><br>
+              <input name="major2" value="${major2}" type="text" class="input-box"><br>
               Institution<br>
-              <input name="inst1" type="text" class="input-box"><br>
+              <input name="inst1" value="${inst1}" type="text" class="input-box"><br>
               Year of Graduation<br>
-              <input name="gradYear" class="input-box"><br>
+              <input name="gradYear" value="${gradYear}" class="input-box"><br>
               High School Attended<br>
-              <input name="school" type="text" class="input-box"><br>
+              <input name="school" value="${school}" type="text" class="input-box"><br>
               Matric Year<br>
-              <input type="text" name="schoolYear" class="input-box"><br>
+              <input type="text" name="schoolYear" value="${text}" class="input-box"><br>
                                                     
           </div>
           <div id="section2" class="container-fluid">
               <h3 class="cv-section">Work Experience</h3>
               Job Title<br>
-              <input type="text" name="job1" class="input-box"><br>
+              <input type="text" name="job1" value="${job1}" class="input-box"><br>
               Company Name or Institution<br>
-              <input type="text" name="job1Company" class="input-box"><br>
+              <input type="text" name="job1Company" value="${job1Company}" class="input-box"><br>
               Year <br>
-              <input type="text" name="job1Year" class="input-box"><br>
+              <input type="text" name="job1Year" value="${job1Year}" class="input-box"><br>
               Job Title<br>
-              <input type="text" name="job2" class="input-box"><br>
+              <input type="text" name="job2" value="${job2}" class="input-box"><br>
               Company Name or Institution<br>
-              <input name="job2Company" type="text" class="input-box"><br>
+              <input name="job2Company" value="${job2Company}" type="text" class="input-box"><br>
               Year <br>
-              <input name="job2Year" type="text" class="input-box"><br>
+              <input name="job2Year" value="${job2Year}" type="text" class="input-box"><br>
                                  
           </div>
         <div id="section3" class="container-fluid">
          <h3 class="cv-section">Skills</h3>
          Enter a list of skills you have obtained e.g.(C++, Java, Python)
          <ol>
-             <li><input type="text" name="skill1" class="input-box"> </li>
-             <li><input type="text" name="skill2" class="input-box"></li>
-             <li><input type="text" name="skill3" class="input-box"></li>
-             <li><input type="text" name="skill4" class="input-box"></li>
-             <li><input type="text" name="skill5" class="input-box"> </li>
+             <li><input type="text" name="skill1" value="${skill1}" class="input-box"> </li>
+             <li><input type="text" name="skill2" value="${skill2}" class="input-box"></li>
+             <li><input type="text" name="skill3" value="${skill3}" class="input-box"></li>
+             <li><input type="text" name="skill4" value="${skill4}" class="input-box"></li>
+             <li><input type="text" name="skill5" value="${skill5}" class="input-box"> </li>
          </ol>        
      </div> 
      <div id="section4" class="container-fluid">
         <h3 class="cv-section">References</h3>
         Reference Name<br>
-        <input type="text" name="refName1" class="input-box"><br>
+        <input type="text" name="refName1" value="${refName1}" class="input-box"><br>
         Email<br>
-        <input type="email" name="refEmail1" class="input-box"><br>
+        <input type="email" name="refEmail1" value="${refEmail1}" class="input-box"><br>
         Reference Name<br>
-        <input type="text" name="refName2" class="input-box"><br>
+        <input type="text" name="refName2" value="${refName2}" class="input-box"><br>
         Email<br>
-        <input type="email" name="refEmail2" class="input-box"><br>
+        <input type="email" name="refEmail2" value="${refEmail2}" class="input-box"><br>
      </div> 
      <button style="border: 2px solid #D84D0A; font-size:20px; border-radius:3px; margin-top:5px;" type="submit">Update CV</button>
 

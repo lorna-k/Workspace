@@ -24,6 +24,8 @@
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/nav_style.css">
         <link rel="stylesheet" href="../css/site_styles.css">
+       
+        <link rel="stylesheet" type="text/css" href="../css/forum.css">
         <!-- The fonts-->
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
@@ -59,18 +61,7 @@
             <nav class="clearfix">
                 <a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
-                <select class="marshal_details" id="search-dropdown"> 
-							<option value="" class="" disabled="" selected="">-Search people by-</option>
-							<option value="0">All</option> 
-							<option value="0">City</option> 
-							<option value="0">Graduation year</option> 
-							<option value="0">Company name</option>	 
-							<option value="0">Name</option>						
-						</select> 
-
-			
-						<input id="search-text" type="text" name="search" placeholder="Search..">
-						<button class="icon" id="search-button"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
+                
                 <ul class="clearfix">
                     <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
@@ -82,6 +73,110 @@
                 <a href="#" id="pull">Menu</a>
             </nav>
         </div>
+        <div class="page">
+            <div class="wrapper">
+                <div class="content-wrapper">
+                    <div class="content">
+                    <form action="../search" method="post" class="form-group" style="width: 100%;">
+                
+                		<select class="marshal_details" id="search-dropdown" name="searcher"> 
+							<option value="" class="" disabled="" selected="">-Search people by-</option>
+							<option value="ALL">All</option> 
+							<option value="City">City</option> 
+							<option value="Graduation year">Graduation year</option> 
+							<option value="Current_Company">Company name</option>	 
+							<option value="First_Name">First Name</option>
+							<option value="Last_Name">Last Name</option>						
+						</select> 
+
+			
+						<input id="search-text" type="text" name="search" placeholder="Search..">
+						<button class="icon" id="search-button" name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
+						
+						</form>
+                        <form method="post" action="../search">
+                           
+                            <div class="feeds">
+                                <!-- Opening connection to data in database -->
+                            <%
+                                Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                
+                                Statement statement = connection.createStatement() ;
+                                String search_1= request.getSession().getAttribute("searcher")+"";
+                                		//
+                                String search_2 =request.getSession().getAttribute("search")+"";
+                                		//
+                               
+                                
+                                		//request.getSession().getAttribute("search").toString();
+                              
+                                		//request.getSession().getAttribute("search").toString();
+                                //request.getSession().getAttribute("searcher").toString();
+                                ResultSet resultset = null;
+                                if( search_1.equalsIgnoreCase("ALL") ){
+                                	 resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Major1,Major2,City)) like lower('%"+search_2+"%')") ;
+                                }
+                                else if((search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && search_2!="")
+                                {
+                                	resultset =  statement.executeQuery("SELECT * FROM CVs WHERE "+search_1+" = '"+search_2+"'") ;
+                                }
+                                else{
+                                	resultset = null;
+                                }
+                                //else if(search_1!=null && (search_1!=null || search_2!=null)){
+                                	// resultset =  statement.executeQuery("SELECT * FROM CVs WHERE "+"City"+" = '"+"Cape Town"+"'") ;
+                                //}
+                                
+                                
+                                //"+ request.getSession().getAttribute("searcher").+" ='"+request.getSession().getAttribute("search")+"'
+                                
+                                 if(resultset != null ){
+                                	 while(resultset.next())
+                                     {
+                                     %>
+                                     <div class="posts">
+                                         <div class="editor">
+                                             <div class="editor-header">
+                                             <!-- Display name of user who posted-->
+                                             <a href=""> <%=resultset.getString(2)+" "+resultset.getString(3)%></a> 
+                                             <!-- <span>Posted <%=resultset.getString(1)%></span> -->
+                                             </div>
+                                             <div class="post-body message_frame" style="color: grey;">
+                                                 <p>Occupation: <%=resultset.getString(4)%></p>
+                                                 <p>Highest Degree: <%=resultset.getString(12)%></p>
+                                                 <p>Current City: <%=resultset.getString(8)%></p>
+                                             </div>
+
+                                         </div>
+                                     </div>
+                                     <!-- Closing connection to database -->
+                                        <%
+                                         }
+                                         %>
+                                 <%}
+                                 else{%>
+                                 		 <div class="posts">
+                                         <div class="editor">
+                                             <div class="editor-header">
+                                             <!-- Display name of user who posted-->
+                                             
+                                             </div>
+                                             <div class="post-body message_frame" style="color: grey;">
+                                                 <p>Search "<%=search_2%>" Not found</p>
+                                                
+                                             </div>
+
+                                         </div>
+                                     </div>
+                                     
+                                	 
+                                 <%}%>
+                                
+                                
+                            </div>
+                        </form>                        
+                    </div>
+                </div>
 
     </body>
 </html>

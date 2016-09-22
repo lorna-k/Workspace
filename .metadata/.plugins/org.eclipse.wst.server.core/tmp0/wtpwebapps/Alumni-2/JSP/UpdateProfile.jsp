@@ -58,28 +58,28 @@
                     <img class="cv-photo" src="../default-profile.png">
                 </div>
                     First Name<br>
-                    <input name="fname" class="input-box"><br>
+                    <input name="fname" value="${fname}" class="input-box"><br>
                     Last  Name<br>
-                    <input name="lname" class="input-box"><br>
+                    <input name="lname" value="${lname}" class="input-box"><br>
 
                     Occupation<br>
-                    <input name="occupation" class="input-box"><br>
+                    <input name="occupation" value="${occupation}" class="input-box"><br>
 
                     <h5 style="text-decoration:underline;">Work Details</h5>
                         Company or Institution<br>
-                        <input name="currentCompany" class="input-box"><br> <!-- company/institution -->
+                        <input name="currentCompany" value="${currentCompany}" class="input-box"><br> <!-- company/institution -->
                         Address Line 1<br>
-                        <input name="address1" class="input-box"><br> <!-- adressline1 -->
+                        <input name="address1" value="${address1}" class="input-box"><br> <!-- adressline1 -->
                         Address Line 2<br>
-                        <input name="address2" class="input-box"><br>                      <!-- addressLine2 -->
+                        <input name="address2" value="${address2}" class="input-box"><br>                      <!-- addressLine2 -->
                         City<br>
-                        <input name="city" class="input-box"><br>
+                        <input name="city" value="${city}" class="input-box"><br>
                         Postal Code<br>
-                        <input name="phone" class="input-box"><br>
+                        <input name="phone" value="${postalCode}" class="input-box"><br>
                         Phone<br>
-                        <input name="postalCode" class="input-box"><br>
+                        <input name="postalCode" value="${phone}" class="input-box"><br>
                         Email<br>
-                        <input type="email" name="email" class="input-box"><br>
+                        <input type="email" value="${email}" name="email" class="input-box"><br>
 
                         <button style="border: 2px solid #D84D0A; font-size:10px; border-radius:3px; margin-top:5px;" type="submit">Update Profile</button>
             </form>
