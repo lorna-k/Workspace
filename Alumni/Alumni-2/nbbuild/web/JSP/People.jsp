@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/nav_style.css">
         <link rel="stylesheet" href="../css/site_styles.css">
+        
        
         <link rel="stylesheet" type="text/css" href="../css/forum.css">
         <!-- The fonts-->
@@ -102,9 +103,9 @@
                                 Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
                                 
                                 Statement statement = connection.createStatement() ;
-                                String search_1= request.getSession().getAttribute("searcher").toString();
+                                String search_1= request.getSession().getAttribute("searcher")+"";
                                 		//
-                                String search_2 =request.getSession().getAttribute("search").toString();
+                                String search_2 =request.getSession().getAttribute("search")+"";
                                 		//
                                
                                 

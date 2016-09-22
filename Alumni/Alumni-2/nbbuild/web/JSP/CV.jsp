@@ -101,7 +101,7 @@
                       <address>
                           <a name="email" href="mailto:#"><%=resultset.getString(11)%> </a>
                       </address>
-                <% } %>
+                
                     <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Edit Profile</a>
             
           </div>
@@ -119,10 +119,7 @@
         <div id="content" class="row expand">
 
                 <div class="inner-padding">
-                     <%
-                  if(resultset.next()){
-                  
-                  %>
+                    
 
                     <div id="section1" class="container-fluid">
                         <h3 class="cv-section">Education</h3>

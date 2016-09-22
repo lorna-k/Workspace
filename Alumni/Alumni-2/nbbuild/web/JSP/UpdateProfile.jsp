@@ -59,7 +59,7 @@
             String uid = request.getSession().getAttribute("currentUserID")+"";
             
             ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE ID = '"+uid+"'") ; 
-                if(resultset.next()){
+                    resultset.next();
                     String fname = resultset.getString(2);
                     String lname = resultset.getString(3);
                     String occupation = resultset.getString(4);
@@ -103,7 +103,7 @@
 
                         <button style="border: 2px solid #D84D0A; font-size:10px; border-radius:3px; margin-top:5px;" type="submit">Update Profile</button>
             </form>
-                        <% } %>
+                       
           </div>
       </div>
         <div class="content-offset">
@@ -117,7 +117,7 @@
                 <div id="content" class="row expand">
                     <div class="inner-padding">  
                             <div class="inner-padding">
-            <% if(resultset.next()){ %>
+
                                 <div id="section1" class="container-fluid">
                         <h3 class="cv-section">Education</h3>
                         <!-- degree major 1 major 2 -->
@@ -159,7 +159,6 @@
                             <a name="email" href="mailto:#"><%=resultset.getString(33)%></a>
                         </address>
                     </div> 
-<% } %>
                 </div>
                             </div>
                     </div>

@@ -99,7 +99,7 @@ public class UpdateCV extends HttpServlet {
         String gradYear = request.getParameter("gradYear");
         String school = request.getParameter("school");
         String schoolYear = request.getParameter("schoolYear");
-        String job1 = request.getParameter("Job1");
+        String job1 = request.getParameter("job1");
         String job1Company = request.getParameter("job1Company");
         String job1Year = request.getParameter("job1Year");
         String job2 = request.getParameter("job2");
