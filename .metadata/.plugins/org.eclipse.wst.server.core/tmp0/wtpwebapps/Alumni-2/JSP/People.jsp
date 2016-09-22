@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/nav_style.css">
         <link rel="stylesheet" href="../css/site_styles.css">
+        
        
         <link rel="stylesheet" type="text/css" href="../css/forum.css">
         <!-- The fonts-->
