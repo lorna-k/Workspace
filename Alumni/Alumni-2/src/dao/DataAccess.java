@@ -351,8 +351,7 @@ public class DataAccess
     
     public void addUser(User user) throws ClassNotFoundException,SQLException
     {
-    	if(user.getUserID()!="" || user.getFirstName()!="" || user.getEmail()!="" || user.getPassWord()!="" || user.getAccountType()!="")
-    	{
+    	
 	        PreparedStatement ps=DBUtils.getPreparedSatement("insert into Users values(?,?,?,?,?,?)");
 	        ps.setString(1, user.getUserID());
 	        ps.setString(2, user.getFirstName());
@@ -362,7 +361,54 @@ public class DataAccess
 	        ps.setString(6, user.getAccountType());
 	        
 	        ps.executeUpdate();
-    	}
+                
+                
+                PreparedStatement ps2=DBUtils.getPreparedSatement("insert into CVs values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	        ps2.setString(1, user.getUserID());
+	        ps2.setString(2, user.getFirstName());
+	        ps2.setString(3, "");
+	        ps2.setString(4, "");
+	        ps2.setString(5, "");
+	        ps2.setString(6, "");
+                ps2.setString(7, "");
+                
+                ps2.setString(8, "");
+	        ps2.setString(9, "");
+	        ps2.setString(10, "");
+	        ps2.setString(11,user.getEmail());
+                ps2.setString(12, "");
+                
+                ps2.setString(12, "");
+	        ps2.setString(13, "");
+	        ps2.setString(14, "");
+	        ps2.setString(15, "");
+                ps2.setString(16, "");
+                
+                ps2.setString(17, "");
+	        ps2.setString(18, "");
+	        ps2.setString(19, "");
+	        ps2.setString(20, "");
+                ps2.setString(21, "");
+                
+                ps2.setString(22, "");
+	        ps2.setString(23, "");
+	        ps2.setString(24, "");
+	        ps2.setString(25, "");
+                ps2.setString(26, "");
+                
+                ps2.setString(27, "");
+	        ps2.setString(28, "");
+	        ps2.setString(29, "");
+	        ps2.setString(30, "");
+                ps2.setString(31, "");
+                
+                ps2.setString(31, "");
+	        ps2.setString(32, "");
+	        ps2.setString(33, "");
+	       
+	        System.out.println("here");
+	        ps2.executeUpdate();
+    	
     }
     
     public void rejectedUser(String data)
@@ -392,6 +438,9 @@ public class DataAccess
 		        ps.setString(6, rs.getString(6));
 		        
 		        ps.executeUpdate();
+                        
+                        
+                        
     	    }
 		    
 	        //Deleting the user from the pending users databse
@@ -460,15 +509,62 @@ public class DataAccess
 			//Adding the user to the reject user database
 		    
 				PreparedStatement ps=DBUtils.getPreparedSatement("insert into Users values(?,?,?,?,?,?)");
-		        ps.setString(1, rs.getString(1));
-		        ps.setString(2, rs.getString(2));
-		        ps.setString(3, rs.getString(3));
-		        ps.setString(4, rs.getString(4));
-		        ps.setString(5, rs.getString(5));
-		        ps.setString(6, rs.getString(6));
-		        
-		        ps.executeUpdate();
-    	    }
+                                ps.setString(1, rs.getString(1));
+                                ps.setString(2, rs.getString(2));
+                                ps.setString(3, rs.getString(3));
+                                ps.setString(4, rs.getString(4));
+                                ps.setString(5, rs.getString(5));
+                                ps.setString(6, rs.getString(6));
+
+                                ps.executeUpdate();
+
+
+                                PreparedStatement ps2=DBUtils.getPreparedSatement("insert into CVs values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                ps2.setString(1, rs.getString(1));
+                                ps2.setString(2, rs.getString(2));
+                                ps2.setString(3, rs.getString(3));
+                                ps2.setString(4, "");
+                                ps2.setString(5, "");
+                                ps2.setString(6, "");
+                                ps2.setString(7, "");
+
+                                ps2.setString(8, "");
+                                ps2.setString(9, "");
+                                ps2.setString(10, "");
+                                ps2.setString(11,rs.getString(4));
+                                ps2.setString(12, "");
+
+                                ps2.setString(12, "");
+                                ps2.setString(13, "");
+                                ps2.setString(14, "");
+                                ps2.setString(15, "");
+                                ps2.setString(16, "");
+
+                                ps2.setString(17, "");
+                                ps2.setString(18, "");
+                                ps2.setString(19, "");
+                                ps2.setString(20, "");
+                                ps2.setString(21, "");
+
+                                ps2.setString(22, "");
+                                ps2.setString(23, "");
+                                ps2.setString(24, "");
+                                ps2.setString(25, "");
+                                ps2.setString(26, "");
+
+                                ps2.setString(27, "");
+                                ps2.setString(28, "");
+                                ps2.setString(29, "");
+                                ps2.setString(30, "");
+                                ps2.setString(31, "");
+
+                                ps2.setString(31, "");
+                                ps2.setString(32, "");
+                                ps2.setString(33, "");
+
+                                System.out.println("here");
+                                ps2.executeUpdate();
+                            }
 		    
 	        //Deleting the user from the pending users databse
 	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Pending_Users WHERE ID ='"+data+"'");

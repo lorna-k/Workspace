@@ -61,7 +61,7 @@ public class addUser extends HttpServlet {
         try 
         {
         	boolean uNCheck =checkUsername(id);
-        	boolean exist =checkExistance(id);
+            boolean exist =checkExistance(id);
             boolean emailCheck =checkEmail(email);
             boolean passwordCheck =checkPassword(password);
             boolean userType=checkUserType(accountType);

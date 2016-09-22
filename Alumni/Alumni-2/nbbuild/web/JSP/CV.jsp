@@ -74,13 +74,10 @@
             
        
             <div class="fixed-wrapper">
-              <div class="fixed-content">
-
-                        <div class="profile-photo">
-                            <img class="cv-photo" src="../default-profile.png">
-                        </div>
+              <div class="fixed-content">        
                   <%
-                  if(resultset.next()){
+                  if(resultset.next())
+                  {
                   
                   %>
                       <label class="name-label"><%=resultset.getString(2)%>  <%=resultset.getString(3)%> </label>
@@ -101,6 +98,7 @@
                       <address>
                           <a name="email" href="mailto:#"><%=resultset.getString(11)%> </a>
                       </address>
+                      
                 
                     <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Edit Profile</a>
             
@@ -162,8 +160,12 @@
                             <a name="email" href="mailto:#"><%=resultset.getString(33)%></a>
                         </address>
                     </div> 
-                   <% } %>
+                   
                 </div>
+                        <% }%>
+                        
+                        
+                        
         </div>
     </div>
    </div>

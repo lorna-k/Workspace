@@ -116,7 +116,7 @@
                       <address>
                           <a href="mailto:#"><%=email%></a>
                       </address>
-                  <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>
+<!--                  <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>-->
 
           </div>
       </div>

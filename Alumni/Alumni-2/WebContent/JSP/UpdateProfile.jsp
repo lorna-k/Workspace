@@ -59,7 +59,7 @@
             String uid = request.getSession().getAttribute("currentUserID")+"";
             
             ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE ID = '"+uid+"'") ; 
-                    resultset.next();
+                    if(resultset.next()){
                     String fname = resultset.getString(2);
                     String lname = resultset.getString(3);
                     String occupation = resultset.getString(4);
@@ -160,6 +160,7 @@
                         </address>
                     </div> 
                 </div>
+            <% } %>
                             </div>
                     </div>
                 </div>
