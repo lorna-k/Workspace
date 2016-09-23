@@ -80,7 +80,7 @@ html>body .row.expand {
 .fixed-content {
 	min-height:100%;
 	position:relative;
-	top:50px;
+	top:0px;
 	text-align: center;
 }
 
@@ -150,6 +150,7 @@ span.skills-btn {
   }
 
 .profile-photo{
+	margin-top: 10px;
 	margin-bottom: 15px;
 }
 /*span.skills-btn:hover{

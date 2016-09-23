@@ -49,8 +49,8 @@
         </div>
         <div class="site-wrapper">
           <div class="site-center">
-            <div class="fixed-wrapper">
-              <div class="fixed-content" >
+            <div class="fixed-wrapper" >
+              <div class="fixed-content">
     <% 
             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
