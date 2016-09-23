@@ -9,8 +9,14 @@
     <%@ page import = "java.io.*" %>
     <%@ page import = "dao.*" %>
     <%@ page import="java.sql.*" %>
-
-    <%-- <jsp:useBean id="photo" class="dao.Images" scope="session" /> --%>
+    
+    <%-- Security check: Prohibit access for unauthorised users--%>
+    <%
+        if (request.getSession().getAttribute("currentUserName") == null){
+        response.sendRedirect("Login.jsp");
+    }
+    %>
+    
     <!DOCTYPE html>
     <html>
     <head>
