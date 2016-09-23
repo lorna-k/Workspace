@@ -50,7 +50,7 @@
         <div class="site-wrapper">
           <div class="site-center">
             <div class="fixed-wrapper">
-              <div class="fixed-content">
+              <div class="fixed-content" >
     <% 
             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
@@ -101,7 +101,7 @@
                         Email<br>
                         <input type="email" value="<%=email%>" name="email" class="input-box"><br>
 
-                        <button style="border: 2px solid #D84D0A; font-size:10px; border-radius:3px; margin-top:5px;" type="submit">Update Profile</button>
+                        <button style="border: 2px solid #D84D0A; font-size:10px; border-radius:3px; margin-top:5px;" type="submit">Save changes</button>
             </form>
                        
           </div>

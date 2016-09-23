@@ -99,6 +99,9 @@
                             <img class="cv-photo" src="../default-profile.png">
                         </div>
                         <label class="name-label"><%=fname%>  <%=lname%></label>
+                        <address>
+                          <a href="mailto:<%=email%>"><%=email%></a>
+                      </address>
 
                         <div class="personal-details">
                             <label ><%=occupation%></label><br>
@@ -113,9 +116,7 @@
                               <abbr title="Phone">P:</abbr> <%=phone%>
                           </address>
                       </div>
-                      <address>
-                          <a href="mailto:#"><%=email%></a>
-                      </address>
+                      
 <!--                  <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn">Update Profile</a>-->
 
           </div>
@@ -187,8 +188,9 @@
         <input type="text" name="refName2" value="<%=refName2%>" class="input-box"><br>
         Email<br>
         <input type="email" name="refEmail2" value="<%=refEmail2%>" class="input-box"><br>
+        <button style="border: 2px solid #D84D0A; font-size:15px; border-radius:3px; margin-top:5px;" type="submit">Save changes</button>
      </div> 
-     <button style="border: 2px solid #D84D0A; font-size:20px; border-radius:3px; margin-top:5px;" type="submit">Update CV</button>
+     
 
 </div>
 </form>
