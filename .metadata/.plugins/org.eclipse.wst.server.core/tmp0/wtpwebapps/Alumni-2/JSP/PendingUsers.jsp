@@ -10,6 +10,13 @@
 <%@ page import="dao.DataAccess" %>
 
 <% Class.forName("com.mysql.jdbc.Driver"); %>
+<%--Security Check: only permit admin access to this page--%>
+<%
+    if(request.getSession().getAttribute("currentUserName") != "Admin"){
+        response.sendRedirect("Login.jsp");
+    }
+
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
