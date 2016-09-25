@@ -12,6 +12,13 @@
     <%@ page import="java.io.*"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
+<%-- Security check: Prohibit access for unauthorised users--%>
+<%
+        if (request.getSession().getAttribute("currentUserName") == null){
+        response.sendRedirect("Login.jsp");
+    }
+    %>
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -51,17 +58,14 @@
             });
         });
         </script>
-<<<<<<< HEAD
-        
-        <script type=""> 
-=======
+
         <script> 
->>>>>>> af48b0471ef39428e6b3197730ff82dff52e9764
+
         $('#nav').affix({});
         </script>
         
         
-        <div id="fb-root"></div>
+<!--        <div id="fb-root"></div>-->
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
@@ -82,8 +86,12 @@
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
-				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
-				<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
+				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>	
+				
+				<form id="logout_form" method="post" action="../logout">	
+					<li><a href="javascript:{}" onclick="document.getElementById('logout_form').submit(); return false;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
+				</form>
+				
                 </ul>
                 <a href="#" id="pull">Menu</a>
             </nav>
@@ -97,7 +105,7 @@
                                 <div class="editor">
                                     <div class="editor-header">
                                         
-                                        <a href=""> <%= request.getSession().getAttribute("currentUserName") %> </a>
+                                        <a href=""> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>
                                         
                                         </div>
                                     <input class="write-post" name="caption" placeholder="Write a post"></input>

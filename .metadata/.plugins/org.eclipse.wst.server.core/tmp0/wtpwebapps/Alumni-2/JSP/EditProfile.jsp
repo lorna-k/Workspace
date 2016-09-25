@@ -6,6 +6,13 @@ Author     : Lorna Nqodi
 
 <%@page import="java.lang.String"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%-- Security check: Prohibit access for unauthorised users--%>
+<%
+        if (request.getSession().getAttribute("currentUserName") == null){
+        response.sendRedirect("Login.jsp");
+    }
+    %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
