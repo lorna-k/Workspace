@@ -105,7 +105,7 @@
                                 <div class="editor">
                                     <div class="editor-header">
                                         
-                                        <a href=""> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>
+                                        <a href="CV.jsp"> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>
                                         
                                         </div>
                                     <input class="write-post" name="caption" placeholder="Write a post"></input>
@@ -115,6 +115,7 @@
                                     </div>
                                 </div>              
                             </div>
+                           </form> 
                             <div class="feeds">
                                 <!-- Opening connection to data in database -->
                             <%
@@ -131,7 +132,11 @@
                                     <div class="editor">
                                         <div class="editor-header">
                                         <!-- Display name of user who posted-->
-                                        <a href=""> <%=resultset.getString(2)+" "+resultset.getString(3)%></a> 
+                                        
+                                        <form id="ViewProfile_form" method="post" action="../View_Profile">
+                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
+                                        </form>
+                                        
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                         </div>
                                         <div class="post-body message_frame">
@@ -164,9 +169,9 @@
                                         </div>
                                         
                                         
-                                        
-                                        <input class="write-comment"    name="<%=resultset.getString(1)%>" type="text" placeholder="Write a comment">
-                                        
+                                        <form method="post" action="../Post">
+                                       		 <input class="write-comment"    name="<%=resultset.getString(1)%>" type="text" placeholder="Write a comment">
+                                        </form> 
                                     </div>
                                 </div>
                                 <!-- Closing connection to database -->
@@ -174,7 +179,7 @@
                                     }
                                     %>
                             </div>
-                        </form>                        
+                       <!--  </form>  -->                       
                     </div>
                 </div>
                 <div class="sidebar">

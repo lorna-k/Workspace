@@ -87,7 +87,7 @@ public class Post extends HttpServlet {
 				
 			    for(String element: arrID)
 			    {
-			    	if(!(request.getParameter(element).equals("")))
+			    	if(!(request.getParameter(element)==null))
 			    	{
 			    		//System.out.println(element+" "+request.getParameter(element));
 			    		commentID=element;

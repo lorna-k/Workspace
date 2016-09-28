@@ -62,7 +62,7 @@ html>body .row.expand {
   min-width:100px;
 }
 .inner-padding {
-	padding: 0px 32px 10px 63px;
+	padding: 0px 32px 10px 30px;
 }
 .header-padding {
 	padding:20px 16px 10px 47px;
@@ -74,14 +74,14 @@ html>body .row.expand {
 }
 .fixed-wrapper {
 	position:absolute;
-	margin-left: 50px;
+	margin-left: 80px;
 	height:100%;
 }
 .fixed-content {
 	min-height:100%;
 	position:relative;
-	top:50px;
-
+	top:0px;
+	text-align: center;
 }
 
 /*----responsive css------*/
@@ -89,7 +89,7 @@ html>body .row.expand {
 /*---fixed sidebar size---*/
 .fixed-wrapper, .fixed-content {
 	max-width:260px;/*desktop value 280px*/
-	padding-top: 15px;
+	/*padding-top: 15px;*/
 }
 
 .content-offset {
@@ -115,22 +115,7 @@ html>body .row.expand {
   	min-height:100px;
   	color: black; 
   }
-  .input-box{
-  	border: 1px solid #c1c1c1;
-  	border-radius: 3px;
-  	background-color: #fff;
-  	font-size: 15px;
-  	color: black;
-  }
-  .update-form{
-  	font-size: 11px;
-  	color: #5f5f5f;
-  	font-family: 'Open Sans' sans-serif;
-  }
-
-.profile-photo{
-	margin-left: 15px;
-}
+ 
 img.cv-photo{
 	width: 180px;
 	height: auto;
@@ -140,7 +125,7 @@ img.cv-photo{
 }
 .name-label{
 	text-align: center;
-	font-size: 35px;
+	font-size: 2em;
 	font-weight: bold;
 }
 span.skills-btn {
@@ -151,6 +136,23 @@ span.skills-btn {
 	color: white;
 	border: 2px solid #D84D0A;
 }
-span.skills-btn:hover{
-	color: #D84D0A;
+ .input-box{
+  	border: 1px solid #c1c1c1;
+  	border-radius: 3px;
+  	background-color: #fff;
+  	font-size: 15px;
+  	color: black;
+  }
+  .update-form{
+  	font-size: 11pt;
+  	color: #5f5f5f;
+  	font-family: 'Open Sans' sans-serif;
+  }
+
+.profile-photo{
+	margin-top: 10px;
+	margin-bottom: 15px;
 }
+/*span.skills-btn:hover{
+	color: #D84D0A;
+}*/

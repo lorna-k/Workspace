@@ -106,7 +106,7 @@
 						<button class="icon" id="search-button" name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
 						
 						</form>
-                        <form method="post" action="../search">
+                        <!-- <form method="post" action="../search"> -->
                            
                             <div class="feeds">
                                 <!-- Opening connection to data in database -->
@@ -158,7 +158,12 @@
                                          <div class="editor">
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
-                                             <a href=""> <%=resultset.getString(2)+" "+resultset.getString(3)%></a> 
+                                             
+                                             <form id="ViewProfile_form" method="post" action="../View_Profile">
+	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
+	                                        </form>
+                                             
+                                             
                                              <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                              </div>
                                              <div class="post-body message_frame" style="color: grey;">
@@ -198,7 +203,7 @@
                                 
                                 
                             </div>
-                        </form>                        
+                        <!-- </form>   -->                      
                     </div>
                 </div>
 
