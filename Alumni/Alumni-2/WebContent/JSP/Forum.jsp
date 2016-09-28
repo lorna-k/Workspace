@@ -184,7 +184,6 @@
                 </div>
                 <div class="sidebar">
                     <div class="fb-feed" style="margin-bottom:20px;">
-                            <!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNombulelo-senior-secondary-school-236973209727154%2F&tabs=timeline&width=238&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="240" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
                    			<div class="fb-page" data-href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961">UCT CSC Alumni Network</a></blockquote></div>
                     
                     </div>
