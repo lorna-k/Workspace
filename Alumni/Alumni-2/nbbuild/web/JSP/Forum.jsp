@@ -21,24 +21,28 @@
     %>
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-    <html lang="en">
-    <head>
-        <title>Forum</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta charset="ISO-8859-1">
-        <!-- css -->
-        <link rel="stylesheet" href="../css/normalize.css">
-        <link rel="stylesheet" href="../css/nav_style.css">
-        <link rel="stylesheet" href="../css/site_styles.css">
-        <link rel="stylesheet" type="text/css" href="../css/forum.css">
-        <!-- The fonts-->
-        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
-        <!-- JQuery -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Forum</title>
+	<meta charset="UTF-8">
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- css -->
+	<link  rel="stylesheet" href="../css/site_styles.css" />
+	<link  rel="stylesheet" href="../css/animate.css" />
+	<link  rel="stylesheet" href="../css/nav_style.css" />
+	<link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/forum.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <!--nav--> 
         <script>
         $(function() {
             var pull        = $('#pull');
@@ -58,36 +62,38 @@
             });
         });
         </script>
-
         <script> 
-
         $('#nav').affix({});
         </script>
-        
-        
-<!--        <div id="fb-root"></div>-->
-		<script>(function(d, s, id) {
+        <!--Face book-->
+        <script>
+            (function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=313231902363487";
 		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-		</script>
+            }(document, 'script', 'facebook-jssdk'));
+	</script>
         
-    </head>
-    <body>
+</head>
+<body>
+		
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
-                <a style="padding-top:10px" href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
+                <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 <ul class="clearfix">
                     <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
-				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
-				<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
+				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>	
+				
+				<form id="logout_form" method="post" action="../logout">	
+					<li><a href="javascript:{}" onclick="document.getElementById('logout_form').submit(); return false;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
+				</form>
+				
                 </ul>
                 <a href="#" id="pull">Menu</a>
             </nav>
@@ -111,6 +117,7 @@
                                     </div>
                                 </div>              
                             </div>
+                           </form> 
                             <div class="feeds">
                                 <!-- Opening connection to data in database -->
                             <%
@@ -127,7 +134,11 @@
                                     <div class="editor">
                                         <div class="editor-header">
                                         <!-- Display name of user who posted-->
-                                        <a href=""> <%=resultset.getString(2)+" "+resultset.getString(3)%></a> 
+                                        
+                                        <form id="ViewProfile_form" method="post" action="../View_Profile">
+                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
+                                        </form>
+                                        
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                         </div>
                                         <div class="post-body message_frame">
@@ -160,9 +171,9 @@
                                         </div>
                                         
                                         
-                                        
-                                        <input class="write-comment"    name="<%=resultset.getString(1)%>" type="text" placeholder="Write a comment">
-                                        
+                                        <form method="post" action="../Post">
+                                       		 <input class="write-comment"    name="<%=resultset.getString(1)%>" type="text" placeholder="Write a comment">
+                                        </form> 
                                     </div>
                                 </div>
                                 <!-- Closing connection to database -->
@@ -170,7 +181,7 @@
                                     }
                                     %>
                             </div>
-                        </form>                        
+                       <!--  </form>  -->                       
                     </div>
                 </div>
                 <div class="sidebar">
