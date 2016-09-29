@@ -75,10 +75,10 @@
 
 
 <div class="fixed-wrapper">
-  <div class="fixed-content" style="border-left: 1px solid gray;">
+  <div class="fixed-content" style="border-left: 1px solid gray; ">
     
     <div class="profile-photo">
-      <img class="cv-photo" src="../default-profile.png">
+        <img class="cv-photo" src="${pageContext.request.contextPath}/ImageUpload">
     </div>
     
     
@@ -106,7 +106,7 @@
     
   </div>
 </div>
-<div class="content-offset">
+<div class="content-offset" style="border-left: 1px solid gray; border-right: 1px solid gray;">
   <div class="content-frame"> 
     <div id="header" class="row">
       <div class="header-padding">

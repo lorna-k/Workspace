@@ -118,12 +118,13 @@ html>body .row.expand {
  
 img.cv-photo{
 	width: 180px;
-	height: auto;
+	height: 180px;
 	border-radius: 100px;
-	border: 2px solid black;
-	text-align: center;
+	border: 1px solid white;
+/*	text-align: center;*/
 }
 .name-label{
+        padding-left: 4px;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
@@ -151,8 +152,18 @@ span.skills-btn {
 
 .profile-photo{
 	margin-top: 10px;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 /*span.skills-btn:hover{
 	color: #D84D0A;
 }*/
+
+/*Upload link*/
+#upload_link{
+    margin-top: 20px;
+    text-decoration:none;  
+}
+#upload{
+    display:none;
+    
+}

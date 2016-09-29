@@ -32,6 +32,10 @@
         <servlet-name>ViewCV</servlet-name>
         <servlet-class>servlet.ViewCV</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImageUpload</servlet-name>
+        <servlet-class>servlet.ImageUpload</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -64,9 +68,11 @@
         <servlet-name>ViewCV</servlet-name>
         <url-pattern>/ViewCV</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImageUpload</servlet-name>
+        <url-pattern>/ImageUpload</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            3600
-        </session-timeout>
+        <session-timeout>3600</session-timeout>
     </session-config>
 </web-app>

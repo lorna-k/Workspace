@@ -10,7 +10,6 @@
     <%@ page import = "dao.*" %>
     <%@ page import="java.sql.*" %>
 
-    <%-- <jsp:useBean id="photo" class="dao.Images" scope="session" /> --%>
     <!DOCTYPE html>
     <html>
     <head>
@@ -30,6 +29,15 @@
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!--upload link-->
+      <script>
+          $(function(){
+            $("#upload_link").on('click', function(e){
+                e.preventDefault();
+                $("#upload:hidden").trigger('click');
+            });
+            });
+      </script>
     </head>
     <body>
       <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
@@ -50,7 +58,7 @@
       <div class="site-wrapper">
         <div class="site-center">
           <div class="fixed-wrapper">
-            <div class="fixed-content">
+            <div class="fixed-content" style="border-left: 1px solid gray;">
               <% 
               Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
@@ -72,11 +80,15 @@
               String email = resultset.getString(11); 
               %>
               
-              <form  action="../UpdateProfile" method="post" class="update-form">
-                
+                <form method="post" action="../ImageUpload" enctype="multipart/form-data">
+                    <input id="upload" type="file" name="photo"/>
+                    <input  type="button" id="upload_link" value="Change photo">
+                    <input type="submit" value="Save">
+                </form>
                 <div class="profile-photo">
-                  <img class="cv-photo" src="../default-profile.png">
+                    <img class="cv-photo" src="${pageContext.request.contextPath}/ImageUpload">
                 </div>
+              <form  action="../UpdateProfile" method="post" class="update-form">
                 First Name<br>
                 <input name="fname" value="<%=fname%>" class="input-box"><br>
                 Last  Name<br>
@@ -106,7 +118,7 @@
               
             </div>
           </div>
-          <div class="content-offset">
+          <div class="content-offset" style="border-left: 1px solid gray; border-right: 1px solid gray;">
             <div class="content-frame"> 
               <div id="header" class="row">
                 <div class="header-padding">

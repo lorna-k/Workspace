@@ -90,7 +90,7 @@
 		
 	
 	
-        <H1 align="center" style="margin-top:20vh;font-family:Aria">Pending Users</H1>
+        <H1 align="center" style="margin-top:13vh;font-family:Aria">Pending Users</H1>
 
         <% 
             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");

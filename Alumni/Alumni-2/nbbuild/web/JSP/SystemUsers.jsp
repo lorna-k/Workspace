@@ -90,7 +90,7 @@
 	</div>
 	<div class="right-content">
 	
-        <H1 align="center" style="margin-top:15vh;font-family:Aria"> Users</H1>
+        <H1 align="center" style="margin-top:13vh;font-family:Aria"> Users</H1>
 
         <% 
             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");

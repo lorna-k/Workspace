@@ -56,7 +56,10 @@
         <div class="site-wrapper">
           <div class="site-center">
             <div class="fixed-wrapper">
-              <div class="fixed-content">
+              <div class="fixed-content"style="border-left: 1px solid gray;">
+                <div class="profile-photo">
+                    <img class="cv-photo" src="${pageContext.request.contextPath}/ImageUpload">
+                </div>
     <% 
             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
@@ -101,9 +104,7 @@
                 String refEmail2 = resultset.getString(33);
             
         %>
-                        <div class="profile-photo">
-                            <img class="cv-photo" src="../default-profile.png">
-                        </div>
+                        
                         <label class="name-label"><%=fname%>  <%=lname%></label>
                         <address>
                           <a href="mailto:<%=email%>"><%=email%></a>
@@ -127,7 +128,7 @@
 
           </div>
       </div>
-      <div class="content-offset">
+      <div class="content-offset" style="border-left: 1px solid gray; border-right: 1px solid gray;">
           <div class="content-frame"> 
             <div id="header" class="row">
               <div class="header-padding">
