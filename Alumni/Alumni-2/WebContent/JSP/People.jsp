@@ -102,8 +102,8 @@
                     <form action="../search" method="post" class="form-group" style="width: 100%;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher"> 
-							<option value="" class="" disabled="" selected="">-Search people by-</option>
-							<option value="ALL">All</option> 
+							
+							<option value="ALL" selected="">All</option> 
 							<option value="First_Name">First Name</option>
 							<option value="Last_Name">Last Name</option>
 							<option value="City">City</option> 
