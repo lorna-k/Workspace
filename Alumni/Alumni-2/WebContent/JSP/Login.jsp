@@ -71,7 +71,7 @@
 
 					<!-- <a href="#/channels"> --><button type="submit" class="btn btn-primary form-group">Sign in</button><!-- </a> -->
 
-					<p class="message">Not registered? <a href="./JSP/addUser.jsp">Create an account</a></p>
+					<p class="message">Not registered? <a href="../JSP/addUser.jsp">Create an account</a></p>
 				</form>
 			</div>
 		</div>
