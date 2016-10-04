@@ -144,11 +144,17 @@
                                         <div class="post-body message_frame">
                                             <p><%=resultset.getString(4)%></p>
                                         </div>
-                                        <div class="editor-buttons">
-                                             <span style="color:#ccc;"><%=resultset.getString(6)%> Likes</span>
-                                            <a href=""><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
-                                            <a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment </a>
-                                        </div>
+                                        
+                                        <form method="post" action="../Like_Post">
+	                                        <div class="editor-buttons">
+	                                             <span style="color:#ccc;"><%=resultset.getString(6)%> Likes</span>
+	                                           <!--  <a href=""><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a> -->
+	                                            
+	                                            	<button  type="submit" style="background:none!important;border:none;color: blue" name ="<%=resultset.getString(1)%>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+	                                            
+	                                            <a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment </a>
+	                                        </div>
+                                        </form>
                                         <div class="list-comments">
                                         <% 
                                             Connection connection2 = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
