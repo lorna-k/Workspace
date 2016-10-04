@@ -81,7 +81,7 @@ public class addUser extends HttpServlet {
         		System.out.println("dfgh"+" "+message);
         		request.getSession().setAttribute("error_mssg",message);
         		
-        		System.out.println(message);
+        		message="";
                 response.sendRedirect("./JSP/addUser.jsp");
                 //message="";
         	}

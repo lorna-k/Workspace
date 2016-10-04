@@ -38,7 +38,7 @@
           <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
           <span class="header-title" style="color:white;">UCT Alumni Network</span>
           <ul class="clearfix">
-            <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+            <li><a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
             <li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
             <li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
             <li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
@@ -75,10 +75,10 @@
 
 
 <div class="fixed-wrapper">
-  <div class="fixed-content" style="border-left: 1px solid gray;">
+  <div class="fixed-content" style="border-left: 1px solid gray; ">
     
     <div class="profile-photo">
-      <img class="cv-photo" src="../default-profile.png">
+        <img class="cv-photo" src="${pageContext.request.contextPath}/ImageUpload">
     </div>
     
     
@@ -106,7 +106,7 @@
     
   </div>
 </div>
-<div class="content-offset">
+<div class="content-offset" style="border-left: 1px solid gray; border-right: 1px solid gray;">
   <div class="content-frame"> 
     <div id="header" class="row">
       <div class="header-padding">

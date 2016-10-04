@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Add New </title>
+	<title>Register</title>
 	<meta charset="UTF-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- css -->
 	<link  rel="stylesheet" href="../css/site_styles.css" />
@@ -21,30 +21,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>
-	$(function() {
-		var pull 		= $('#pull');
-		menu 		= $('nav ul');
-		menuHeight	= menu.height();
-
-		$(pull).on('click', function(e) {
-			e.preventDefault();
-			menu.slideToggle();
-		});
-
-		$(window).resize(function(){
-			var w = $(window).width();
-			if(w > 320 && menu.is(':hidden')) {
-				menu.removeAttr('style');
-			}
-		});
-	});
-	</script>
-</head>
 <body>
 	<nav class="clearfix">
 		<div class="nav-title">
-				<a style="padding-top:10px" href="../index.html"><img class="nav-logo" src="../uct-logo.png"></a>
+				<a href="../index.html"><img class="nav-logo" src="../uct-logo.png"></a>
 				<span class="header-title" style="color:white;">UCT Alumni Network</span>
 			</div>
 		<a href="#" id="pull">Sign Up</a>

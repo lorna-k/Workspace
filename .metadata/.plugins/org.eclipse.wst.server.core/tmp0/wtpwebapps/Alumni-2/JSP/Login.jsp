@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta charset="ISO-8859-1">
@@ -17,37 +16,17 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>
-	$(function() {
-		var pull 		= $('#pull');
-		menu 		= $('nav ul');
-		menuHeight	= menu.height();
-
-		$(pull).on('click', function(e) {
-			e.preventDefault();
-			menu.slideToggle();
-		});
-
-		$(window).resize(function(){
-			var w = $(window).width();
-			if(w > 320 && menu.is(':hidden')) {
-				menu.removeAttr('style');
-			}
-		});
-	});
-	</script>
 </head>
 <body>
 	<div class="nav-container">
-		<nav style="padding-top:10px">
-			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
+		<nav class="clearfix">
+			<a href="index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
-			<a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
+			<a><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
 		</nav>
 	</div>	
 	
@@ -92,7 +71,7 @@
 
 					<!-- <a href="#/channels"> --><button type="submit" class="btn btn-primary form-group">Sign in</button><!-- </a> -->
 
-					<p class="message">Not registered? <a href="./JSP/addUser.jsp">Create an account</a></p>
+					<p class="message">Not registered? <a href="../JSP/addUser.jsp">Create an account</a></p>
 				</form>
 			</div>
 		</div>

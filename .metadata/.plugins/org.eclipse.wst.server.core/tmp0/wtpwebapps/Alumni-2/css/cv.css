@@ -116,7 +116,6 @@ html>body .row.expand {
   	color: black; 
   }
 
-
 img.cv-photo{
 	width: 180px;
 	height: auto;
@@ -137,6 +136,6 @@ span.skills-btn {
 	color: white;
 	border: 2px solid #D84D0A;
 }
-span.skills-btn:hover{
+/*span.skills-btn:hover{
 	color: #D84D0A;
-}
+}*/
