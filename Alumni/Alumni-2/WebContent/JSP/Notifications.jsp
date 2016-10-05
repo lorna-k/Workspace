@@ -136,7 +136,7 @@ e.style.display = 'block';
                                 {
                                 %>
                                 <div class="posts">
-                                    <div class="editor">
+                                    <div class="editor" style="border: 1px solid #ccc;border-radius: 4px;background-color: #455868;color: whitesmoke;">
                                         <div class="editor-header">
                                         <!-- Display name of user who posted-->
                                         
