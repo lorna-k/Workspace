@@ -121,6 +121,12 @@ public class Post extends HttpServlet {
 				try 
 				{
 	
+					//rs = DBUtils.getPreparedSatement("select * from CVs WHERE ID ='"+request.getSession().getAttribute("currentUserID")+"'").executeQuery();
+					//rs.next();
+					//ProfilePic=rs.getString(6);
+					//Location=rs.getString(10);
+					
+					
 					//Adding the Post to the reject post database
 	    		    
 					PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Posts(PostId,Name,Surname,Caption) VALUES(?,?,?,?)");

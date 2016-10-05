@@ -60,6 +60,7 @@ public class Like_Post extends HttpServlet {
 			    }
 			}
 			
+			//UPDATE `ngwphu001`.`Posts` SET `likes`='1' WHERE `PostId`='2016-09-14 00:00:50';
 			
 		    for(String element: arrID)
 		    {
@@ -72,7 +73,17 @@ public class Like_Post extends HttpServlet {
 			    		 try 
 	        			 {
 		    			    DBUtils.getPreparedSatement("UPDATE Posts SET likes=likes+1 WHERE PostId ='"+likeID +"'").executeUpdate();
-		    		    
+		    		        /*currentLikes.next();
+		    		        int newValue=Integer.parseInt(currentLikes.getInt(6)+"");
+		    			    System.out.println(currentLikes.getInt(6)+" "+currentLikes.getInt(6)+1);*/
+//							PreparedStatement ps=DBUtils.getPreparedSatement("insert into Comments values(?,?,?,?)");
+//							
+//							ps.setString(1, sendcomment);
+//							ps.setString(2, request.getSession().getAttribute("currentUserName")+"");
+//							ps.setString(3, request.getSession().getAttribute("currentUserSurname")+"" );
+//							ps.setString(4, comment);
+//							
+//							ps.executeUpdate();
 						 } 
 	        			 catch (ClassNotFoundException | SQLException e) 
 	        			 {
