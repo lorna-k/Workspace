@@ -45,8 +45,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
   window.onload = function() {
-      setTimeout("document.getElementById('search-button').click()", 5000000);
-  }
+      setTimeout("document.getElementById('search-button').click()", 50000);
+  };
 </script>
         <!--nav--> 
         <script>
