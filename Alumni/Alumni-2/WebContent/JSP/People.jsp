@@ -43,6 +43,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+	window.setTimeout('clickit()',5000);
+	function clickit(){
+	   location.href = document.getElementById("search-button");
+	}
+	</script>
         <!--nav--> 
         <script>
         $(function() {
