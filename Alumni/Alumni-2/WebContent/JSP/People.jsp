@@ -43,12 +43,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>
-	window.setTimeout('clickit()',500000);
-	function clickit(){
-	   location.href = document.getElementById("search-button");
-	}
-	</script>
+<script>
+  window.onload = function() {
+      setTimeout("document.getElementById('search-button').click()", 5000000);
+  }
+</script>
         <!--nav--> 
         <script>
         $(function() {
@@ -123,7 +122,7 @@
 
 			
 						<input id="search-text" type="text" name="search" placeholder="Search..">
-						<button class="icon" id="search-button" name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
+						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
 						
 						</form>
                         <!-- <form method="post" action="../search"> -->
