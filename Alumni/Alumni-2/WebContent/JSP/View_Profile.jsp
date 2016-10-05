@@ -41,7 +41,7 @@
             <li><a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
             <li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
             <li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-            <li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+            <li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
             <li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>            
             <li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
           </ul>
@@ -57,8 +57,8 @@
           
           String u_name = request.getSession().getAttribute("view_name")+"";
           
-          ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE First_Name = '"+u_name+"'") ; 
-          resultset.next();
+          ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE First_Name = '"+u_name+"'") ;  
+          resultset.next(); 
           %>
           
 
