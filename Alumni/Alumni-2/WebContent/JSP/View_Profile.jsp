@@ -57,8 +57,8 @@
           
           String u_name = request.getSession().getAttribute("view_name")+"";
           
-          ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE First_Name = '"+u_name+"'") ; 
-          resultset.next();
+          ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE First_Name = '"+u_name+"'") ;  
+          resultset.next(); 
           %>
           
 

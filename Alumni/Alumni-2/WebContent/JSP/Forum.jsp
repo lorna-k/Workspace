@@ -62,9 +62,7 @@
             });
         });
         </script>
-        <script> 
-        $('#nav').affix({});
-        </script>
+     
         <!--Face book-->
         <script>
             (function(d, s, id) {
@@ -75,6 +73,28 @@
 		  fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
 	</script>
+
+<script>
+function resettoggle() {
+var e = document.getElementById('list-comments');
+e.style.display = 'none';
+
+}
+
+function toggle_visibility() {
+	
+var e = document.getElementById('list-comments');
+if(e.style.display == 'block'){
+	e.style.display = 'none';
+ 
+}
+else
+e.style.display = 'block';
+}
+
+
+
+</script>
         
 </head>
 <body>
@@ -86,8 +106,8 @@
                 <ul class="clearfix">
                     <li><!-- <a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> --></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+				<li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
+				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
 				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>	
 				
 				<form id="logout_form" method="post" action="../logout">	
@@ -150,12 +170,12 @@
 	                                             <span style="color:#ccc;"><%=resultset.getString(6)%> Likes</span>
 	                                           <!--  <a href=""><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a> -->
 	                                            
-	                                            	<button  type="submit" style="background:none!important;border:none;color: blue" name ="<%=resultset.getString(1)%>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+	                                            	<button  type="submit" style="background:none!important;border:none;color: #337ab7" name ="<%=resultset.getString(1)%>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
 	                                            
-	                                            <a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment </a>
+	                                            <a href="#" onclick="toggle_visibility();return false" class = "comm"><span class="glyphicon glyphicon-comment" aria-hidden="true" style = "margin-left:25%"></span> View Comments </a>
 	                                        </div>
                                         </form>
-                                        <div class="list-comments">
+                                        <div class="list-comments" id="list-comments" >
                                         <% 
                                             Connection connection2 = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
                                             
