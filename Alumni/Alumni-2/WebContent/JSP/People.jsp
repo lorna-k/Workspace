@@ -117,7 +117,7 @@
 						</select> 
 
 			
-						<input id="search-text" type="text" name="search" placeholder="Search..">
+						<input id="search-text" type="text" name="search" placeholder="Search.." defaultValue = "">
 						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
 						
 						</form>
