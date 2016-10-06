@@ -43,11 +43,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>
-  window.onload = function() {
-      setTimeout("document.getElementById('search-button').click()", 50000);
-  };
-</script>
+
         <!--nav--> 
         <script>
         $(function() {
