@@ -120,8 +120,11 @@ e.style.display = 'block';
         </div>
         <div class="page">
             <div class="wrapper">
+            <h1>Notifications</h1>
                 <div class="content-wrapper">
+                
                     <div class="content">
+                    
 
                             <div class="feeds">
                                 <!-- Opening connection to data in database -->
