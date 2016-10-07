@@ -131,6 +131,22 @@
 		        </TABLE>
 		        
 	        </form>
+	        <form method="post" action="../Notify">
+                            <div class="post-box">
+                                <div class="editor">
+                                    <div class="editor-header">
+                                        
+                                        <h1 > Post Notification</h1>
+                                        
+                                        </div>
+                                    <input class="write-post" name="caption" placeholder="Write a Notification"></input>
+                                    <div class="editor-buttons">
+                                        <button   type="submit" class="post-btn" name="post" value="posting" >Post</button>
+                                        
+                                    </div>
+                                </div>              
+                            </div>
+               </form> 
 	        
 	        
 <!--	        <ul style="list-style: none;">
