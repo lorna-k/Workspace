@@ -98,14 +98,14 @@
             </nav>
         </div>
         <div class="page">
-            <div class="wrapper">
+            <div class="wrapper" style="padding: 0px 100px;">
                 <div class="content-wrapper">
-                    <div class="content">
-                    <form action="../search" method="post" class="form-group" style="width: 100%;">
+                    <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
+                    <form action="../search" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher"> 
 							
-							<option value="ALL" selected="">All</option> 
+							<option value="ALL" selected="selected">All</option> 
 							<option value="First_Name">First Name</option>
 							<option value="Last_Name">Last Name</option>
 							<option value="City">City</option> 
@@ -123,7 +123,7 @@
 						</form>
                         <!-- <form method="post" action="../search"> -->
                            
-                            <div class="feeds">
+                            <div class="feeds" style="padding: 0px 100px;">
                                 <!-- Opening connection to data in database -->
                             <%
                                 Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
@@ -221,6 +221,7 @@
                         <!-- </form>   -->                      
                     </div>
                 </div>
-
+</div>
+                </div>
     </body>
 </html>
