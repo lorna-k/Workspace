@@ -142,7 +142,9 @@ public class UpdateCV extends HttpServlet {
         
         String sql = "INSERT into CVs values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
-        DataAccess.updateCV(cv,sql);
+      
+		DataAccess.updateCV(cv,sql);
+	
         response.sendRedirect("./JSP/CV.jsp");
         
         

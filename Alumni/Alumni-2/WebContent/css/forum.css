@@ -163,11 +163,11 @@ input.write-post{
     padding: 3px 5px;
 }
 input.write-comment {
-    border-color: #dddfe2;
-    border-top-color: rgb(221, 223, 226);
+    border-color: #1c90f3;
+    /* border-top-color: rgb(221, 223, 226);
     border-right-color: rgb(221, 223, 226);
     border-bottom-color: rgb(221, 223, 226);
-    border-left-color: rgb(221, 223, 226);
+    border-left-color: rgb(221, 223, 226); */
     min-height: 32px;
     padding-bottom: 7px;
     padding-top: 7px;

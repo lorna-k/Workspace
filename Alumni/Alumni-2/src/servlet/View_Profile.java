@@ -48,7 +48,7 @@ public class View_Profile extends HttpServlet {
 		    String name=null;
 			try 
 			{
-				resulSet = DBUtils.getPreparedSatement("select * from Users ").executeQuery();
+				resulSet = DBUtils.getPreparedSatement("select * from CVs ").executeQuery();
 				
 				
 				names =new LinkedList<String>();
@@ -63,6 +63,7 @@ public class View_Profile extends HttpServlet {
 				
 			    for(String element: names)
 			    {
+			    	//System.out.println("ELEMENET:"+" "+element);
 			    	if(!(request.getParameter(element)==null  ))
 			    	{
 			    		//System.out.println(element+" "+request.getParameter(element));
@@ -78,7 +79,7 @@ public class View_Profile extends HttpServlet {
 			}
 		
 		
-			//System.out.println();
+			
 			request.getSession().setAttribute("view_name",name);
 			response.sendRedirect("./JSP/View_Profile.jsp");
 	}

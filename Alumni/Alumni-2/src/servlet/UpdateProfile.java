@@ -108,6 +108,7 @@ public class UpdateProfile extends HttpServlet {
         
         String sql = "INSERT into CVs values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
+        
        
         //String sql = "INSERT into Profiles (id,fname,lname,occupation,currentCompny,address1,address2,city,postalCode,phone,email)  values(?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE  ID=values(id), fname=values(fname), lname=values(lname), occupation=values(occupation), currentCompany=values(currentCompany), address1=values(address1), address2=values(address2), city=values(city), postalCode=values(postalCode), phone=values(phone), email=values(email)";
         try {
