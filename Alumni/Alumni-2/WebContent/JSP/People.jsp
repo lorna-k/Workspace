@@ -43,12 +43,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>
-	window.setTimeout('clickit()',500000);
-	function clickit(){
-	   location.href = document.getElementById("search-button");
-	}
-	</script>
+
         <!--nav--> 
         <script>
         $(function() {
@@ -92,7 +87,7 @@
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 
                 <ul class="clearfix">
-                    <li><a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                      <!--<li><a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>-->
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
@@ -103,14 +98,14 @@
             </nav>
         </div>
         <div class="page">
-            <div class="wrapper">
+            <div class="wrapper" style="padding: 0px 100px;">
                 <div class="content-wrapper">
-                    <div class="content">
-                    <form action="../search" method="post" class="form-group" style="width: 100%;">
+                    <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
+                    <form action="../search" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher"> 
 							
-							<option value="ALL" selected="">All</option> 
+							<option value="ALL" selected="selected">All</option> 
 							<option value="First_Name">First Name</option>
 							<option value="Last_Name">Last Name</option>
 							<option value="City">City</option> 
@@ -122,13 +117,13 @@
 						</select> 
 
 			
-						<input id="search-text" type="text" name="search" placeholder="Search..">
-						<button class="icon" id="search-button" name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
+						<input id="search-text" type="text" name="search" placeholder="Search.." defaultValue = "">
+						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
 						
 						</form>
                         <!-- <form method="post" action="../search"> -->
                            
-                            <div class="feeds">
+                            <div class="feeds" style="padding: 0px 100px;">
                                 <!-- Opening connection to data in database -->
                             <%
                                 Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
@@ -226,6 +221,7 @@
                         <!-- </form>   -->                      
                     </div>
                 </div>
-
+</div>
+                </div>
     </body>
 </html>
