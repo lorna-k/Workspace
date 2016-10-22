@@ -1,0 +1,163 @@
+package servlet;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.FileItemIterator;
+import org.apache.tomcat.util.http.fileupload.FileItemStream;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import db.DBUtils;
+
+/**
+ * Servlet implementation class Post
+ */
+@WebServlet("/Post")
+public class Post extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Post() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
+		
+		//Upload Post
+        //String caption = request.getParameter("caption");         
+         // input stream of the upload file
+         
+        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+ 
+        
+        
+        // obtains the upload file part in this multipart request
+        //Part filePart = request.getPart("photo");
+        //if ((filePart == null && caption!="") || (filePart != null && caption=="") )
+        if(isMultipart)
+        {
+        	ServletFileUpload fileUpload = new ServletFileUpload();
+        	
+        	
+        	InputStream inputStream=null;
+            FileItemIterator items;
+			try 
+			{
+				items = fileUpload.getItemIterator(request);
+				
+				System.out.println(items);
+	            // iterate items
+	            while (items.hasNext()) 
+	            {
+	                FileItemStream item = items.next();
+	                if (!item.isFormField()) 
+	                {
+	                	inputStream =+ item.openStream();
+	                	//System.out.println(inputStream.available());
+	                }
+	            }
+			
+	        } 
+			catch (FileUploadException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			System.out.println(inputStream);
+            // prints out some information for debugging
+            //System.out.println(filePart.getName());
+            //System.out.println(filePart.getSize());
+            //System.out.println(filePart.getContentType());
+        	
+//        	//Pull relevant data from user cv
+//        	ResultSet rs;
+//        	String ProfilePic=null;
+//        	String Location=null;
+//        	
+//			try 
+//			{
+//				rs = DBUtils.getPreparedSatement("select * from CVs WHERE ID ='"+request.getSession().getAttribute("currentUserID")+"'").executeQuery();
+//				rs.next();
+//				ProfilePic=rs.getString(6);
+//				Location=rs.getString(10);
+//			} 
+//			catch (ClassNotFoundException | SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+//             
+//            // obtains input stream of the upload file
+//			if(filePart != null)
+//			{
+//				inputStream = filePart.getInputStream();
+//			}
+//			
+//			System.out.println("");
+//            System.out.println("PostId: "+LocalDateTime.now());
+//            System.out.println("Name: "+ request.getSession().getAttribute("currentUserName"));
+//            System.out.println("Surname: "+ request.getSession().getAttribute("currentUserSurname"));
+//            System.out.println("Post: "+caption);
+//            System.out.println("ProfilePic: "+ ProfilePic );
+//            
+//            if(filePart != null)
+//			{
+//            	System.out.println("File: "+ filePart.getName());
+//            	//rs.setBlob(3, inputStream);
+//			}
+//            	
+//            System.out.println("Likes: "+0);
+//            System.out.println("Location: "+Location);
+//            
+            response.sendRedirect("./JSP/Feed.jsp");
+        	
+        }
+		
+        else
+        {
+        	response.sendRedirect("./JSP/Feed.jsp");
+        	System.out.println("");
+        	System.out.println("Nithong..");
+        	System.out.println(request.getParameter("caption"));
+        }
+
+				
+			
+		
+		
+	}
+
+}
