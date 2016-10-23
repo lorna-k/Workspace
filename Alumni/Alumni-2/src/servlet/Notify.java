@@ -1,5 +1,6 @@
 package servlet;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import db.DBUtils;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Servlet implementation class Notify
@@ -42,29 +46,19 @@ public class Notify extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ResultSet resulSet;
-		String sendPost = request.getParameter("post");
-        String notification = request.getParameter("notification");
+		
+	String sendPost = request.getParameter("post");
+        String notification = request.getParameter("notification"); //getting notification message
         
-        if(notification!="" && sendPost!=null)
+        /*
+        if(!notification.equalsIgnoreCase("") )
     	{
-			try 
+	*/		try 
 			{
 
-				//rs = DBUtils.getPreparedSatement("select * from CVs WHERE ID ='"+request.getSession().getAttribute("currentUserID")+"'").executeQuery();
-				//rs.next();
-				//ProfilePic=rs.getString(6);
-				//Location=rs.getString(10);
-				
-				
-				//Adding the Post to the reject post database
-    		    
-				PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Notifications(ID,today,Message) VALUES(?,?,?)");
-		        ps.setString(1, "Admin");
-                        
                         Calendar now = Calendar.getInstance();
                         
-                       System.out.println("Current Year is : " + now.get(Calendar.YEAR));
+                       
                        // month start from 0 to 11
                        int month = now.get(Calendar.MONTH) + 1;
                        String thismonth= "";
@@ -108,28 +102,35 @@ public class Notify extends HttpServlet {
                                 default:
                                     break;
                             }
-                       System.out.println("Current Month is : " + thismonth);
-                       System.out.println("Current Date is : " + now.get(Calendar.DATE));
-                       String thedate =  now.get(Calendar.DATE)+" "+thismonth;
-		        ps.setString(2,LocalDateTime.now().toString());
-		        ps.setString(4,request.getParameter("notification"));
-		        //ps.setString(5, ProfilePic);
-		        //ps.setInt (5, 0);
-		        //ps.setString(7,Location);
+                            
+                       //DateFormat dateFormat = new SimpleDateFormat("hh:mm a"); //formatting time to have AM/PM text using 'a' format
+                       Date date = new Date();
+                       String strDateFormat = "h:mm a";
+                       SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+     
+     //System.out.println("Time with AM/PM field : " + sdf.format(date));
+                       
+                       String thedate =  now.get(Calendar.DATE)+" "+thismonth+"   "+sdf.format(date);
+                       
+                        PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Notifications(ID,today,Message) VALUES(?,?,?)");
+		        ps.setString(1, "Admin");
+		        ps.setString(2,thedate);
+		        ps.setString(3,request.getParameter("notification"));
+		       
 
 		        ps.executeUpdate();
 		        
 				
 			} 
 			catch (ClassNotFoundException | SQLException e) 
-            {
+                        {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 response.sendRedirect("./JSP/PendingUsers.jsp");
 			
         
-	}
+	//}
 
 }
 }
