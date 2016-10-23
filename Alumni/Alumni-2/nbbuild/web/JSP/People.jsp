@@ -126,48 +126,26 @@
                             <div class="feeds" style="padding: 0px 100px;">
                                 <!-- Opening connection to data in database -->
                             <%
-                                Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
                                 
-                                Statement statement = connection.createStatement() ;
                                 String search_1= request.getSession().getAttribute("searcher")+"";
                                 		//
                                 String search_2 =request.getSession().getAttribute("search")+"";
-                                		//
-                               
+                                		
                                 
-                                		//request.getSession().getAttribute("search").toString();
-                              
-                                		//request.getSession().getAttribute("search").toString();
-                                //request.getSession().getAttribute("searcher").toString();
-                                ResultSet resultset = null;
-                                ResultSet resultset1 = null;       
+                                     
                                         
-                                int ind_Fn = 2;
-                                resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Highest_Degree_Year,Highest_Degree,Major1,Major2,City,Occupation)) like lower('%"+search_2+"%')") ;
-                                resultset1 =  statement.executeQuery("Select * from CVs") ;
-                                /*if( search_1.equalsIgnoreCase("ALL") ){
-                                	 resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Major1,Major2,City)) like lower('%"+search_2+"%')") ;
-                                	 //resultset.next();
-                                	 //System.out.println(resultset.getString(1)); lower('%"+"All"+"%'
-                                }
-                                 else if((search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && search_2!="")
-                                {
-                                	
-                                	resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Major1,Major2,City)) like lower('%"+search_2+"%')") ;
-
-                                	//resultset.next();
-                                } 
-                                 else{
-                                	resultset = null;
-                                } */
-                              
-                                //else if(search_1!=null && (search_1!=null || search_2!=null)){
-                                	// resultset =  statement.executeQuery("SELECT * FROM CVs WHERE "+"City"+" = '"+"Cape Town"+"'") ;
-                                //}
+                             
                                 
                                 
-                                //"+ request.getSession().getAttribute("searcher").+" ='"+request.getSession().getAttribute("search")+"'
-                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && resultset.isBeforeFirst()){	
+                          
+                            
+                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
+                                            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                
+                                            Statement statement = connection.createStatement() ;
+                                            ResultSet resultset = null;
+                                            resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Highest_Degree_Year,Highest_Degree,Major1,Major2,City,Occupation)) like lower('%"+search_2+"%')") ;
+                                            if(resultset.isBeforeFirst()){
                                 	 while(resultset.next())
                                      {
                                 		 
@@ -193,10 +171,16 @@
                                          </div>
                                      </div>
                                      
-                                      <%}
+                                      <%}}
                                 }
-                                else if(search_2.equalsIgnoreCase("null") && resultset1.isBeforeFirst())
+                                else if(search_2.equalsIgnoreCase("null"))
                                 {
+                                    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                
+                                     Statement statement = connection.createStatement() ;
+                                     ResultSet resultset1 = null;
+                                     resultset1 =  statement.executeQuery("Select * from CVs") ;
+                                     if(resultset1.isBeforeFirst()){
                                       while(resultset1.next()){%>
                                         <div class="posts">
                                          <div class="editor">
@@ -218,7 +202,7 @@
 
                                          </div>
                                      </div>
-                                <%}}
+                                <%}}}
 
                                  else{%>
                                  
