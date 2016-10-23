@@ -75,7 +75,7 @@ public class ImageUpload extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String id = request.getSession().getAttribute("currentUserID")+"";
+        String id = request.getSession().getAttribute("view_id")+"";
         
         byte[] imgData = displayPhoto(id);
         response.setContentType("image/jpg");
@@ -89,8 +89,19 @@ public class ImageUpload extends HttpServlet {
          
           System.out.println(o.toString());
           System.out.println(imgData.toString());
-          //imgData = img.getBytes(1,(int)img.length());
-          System.out.println("found image");
+          
+          if(imgData.length==0)
+          {
+        	  request.getSession().setAttribute("image_status","1");
+        	  System.out.println("no image");
+        	  
+          }
+          if(imgData.length!=0)
+          {
+        	  request.getSession().setAttribute("image_status","0");
+        	  System.out.println("found image");
+          }
+          
         
     
     }

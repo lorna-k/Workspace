@@ -8,7 +8,7 @@
     
     <%@ page import="java.sql.*" %>
     <%@ page import="dao.DataAccess" %>
-    <%@ page import="dao.DataAccess" %>
+    <%@ page import="dao.ImageAccess" %>
     <%@ page import="servlet.Post" %>
     <%@ page import="java.io.*"%>
     <%@ page import="java.time.LocalDateTime"%>
@@ -217,7 +217,7 @@
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                         </div>
                                         
-                                        <%if(resultset.getString(8)!=null) 
+                                        <%if(resultset.getString(8)!=null || resultset.getString(2).equals("Wandile")) 
                                         {
                                         	
                                         	request.getSession().setAttribute("imageID",null);
@@ -228,13 +228,21 @@
                                              <p><%=resultset.getString(4)%></p>
                                              
                                             
-                                         
+
+                                            <% 
+                                            if(!(resultset.getString(2).equals("Wandile")))
+                                            {%>
+
                                             
+                                            <img style="max-height:400px;width:600px" src="${pageContext.request.contextPath}/Post?id=${resultset.getString(1)}">
+                                            <%} %>
                                             
-                                            <img style=" width: 600px; max-height: 400px;" src="${pageContext.request.contextPath}/Post?id=${resultset.getString(1)}">
+                                            <% 
+                                            if(resultset.getString(2).equals("Wandile"))
+                                            {%>
                                             
-                                            
-                                            
+                                            <img src="../j5.png" style="max-height:400px;width:600px"> 
+                                             <%} %>
                                             
                                         </div>
                                         <%} %>
@@ -315,6 +323,7 @@
                     
                         
                 </div>
+                
             </div>
         </div>
         <!-- script for twitter feed -->

@@ -7,6 +7,7 @@
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@ page language="java"%>
     <%@ page import = "java.io.*" %>
+    <%@ page import="dao.ImageAccess" %>
     <%@ page import = "dao.*" %>
     <%@ page import="java.sql.*" %>
 
@@ -78,6 +79,24 @@
               String postalCode = resultset.getString(9);
               String phone = resultset.getString(10);
               String email = resultset.getString(11); 
+              
+              
+              byte[] imgData = ImageAccess.displayPhoto(uid);
+              
+              
+              if(imgData==null)
+              {
+            	  request.getSession().setAttribute("image_status","0");
+            	  System.out.println("no image");
+            	  
+              }
+              if(imgData!=null)
+              {
+            	  request.getSession().setAttribute("image_status","1");
+            	  System.out.println("found image");
+              }
+              
+              String imageStatus=request.getSession().getAttribute("image_status")+"";
               %>
               
                 <form method="post" action="../ImageUpload" enctype="multipart/form-data">
@@ -85,9 +104,19 @@
                     <input  type="button" id="upload_link" value="Change photo">
                     <input type="submit" value="Save">
                 </form>
-                <div class="profile-photo">
-                    <img class="cv-photo" src="${pageContext.request.contextPath}/ImageUpload">
-                </div>
+                
+				<%if(imageStatus.equals("0")){%>
+			    <div class="profile-photo">
+			      <img class="cv-photo" src="../default-profile.png">
+			    </div>
+			    <%} %>
+			    
+			    <%if(imageStatus.equals("1")){%>
+			     <div class="profile-photo">
+			      <img class="cv-photo"  src="${pageContext.request.contextPath}/ImageUpload">
+			    </div>
+			    <%} %>
+					
               <form  action="../UpdateProfile" method="post" class="update-form">
                 First Name<br>
                 <input name="fname" value="<%=fname%>" class="input-box"><br>

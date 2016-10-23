@@ -79,6 +79,17 @@ public class View_Profile extends HttpServlet {
 			}
 		
 		
+			try 
+			{
+				ResultSet resulSet2 = DBUtils.getPreparedSatement("select * from CVs WHERE First_Name = '"+name+"'").executeQuery();
+				resulSet2.next();
+				request.getSession().setAttribute("view_id",resulSet2.getString(1));
+			} catch (ClassNotFoundException | SQLException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			
 			request.getSession().setAttribute("view_name",name);
 			response.sendRedirect("./JSP/View_Profile.jsp");

@@ -8,6 +8,7 @@
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@ page language="java"%>
     <%@ page import = "java.io.*" %>
+    <%@ page import="dao.ImageAccess" %>
     <%@ page import = "dao.*" %>
     <%@ page import="java.sql.*" %>
 
@@ -56,30 +57,46 @@
           Statement statement = connection.createStatement() ;
           
           String uid = request.getSession().getAttribute("currentUserID")+"";
+          request.getSession().setAttribute("view_id",uid);
           
           ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE ID = '"+uid+"'") ; 
           resultset.next();
-          %>
           
-<!--//                
-//                String fname = resultset.getString(2);
-//                String lname = resultset.getString(3);
-//                String occupation = resultset.getString(4);
-//                String currentCompany = resultset.getString(5);
-//                String address1 = resultset.getString(6);
-//                String address2 = resultset.getString(7);
-//                String city = resultset.getString(8);
-//                String postalCode = resultset.getString(9);
-//                String phone = resultset.getString(10);
-//                String email = resultset.getString(11);-->
+          
+		byte[] imgData = ImageAccess.displayPhoto(resultset.getString(1));
+         
+          
+          if(imgData==null)
+          {
+        	  request.getSession().setAttribute("image_status","0");
+        	  System.out.println("no image");
+        	  
+          }
+          if(imgData!=null)
+          {
+        	  request.getSession().setAttribute("image_status","1");
+        	  System.out.println("found image");
+          }
+          
+          String imageStatus=request.getSession().getAttribute("image_status")+"";
+          %>
+        
 
 
 <div class="fixed-wrapper">
   <div class="fixed-content" style="border-left: 1px solid gray; ">
     
+    <%if(imageStatus.equals("0")){%>
     <div class="profile-photo">
-        <img class="cv-photo" src="${pageContext.request.contextPath}/ImageUpload">
+      <img class="cv-photo" src="../default-profile.png">
     </div>
+    <%} %>
+    
+    <%if(imageStatus.equals("1")){%>
+     <div class="profile-photo">
+      <img class="cv-photo"  src="${pageContext.request.contextPath}/ImageUpload">
+    </div>
+    <%} %>
     
     
     <label class="name-label"><%=resultset.getString(2)%>  <%=resultset.getString(3)%> </label>
