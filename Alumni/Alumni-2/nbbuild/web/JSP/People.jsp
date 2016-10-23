@@ -1,7 +1,7 @@
 <%-- 
     Document   : People
     Created on : 16 Sep 2016, 3:53:14 PM
-    Author     : Lorna Nqodi
+    Author     : Phuluso Ngwenya
 --%>
 
    <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
@@ -43,6 +43,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
         <!--nav--> 
         <script>
         $(function() {
@@ -76,19 +77,20 @@
 		  fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
 	</script>
+	
         
 </head>
-    <body>
+    <body >
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
                 <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 
                 <ul class="clearfix">
-                    <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                      <!--<li><a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>-->
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
 				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
 				<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
                 </ul>
@@ -96,14 +98,14 @@
             </nav>
         </div>
         <div class="page">
-            <div class="wrapper">
+            <div class="wrapper" style="padding: 0px 100px;">
                 <div class="content-wrapper">
-                    <div class="content">
-                    <form action="../search" method="post" class="form-group" style="width: 100%;">
+                    <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
+                    <form action="../search" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher"> 
-							<option value="" class="" disabled="" selected="">-Search people by-</option>
-							<option value="ALL">All</option> 
+							
+							<option value="ALL" selected="selected">All</option> 
 							<option value="First_Name">First Name</option>
 							<option value="Last_Name">Last Name</option>
 							<option value="City">City</option> 
@@ -115,13 +117,13 @@
 						</select> 
 
 			
-						<input id="search-text" type="text" name="search" placeholder="Search..">
-						<button class="icon" id="search-button" name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
+						<input id="search-text" type="text" name="search" placeholder="Search.." defaultValue = "">
+						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
 						
 						</form>
                         <!-- <form method="post" action="../search"> -->
                            
-                            <div class="feeds">
+                            <div class="feeds" style="padding: 0px 100px;">
                                 <!-- Opening connection to data in database -->
                             <%
                                 Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
@@ -162,7 +164,7 @@
                                 
                                 
                                 //"+ request.getSession().getAttribute("searcher").+" ='"+request.getSession().getAttribute("search")+"'
-                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && resultset.isBeforeFirst()){	
+                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && resultset.isBeforeFirst()){	
                                 	 while(resultset.next())
                                      {
                                 		 
@@ -219,6 +221,7 @@
                         <!-- </form>   -->                      
                     </div>
                 </div>
-
+</div>
+                </div>
     </body>
 </html>
