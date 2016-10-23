@@ -296,14 +296,14 @@
                     </div>
                 </div>
                 <div class="sidebar">
-                    <!-- <div class="fb-feed" style="margin-bottom:20px;">
+                    <div class="fb-feed" style="margin-bottom:20px;">
                    			<div class="fb-page" data-href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961">UCT CSC Alumni Network</a></blockquote></div>
                     
                     </div>
                     <div class="twitter-feed">
                             <a class="twitter-timeline"  href="https://twitter.com/search?q=UCT%20Science" data-widget-id="774076283923816448">
                             </a>
-                    </div> -->
+                    </div>
                     
                         
                 </div>

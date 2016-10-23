@@ -191,3 +191,17 @@
 0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:30:34 +0200] "GET /Alumni-2/JSP/View_Profile.jsp HTTP/1.1" 500 5228
 0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:30:47 +0200] "POST /Alumni-2/Login HTTP/1.1" 500 1457
 0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:31:16 +0200] "POST /Alumni-2/Login HTTP/1.1" 500 1457
+127.0.0.1 - - [23/Oct/2016:15:40:41 +0200] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:40:50 +0200] "POST /Alumni-2/index HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:40:52 +0200] "GET /Alumni-2/JSP/Login.jsp HTTP/1.1" 200 2400
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:41:05 +0200] "POST /Alumni-2/Login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:41:06 +0200] "GET /Alumni-2/JSP/Forum.jsp HTTP/1.1" 200 24900
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:41:15 +0200] "POST /Alumni-2/Like_Post HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:41:15 +0200] "GET /Alumni-2/JSP/Forum.jsp HTTP/1.1" 200 24900
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:42:28 +0200] "GET /Alumni-2/JSP/Forum.jsp HTTP/1.1" 200 24891
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:42:30 +0200] "GET /Alumni-2/css/site_styles.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:42:30 +0200] "GET /Alumni-2/css/animate.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:42:30 +0200] "GET /Alumni-2/css/nav_style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:42:30 +0200] "GET /Alumni-2/css/normalize.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:42:31 +0200] "GET /Alumni-2/uct-logo.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Oct/2016:15:42:31 +0200] "GET /Alumni-2/css/forum.css HTTP/1.1" 304 -
