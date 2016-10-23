@@ -18,9 +18,11 @@ import java.util.logging.Logger;
  *
  * @author Lorna Nqodi
  */
-public class ImageAccess {
+public class ImageAccess 
+{
     
-    public static void uploadPhoto(String id, InputStream inputStream) throws SQLException{
+    public static void uploadPhoto(String id, InputStream inputStream) throws SQLException
+    {
         String message = null; 
         
         String sql = "INSERT INTO Images (id, photo) values (?, ?)";
@@ -57,11 +59,42 @@ public class ImageAccess {
         
     }
     
+    
+    
+    
     public static byte[] displayPhoto(String id){
         Blob img  = null;
         byte[] imgData = null;
 
         String sqlQuery = "SELECT photo From Images Where ID = '"+id+"'" ;
+        
+        try {
+            PreparedStatement stmt = DBUtils.getPreparedSatement(sqlQuery);
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next ())
+            {   
+                //response.setContentType("image/png");
+                img = rs.getBlob(1);
+                imgData = img.getBytes(1,(int)img.length());
+                
+            }
+            rs.close();
+            stmt.close();
+        }   catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return imgData;
+    }
+    
+    
+    public static byte[] displayImage(String id){
+        Blob img  = null;
+        byte[] imgData = null;
+
+        String sqlQuery = "SELECT image From Posts Where PostId = '"+id+"'" ;
         
         try {
             PreparedStatement stmt = DBUtils.getPreparedSatement(sqlQuery);

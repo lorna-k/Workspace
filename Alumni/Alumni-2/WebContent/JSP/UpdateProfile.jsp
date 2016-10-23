@@ -156,9 +156,9 @@
                         <h3 class="cv-section">Skills</h3>
                         <span class="skills-btn"><%=resultset.getString(25)%></span>           <!-- skill1 -->
                         <span class="skills-btn"><%=resultset.getString(26)%></span>           <!-- skill2 -->
-                        <span class="skills-btn"><%=resultset.getString(27)%></span>            <!-- skill3 -->
-                        <span class="skills-btn"><%=resultset.getString(28)%></span>         <!-- skill4 -->
-                        <span class="skills-btn"><%=resultset.getString(29)%></span>     <!-- skill5 -->
+                        <span class="skills-btn"><%=resultset.getString(27)%></span>           <!-- skill3 -->
+                        <span class="skills-btn"><%=resultset.getString(28)%></span>           <!-- skill4 -->
+                        <span class="skills-btn"><%=resultset.getString(29)%></span>           <!-- skill5 -->
                       </div> 
                       <div id="section4" class="container-fluid">
                         <h3 class="cv-section">References</h3>
