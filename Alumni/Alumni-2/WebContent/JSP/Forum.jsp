@@ -223,7 +223,7 @@
                                          
                                             
                                             
-                                            <img src="${pageContext.request.contextPath}/Post?id=${resultset.getString(1)}">
+                                            <img style=" width: 600px; max-height: 400px;" src="${pageContext.request.contextPath}/Post?id=${resultset.getString(1)}">
                                             
                                             
                                             

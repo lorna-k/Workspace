@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-
+import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -61,6 +61,56 @@ public class Notify extends HttpServlet {
     		    
 				PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Notifications(ID,today,Message) VALUES(?,?,?)");
 		        ps.setString(1, "Admin");
+                        
+                        Calendar now = Calendar.getInstance();
+                        
+                       System.out.println("Current Year is : " + now.get(Calendar.YEAR));
+                       // month start from 0 to 11
+                       int month = now.get(Calendar.MONTH) + 1;
+                       String thismonth= "";
+                            switch (month) {
+                                case 1:
+                                    thismonth="Jan";
+                                    break;
+                                case 2:
+                                    thismonth="Feb";
+                                    break;
+                                case 3:
+                                    thismonth="Mar";
+                                    break;
+                                case 4:
+                                    thismonth="Apr";
+                                    break;
+                                case 5:
+                                    thismonth="May";
+                                    break;
+                                case 6:
+                                    thismonth="Jun";
+                                    break;
+                                case 7:
+                                    thismonth="Jul";
+                                    break;
+                                case 8:
+                                    thismonth="Aug";
+                                    break;
+                                case 9:
+                                    thismonth="Sept";
+                                    break;
+                                case 10:
+                                    thismonth="Oct";
+                                    break;
+                                case 11:
+                                    thismonth="Nov";
+                                    break;
+                                case 12:
+                                    thismonth="Dec";
+                                    break;
+                                default:
+                                    break;
+                            }
+                       System.out.println("Current Month is : " + thismonth);
+                       System.out.println("Current Date is : " + now.get(Calendar.DATE));
+                       String thedate =  now.get(Calendar.DATE)+" "+thismonth;
 		        ps.setString(2,LocalDateTime.now().toString());
 		        ps.setString(4,request.getParameter("notification"));
 		        //ps.setString(5, ProfilePic);

@@ -117,7 +117,7 @@
 						</select> 
 
 			
-						<input id="search-text" type="text" name="search" placeholder="Search.." defaultValue = "">
+						<input id="search-text" type="text" name="search" placeholder="Search.." >
 						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
 						
 						</form>
@@ -140,12 +140,15 @@
                                 		//request.getSession().getAttribute("search").toString();
                                 //request.getSession().getAttribute("searcher").toString();
                                 ResultSet resultset = null;
+                                ResultSet resultset1 = null;       
+                                        
                                 int ind_Fn = 2;
                                 resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Highest_Degree_Year,Highest_Degree,Major1,Major2,City,Occupation)) like lower('%"+search_2+"%')") ;
+                                resultset1 =  statement.executeQuery("Select * from CVs") ;
                                 /*if( search_1.equalsIgnoreCase("ALL") ){
                                 	 resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Major1,Major2,City)) like lower('%"+search_2+"%')") ;
                                 	 //resultset.next();
-                                	 //System.out.println(resultset.getString(1));
+                                	 //System.out.println(resultset.getString(1)); lower('%"+"All"+"%'
                                 }
                                  else if((search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City")) && search_2!="")
                                 {
@@ -191,7 +194,32 @@
                                      </div>
                                      
                                       <%}
-                                	}
+                                }
+                                else if(search_2.equalsIgnoreCase("null") && resultset1.isBeforeFirst())
+                                {
+                                      while(resultset1.next()){%>
+                                        <div class="posts">
+                                         <div class="editor">
+                                             <div class="editor-header">
+                                             <!-- Display name of user who posted-->
+                                             
+                                             <form id="ViewProfile_form" method="post" action="../View_Profile">
+	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset1.getString(2)%>"> <%=resultset1.getString(2)+" "+resultset1.getString(3)%></button> 
+	                                        </form>
+                                             
+                                             
+                                             <!-- <span>Posted <%=resultset1.getString(1)%></span> -->
+                                             </div>
+                                             <div class="post-body message_frame" style="color: grey;">
+                                                 <p>Occupation: <%=resultset1.getString(4)%></p>
+                                                 <p>Highest Degree: <%=resultset1.getString(12)%></p>
+                                                 <p>Current City: <%=resultset1.getString(8)%></p>
+                                             </div>
+
+                                         </div>
+                                     </div>
+                                <%}}
+
                                  else{%>
                                  
                                 	 <div class="posts">
