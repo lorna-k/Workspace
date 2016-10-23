@@ -146,8 +146,9 @@
                                             ResultSet resultset = null;
                                             resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Highest_Degree_Year,Highest_Degree,Major1,Major2,City,Occupation)) like lower('%"+search_2+"%')") ;
                                             if(resultset.isBeforeFirst()){
+                                                
                                 	 while(resultset.next())
-                                     {
+                                         {
                                 		 
                                      %>
                                      <div class="posts">
@@ -172,8 +173,28 @@
                                      </div>
                                      
                                       <%}}
+                                      else{%>
+                                 
+                                	 <div class="posts">
+                                     <div class="editor">
+                                         <div class="editor-header">
+                                         <!-- Display name of user who posted-->
+                                         
+                                         </div>
+                                         <div class="post-body message_frame" style="color: grey;">
+                                             <p>Search "<%=search_2%>" Not found</p>
+                                             <p>Enter a Valid search value</p>
+                                            
+                                         </div>
+
+                                     </div>
+                                 </div>
+                                 		 
+                                     
+                                	 
+                                 <%}
                                 }
-                                else if(search_2.equalsIgnoreCase("null"))
+                                if(search_2.equalsIgnoreCase("null"))
                                 {
                                     Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
                                 
@@ -204,26 +225,7 @@
                                      </div>
                                 <%}}}
 
-                                 else{%>
-                                 
-                                	 <div class="posts">
-                                     <div class="editor">
-                                         <div class="editor-header">
-                                         <!-- Display name of user who posted-->
-                                         
-                                         </div>
-                                         <div class="post-body message_frame" style="color: grey;">
-                                             <p>Search "<%=search_2%>" Not found</p>
-                                             <p>Enter a Valid search value</p>
-                                            
-                                         </div>
-
-                                     </div>
-                                 </div>
-                                 		 
-                                     
-                                	 
-                                 <%}%>
+                                 %>
                                      <!-- Closing connection to database -->
                                   
                                 
