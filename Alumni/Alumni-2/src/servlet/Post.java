@@ -58,7 +58,7 @@ public class Post extends HttpServlet {
            
           o.flush();
           o.close();
-          System.out.println("nj");
+          System.out.println("");
           
     
     }

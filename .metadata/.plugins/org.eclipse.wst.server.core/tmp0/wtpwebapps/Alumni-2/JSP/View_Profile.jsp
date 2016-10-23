@@ -8,6 +8,7 @@
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@ page language="java"%>
     <%@ page import = "java.io.*" %>
+    <%@ page import="dao.ImageAccess" %>
     <%@ page import = "dao.*" %>
     <%@ page import="java.sql.*" %>
 
@@ -59,17 +60,41 @@
           
           ResultSet resultset = statement.executeQuery("SELECT * from CVs WHERE First_Name = '"+u_name+"'") ;  
           resultset.next(); 
+          
+          byte[] imgData = ImageAccess.displayPhoto(resultset.getString(1));
+         
+          
+          if(imgData==null)
+          {
+        	  request.getSession().setAttribute("image_status","0");
+        	  System.out.println("no image");
+        	  
+          }
+          if(imgData!=null)
+          {
+        	  request.getSession().setAttribute("image_status","1");
+        	  System.out.println("found image");
+          }
+          
+          String imageStatus=request.getSession().getAttribute("image_status")+"";
           %>
           
 
 <div class="fixed-wrapper">
   <div class="fixed-content" style="border-left: 1px solid gray;">
     
+    
+    <%if(imageStatus.equals("0")){%>
     <div class="profile-photo">
       <img class="cv-photo" src="../default-profile.png">
     </div>
+    <%} %>
     
-    
+    <%if(imageStatus.equals("1")){%>
+     <div class="profile-photo">
+      <img class="cv-photo"  src="${pageContext.request.contextPath}/ImageUpload">
+    </div>
+    <%} %>
     <label class="name-label"><%=resultset.getString(2)%>  <%=resultset.getString(3)%> </label>
     <address>
       <a name="email" href="mailto:<%=resultset.getString(11)%>"><%=resultset.getString(11)%> </a>
