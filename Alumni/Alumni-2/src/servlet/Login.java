@@ -64,6 +64,7 @@ public class Login extends HttpServlet {
             
             request.getSession().setAttribute("error_message","null");
             request.getSession().setAttribute("currentUserName","Admin");
+            request.getSession().setAttribute("currentUserSurname","");
             response.sendRedirect("./JSP/PendingUsers.jsp");  //redirect to admin page
             System.out.println("Admin has logged in");
         }

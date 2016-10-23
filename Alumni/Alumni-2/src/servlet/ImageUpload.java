@@ -38,15 +38,15 @@ public class ImageUpload extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String userId = request.getSession().getAttribute("currentUserID")+"";
-        
-        InputStream inputStream = null; // input stream of the upload file
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+    		String userId = request.getSession().getAttribute("currentUserID")+"";
+    		InputStream inputStream = null; // input stream of the upload file
             String message = null; 
             // obtains the upload file part in this multipart request
             Part filePart = request.getPart("photo");
-            if (filePart != null) {
+            if (filePart != null) 
+            {
                 // prints out some information for debugging
                 System.out.println(filePart.getName());
                 System.out.println(filePart.getSize());
@@ -55,16 +55,19 @@ public class ImageUpload extends HttpServlet {
                 // obtains input stream of the upload file
                 inputStream = filePart.getInputStream();
             }
-            else{
+            else
+            {
                 System.out.println("Could not find file");
             }
                 
-            try {
+            try 
+            {
                 ImageAccess.uploadPhoto(userId, inputStream);
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            finally{
+            finally
+            {
                 response.sendRedirect("./JSP/UpdateProfile.jsp");
             }
     }

@@ -8,6 +8,7 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.FileItemFactory"/>
 <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.disk.DiskFileItem"/>
-<fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>
