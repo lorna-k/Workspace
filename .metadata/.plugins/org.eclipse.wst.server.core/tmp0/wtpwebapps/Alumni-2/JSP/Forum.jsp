@@ -11,6 +11,14 @@
     <%@ page import="dao.ImageAccess" %>
     <%@ page import="servlet.Post" %>
     <%@ page import="java.io.*"%>
+    <%@ page import="java.time.LocalDateTime"%>
+    <%@ page import="java.util.Calendar"%>
+    <%@ page import="java.text.DateFormat"%>
+    <%@ page import="java.text.SimpleDateFormat"%>
+    <%@ page import="java.util.Date"%>
+    
+
+
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
@@ -169,12 +177,12 @@
                                 <div class="editor">
                                     <div class="editor-header">
                                         
-                                        <a href="CV.jsp"> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>
+                                        <a href="CV.jsp"> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>  
                                         
                                         </div>
                                     <input class="write-post" name="caption" placeholder="Write a post"></input>
                                     <div class="editor-buttons">
-                                        <button href=""  type="submit" class="post-btn" name="post" value="posting" >Post</button>
+                                        <button  type="submit" class="post-btn" name="post" value="posting" >Post</button>
                            
                                         <label style="margin-left:10px;color: #337ab7" id="file_button" >
 											<input type="file" name="photo"  id="uploadID"  >
@@ -220,9 +228,11 @@
                                              <p><%=resultset.getString(4)%></p>
                                              
                                             
+
                                             <% 
                                             if(!(resultset.getString(2).equals("Wandile")))
                                             {%>
+
                                             
                                             <img style="max-height:400px;width:600px" src="${pageContext.request.contextPath}/Post?id=${resultset.getString(1)}">
                                             <%} %>
@@ -238,7 +248,7 @@
                                         <%} %>
                                         
                                         
-                                        <%if(resultset.getString(8)==null) 
+                                        <%if(resultset.getString(8)==null && !(resultset.getString(2).equals("Wandile"))) 
                                         {
                                         %>
                                         <div class="post-body message_frame">

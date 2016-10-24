@@ -113,6 +113,7 @@ public class Notify extends HttpServlet {
                        
                         PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Notifications(ID,today,Message) VALUES(?,?,?)");
 		        ps.setString(1, "Admin");
+
 		        ps.setString(2,thedate);
 		        ps.setString(3,request.getParameter("notification"));
 		       
