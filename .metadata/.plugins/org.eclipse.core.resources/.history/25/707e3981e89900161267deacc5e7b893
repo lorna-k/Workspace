@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- css -->
+	<link  rel="stylesheet" href="css/site_styles.css" />
+	<link  rel="stylesheet" href="css/animate.css" />
+	<link  rel="stylesheet" href="css/nav_style.css" />
+	<link rel="stylesheet" href="css/normalize.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto:100" rel="stylesheet">
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+	$(function() {
+		var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if(w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+	});
+	</script>
+	
+	<style>
+	a
+	{
+		text-decoration: none;
+		color:#455868;
+	}
+	a:hover 
+	{
+		color:blue;
+	}
+
+	</style>
+	
+</head>
+	
+	
+
+<body>
+	<div nav-container>
+		<nav class="clearfix">
+			<a href="index.html" class="nav-title"><img class="nav-logo" src="uct-logo.png"></a>
+			<span class="header-title" style="color:white;">UCT Alumni Network</span>
+			<a href="index.html" ><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
+		</nav>
+	</div>
+
+	
+
+	<div  style="font-size:50px; font-family:Aria;margin:20vh;color:#455868;" align="center">
+	
+		You have successfully Signed up, 
+		your request to join will be reviewed and the process will take 24 hrs
+		, after 24 hrs if your still cannot login this would mean your request to join the network was not successful. 
+		For any queries please contact us on <strong ><a href="mailto:alumniproject2016@gmail.com">UCT Alumni Network</a></strong> .
+		
+		
+		
+		
+		<!-- <p><a href="index.html">HOME</a></p> -->
+	</div>
+</body>
+</html>

@@ -117,34 +117,7 @@
             }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<script>
-		function resettoggle() 
-		{
-			var e = document.getElementById('list-comments');
-			e.style.display = 'none';
-		
-		}
-		
-		function toggle_visibility()
-		{
-			
-			var e = document.getElementById('list-comments');
-			if(e.style.display == 'block')
-			{
-				e.style.display = 'none';
-		 
-			}
-			else
-				e.style.display = 'block';
-		}
-		
-</script>
 
-
- 
-
-  
- 
         
 </head>
 <body>
@@ -155,11 +128,12 @@
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 <ul class="clearfix">
                     <li><!-- <a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> --></li>
+                                <li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-				<li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
+				
 				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
 				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>	
-				
+				<li><a href="https://drive.google.com/open?id=0B5hfZMerj_ABSks3RXI4RTJvOTg"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
 				<form id="logout_form" method="post" action="../logout">	
 					<li><a href="javascript:{}" onclick="document.getElementById('logout_form').submit(); return false;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
 				</form>
@@ -312,7 +286,7 @@
                     </div>
                 </div>
                 <div class="sidebar">
-                    <div class="fb-feed" style="margin-bottom:20px;">
+                  <!--   <div class="fb-feed" style="margin-bottom:20px;">
                    			<div class="fb-page" data-href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/UCT-CSC-Alumni-Network-336386133362961">UCT CSC Alumni Network</a></blockquote></div>
                     
                     </div>
@@ -320,13 +294,13 @@
                             <a class="twitter-timeline"  href="https://twitter.com/search?q=UCT%20Science" data-widget-id="774076283923816448">
                             </a>
                     </div>
-                    
+                     -->
                         
                 </div>
                 
             </div>
         </div>
         <!-- script for twitter feed -->
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</body>
+<!--         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+ --></body>
 </html>
