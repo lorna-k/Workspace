@@ -50,10 +50,10 @@ public class Notify extends HttpServlet {
 	String sendPost = request.getParameter("post");
         String notification = request.getParameter("notification"); //getting notification message
         
-        /*
+        
         if(!notification.equalsIgnoreCase("") )
     	{
-	*/		try 
+			try 
 			{
 
                         Calendar now = Calendar.getInstance();
@@ -129,7 +129,7 @@ public class Notify extends HttpServlet {
 			 response.sendRedirect("./JSP/PendingUsers.jsp");
 			
         
-	//}
+	}else{response.sendRedirect("./JSP/PendingUsers.jsp");}
 
 }
 }
