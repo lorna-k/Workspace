@@ -115,7 +115,7 @@
 							<option value="First_Name">First Name</option>
 							<option value="Last_Name">Last Name</option>
 							<option value="City">City</option> 
-							<option value="Highest_Degree_year">Recent grad year</option> 
+							<option value="Highest_Degree_year">Highest degree</option> 
 							<option value="Current_Company">Company name</option>
 							<option value="Occupation">Occupation</option>	 
 							<option value="Major1">Major</option>
