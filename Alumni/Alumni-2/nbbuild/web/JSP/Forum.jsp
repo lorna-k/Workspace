@@ -8,10 +8,21 @@
     
     <%@ page import="java.sql.*" %>
     <%@ page import="dao.DataAccess" %>
+    <%@ page import="dao.ImageAccess" %>
     <%@ page import="servlet.Post" %>
     <%@ page import="java.io.*"%>
+    <%@ page import="java.time.LocalDateTime"%>
+    <%@ page import="java.util.Calendar"%>
+    <%@ page import="java.text.DateFormat"%>
+    <%@ page import="java.text.SimpleDateFormat"%>
+    <%@ page import="java.util.Date"%>
+    
+
+
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
+    
     
 <%-- Security check: Prohibit access for unauthorised users--%>
 <%
@@ -43,7 +54,7 @@
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <!--nav--> 
-        <script>
+    <script>
         $(function() {
             var pull        = $('#pull');
             menu        = $('nav ul');
@@ -61,12 +72,42 @@
                 }
             });
         });
-        </script>
-        <script> 
-        $('#nav').affix({});
-        </script>
-        <!--Face book-->
-        <script>
+        
+</script>
+<script type="text/javascript">
+	$(document).ready(function () {
+	    var maxheight=0;
+	    var showText = "Comment";
+	    var hideText = "Hide Comments";
+	
+	    $('.textContainer_Truncate').each(function () {
+	      var text = $(this);
+	      if (text.height() > maxheight){
+	          text.css({ 'overflow': 'hidden','height': maxheight + 'px' });
+	
+	          var link = $('<a href="#">'+ showText + '</a>');
+	          var linkDiv = $('<div class="editor-buttons"><a><span class="glyphicon glyphicon-comment"></span></a> </div>');
+	          linkDiv.append(link);
+	          $(this).after(linkDiv);
+	
+	          link.click(function (event) {
+	            event.preventDefault();
+	            if (text.height() > maxheight) {
+	                $(this).html(showText);
+	                text.css('height', maxheight + 'px');
+	            } else {
+	                $(this).html(hideText);
+	                text.css('height', 'auto');
+	            }
+	          });
+	      }       
+	    });
+	 });
+
+</script>
+     
+<!--Face book-->
+<script>
             (function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
@@ -74,7 +115,36 @@
 		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=313231902363487";
 		  fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-	</script>
+</script>
+
+<script>
+		function resettoggle() 
+		{
+			var e = document.getElementById('list-comments');
+			e.style.display = 'none';
+		
+		}
+		
+		function toggle_visibility()
+		{
+			
+			var e = document.getElementById('list-comments');
+			if(e.style.display == 'block')
+			{
+				e.style.display = 'none';
+		 
+			}
+			else
+				e.style.display = 'block';
+		}
+		
+</script>
+
+
+ 
+
+  
+ 
         
 </head>
 <body>
@@ -84,10 +154,10 @@
                 <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 <ul class="clearfix">
-                    <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li><!-- <a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> --></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-				<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-				<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+				<li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
+				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
 				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>	
 				
 				<form id="logout_form" method="post" action="../logout">	
@@ -102,18 +172,23 @@
             <div class="wrapper">
                 <div class="content-wrapper">
                     <div class="content">
-                        <form method="post" action="../Post">
+                        <form method="post" action="../Post" enctype="multipart/form-data" >
                             <div class="post-box">
                                 <div class="editor">
                                     <div class="editor-header">
                                         
-                                        <a href="CV.jsp"> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>
+                                        <a href="CV.jsp"> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>  
                                         
                                         </div>
                                     <input class="write-post" name="caption" placeholder="Write a post"></input>
                                     <div class="editor-buttons">
-                                        <button href=""  type="submit" class="post-btn" name="post" value="posting" >Post</button>
-                                        <a href=""><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Upload</a>
+                                        <button  type="submit" class="post-btn" name="post" value="posting" >Post</button>
+                           
+                                        <label style="margin-left:10px;color: #337ab7" id="file_button" >
+											<input type="file" name="photo"  id="uploadID"  >
+										</label>
+                                        
+                                        
                                     </div>
                                 </div>              
                             </div>
@@ -135,45 +210,97 @@
                                         <div class="editor-header">
                                         <!-- Display name of user who posted-->
                                         
-                                        <form id="ViewProfile_form" method="post" action="../View_Profile">
+                                        <form  method="post" action="../View_Profile">
                                         	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
                                         </form>
                                         
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                         </div>
+                                        
+                                        <%if(resultset.getString(8)!=null || resultset.getString(2).equals("Wandile")) 
+                                        {
+                                        	
+                                        	request.getSession().setAttribute("imageID",null);
+                                        	request.getSession().setAttribute("imageID",resultset.getString(1));
+                                        	System.out.println(request.getSession().getAttribute("imageID"));
+                                        %>
+                                        <div class="post-body message_frame">
+                                             <p><%=resultset.getString(4)%></p>
+                                             
+                                            
+
+                                            <% 
+                                            if(!(resultset.getString(2).equals("Wandile")))
+                                            {%>
+
+                                            
+                                            <img style="max-height:400px;width:600px" src="${pageContext.request.contextPath}/Post?id=${resultset.getString(1)}">
+                                            <%} %>
+                                            
+                                            <% 
+                                            if(resultset.getString(2).equals("Wandile"))
+                                            {%>
+                                            
+                                            <img src="../j5.png" style="max-height:400px;width:600px"> 
+                                             <%} %>
+                                            
+                                        </div>
+                                        <%} %>
+                                        
+                                        
+                                        <%if(resultset.getString(8)==null) 
+                                        {
+                                        %>
                                         <div class="post-body message_frame">
                                             <p><%=resultset.getString(4)%></p>
                                         </div>
-                                        <div class="editor-buttons">
-                                             <span style="color:#ccc;"><%=resultset.getString(6)%> Likes</span>
-                                            <a href=""><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
-                                            <a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment </a>
-                                        </div>
-                                        <div class="list-comments">
-                                        <% 
-                                            Connection connection2 = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                        <%} %>
+                                        
+                                        
+                                        
+                                        <form method="post" action="../Like_Post">
+	                                        <div class="editor-buttons">
+	                                            <button  type="submit" style="background:none!important;border:none;color: #337ab7" name ="<%=resultset.getString(1)%>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+	                                             <span style="color:#ccc;"><%=resultset.getString(6)%> Likes</span>	                                            	                                            
+	                                        </div>
+                                        </form>
+                                        
+                                        
+                                        <div class='textContainer_Truncate '>
                                             
-                                            Statement statement2 = connection2.createStatement() ;
-                                            ResultSet resultset2 =  statement2.executeQuery("select * from Comments WHERE ID = '"+resultset.getString(1)+"' ORDER BY ID desc") ;
-                                            while(resultset2.next())
-                                            {
-                                                if(resultset.getString(1).equals(resultset2.getString(1)) )
+                                            <div class="list-comments">
+                                            <% 
+                                                Connection connection2 = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                                
+                                                Statement statement2 = connection2.createStatement() ;
+                                                ResultSet resultset2 =  statement2.executeQuery("select * from Comments WHERE ID = '"+resultset.getString(1)+"' ORDER BY ID desc") ;
+                                                while(resultset2.next())
                                                 {
-                                                    %>
-		                                          <div>
-		                                            <strong><%=resultset2.getString(2)+" "+resultset2.getString(3)%>: </strong>
-		                                            <%=resultset2.getString(4)%>
-		                                        </div>
-		                                          <%
-                                                }
-                                             }
-                                            %>
-                                        </div>
-                                        
-                                        
-                                        <form method="post" action="../Post">
+                                                    if(resultset.getString(1).equals(resultset2.getString(1)) )
+                                                    {
+                                                        %>
+    		                                          <div>
+    		                                            <strong><%=resultset2.getString(2)+" "+resultset2.getString(3)%>: </strong>
+    		                                            <%=resultset2.getString(4)%>
+    		                                        </div>
+    		                                          <%
+                                                    }
+                                                 }
+                                                %>
+                                            </div>
+
+
+                                        <form method="post" action="../Post" enctype="multipart/form-data">
                                        		 <input class="write-comment"    name="<%=resultset.getString(1)%>" type="text" placeholder="Write a comment">
-                                        </form> 
+	                                        <input type="file" name="photo"  id="uploadID" style="display:none"  >
+	                                       </form> 
+	
+	                                    </div>
+                                        
+                                        
+                                        
+                           
+                                        
                                     </div>
                                 </div>
                                 <!-- Closing connection to database -->
@@ -196,6 +323,7 @@
                     
                         
                 </div>
+                
             </div>
         </div>
         <!-- script for twitter feed -->

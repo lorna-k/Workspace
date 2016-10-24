@@ -72,7 +72,7 @@
 				<ul class="clearfix">
 					<!--<li><a href="PendingUsers.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Monitor</a></li>-->
 					<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-					<li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+					<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
 					<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
 					<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
 				</ul>

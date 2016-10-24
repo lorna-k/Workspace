@@ -144,7 +144,7 @@ e.style.display = 'block';
                                         <!-- Display name of user who posted-->
                                         
                                         <form id="ViewProfile_form" method="post" action="../View_Profile">
-                                        	<label style="background:none!important;border:none;color: #D84D0A;margin-left:5px"> <%=resultset.getString(1)%></label> 
+                                        	<label style="background:none!important;border:none;color: whitesmoke;margin-left:5px"> <%=resultset.getString(1)%></label> 
                                         </form>
                                         
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->

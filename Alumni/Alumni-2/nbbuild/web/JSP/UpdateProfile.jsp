@@ -7,6 +7,7 @@
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@ page language="java"%>
     <%@ page import = "java.io.*" %>
+    <%@ page import="dao.ImageAccess" %>
     <%@ page import = "dao.*" %>
     <%@ page import="java.sql.*" %>
 
@@ -45,7 +46,7 @@
           <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
           <span class="header-title" style="color:white;">UCT Alumni Network</span>
           <ul class="clearfix">
-            <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+            <li><a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
             <li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
             <li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
             <li><a href=""><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
@@ -78,6 +79,24 @@
               String postalCode = resultset.getString(9);
               String phone = resultset.getString(10);
               String email = resultset.getString(11); 
+              
+              
+              byte[] imgData = ImageAccess.displayPhoto(uid);
+              
+              
+              if(imgData==null)
+              {
+            	  request.getSession().setAttribute("image_status","0");
+            	  System.out.println("no image");
+            	  
+              }
+              if(imgData!=null)
+              {
+            	  request.getSession().setAttribute("image_status","1");
+            	  System.out.println("found image");
+              }
+              
+              String imageStatus=request.getSession().getAttribute("image_status")+"";
               %>
               
                 <form method="post" action="../ImageUpload" enctype="multipart/form-data">
@@ -85,9 +104,19 @@
                     <input  type="button" id="upload_link" value="Change photo">
                     <input type="submit" value="Save">
                 </form>
-                <div class="profile-photo">
-                    <img class="cv-photo" src="${pageContext.request.contextPath}/ImageUpload">
-                </div>
+                
+				<%if(imageStatus.equals("0")){%>
+			    <div class="profile-photo">
+			      <img class="cv-photo" src="../default-profile.png">
+			    </div>
+			    <%} %>
+			    
+			    <%if(imageStatus.equals("1")){%>
+			     <div class="profile-photo">
+			      <img class="cv-photo"  src="${pageContext.request.contextPath}/ImageUpload">
+			    </div>
+			    <%} %>
+					
               <form  action="../UpdateProfile" method="post" class="update-form">
                 First Name<br>
                 <input name="fname" value="<%=fname%>" class="input-box"><br>
@@ -156,9 +185,9 @@
                         <h3 class="cv-section">Skills</h3>
                         <span class="skills-btn"><%=resultset.getString(25)%></span>           <!-- skill1 -->
                         <span class="skills-btn"><%=resultset.getString(26)%></span>           <!-- skill2 -->
-                        <span class="skills-btn"><%=resultset.getString(27)%></span>            <!-- skill3 -->
-                        <span class="skills-btn"><%=resultset.getString(28)%></span>         <!-- skill4 -->
-                        <span class="skills-btn"><%=resultset.getString(29)%></span>     <!-- skill5 -->
+                        <span class="skills-btn"><%=resultset.getString(27)%></span>           <!-- skill3 -->
+                        <span class="skills-btn"><%=resultset.getString(28)%></span>           <!-- skill4 -->
+                        <span class="skills-btn"><%=resultset.getString(29)%></span>           <!-- skill5 -->
                       </div> 
                       <div id="section4" class="container-fluid">
                         <h3 class="cv-section">References</h3>
