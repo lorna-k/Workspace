@@ -151,7 +151,7 @@ public class DataAccess
 	    return  false;
     }
     
-    public static void addUser(User user) throws ClassNotFoundException,SQLException
+    public void addUser(User user) throws ClassNotFoundException,SQLException
     {
     	
 	        PreparedStatement ps=DBUtils.getPreparedSatement("insert into Users values(?,?,?,?,?,?)");

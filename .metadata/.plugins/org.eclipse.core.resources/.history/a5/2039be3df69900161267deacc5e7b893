@@ -186,26 +186,6 @@ public class User
 	}
 	
 	
-	//Searches and returns a user in a form of a resultSet
-	
-	public ResultSet search(String userID)
-	{
-		Connection connection;
-		ResultSet resultset=null;
-		try {
-			connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-			Statement statement = connection.createStatement() ;
-            
-	        resultset = statement.executeQuery("SELECT * from CVs WHERE userID = '"+userID+"'");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-         
-        		
-        return resultset;
-	}
 	
 	
     //Getters and setters
