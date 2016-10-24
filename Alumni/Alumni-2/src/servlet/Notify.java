@@ -103,12 +103,11 @@ public class Notify extends HttpServlet {
                                     break;
                             }
                             
-                       //DateFormat dateFormat = new SimpleDateFormat("hh:mm a"); //formatting time to have AM/PM text using 'a' format
+                       
                        Date date = new Date();
                        String strDateFormat = "h:mm a";
                        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
      
-     //System.out.println("Time with AM/PM field : " + sdf.format(date));
                        
                        String thedate =  now.get(Calendar.DATE)+" "+thismonth+"   "+sdf.format(date);
                        

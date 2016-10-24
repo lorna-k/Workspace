@@ -26,6 +26,7 @@
 		<div class="nav-title">
 				<a href="../index.html"><img class="nav-logo" src="../uct-logo.png"></a>
 				<span class="header-title" style="color:white;">UCT Alumni Network</span>
+                                <a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
 			</div>
 		<a href="#" id="pull">Sign Up</a>
 	</nav>
