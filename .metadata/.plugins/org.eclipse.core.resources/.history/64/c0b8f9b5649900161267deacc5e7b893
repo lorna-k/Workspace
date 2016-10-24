@@ -238,7 +238,7 @@
                                         <%} %>
                                         
                                         
-                                        <%if(resultset.getString(8)==null && !(resultset.getString(2).equals("Wandile"))) 
+                                        <%if(resultset.getString(8)==null) 
                                         {
                                         %>
                                         <div class="post-body message_frame">
