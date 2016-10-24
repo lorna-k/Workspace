@@ -117,34 +117,7 @@
             }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<script>
-		function resettoggle() 
-		{
-			var e = document.getElementById('list-comments');
-			e.style.display = 'none';
-		
-		}
-		
-		function toggle_visibility()
-		{
-			
-			var e = document.getElementById('list-comments');
-			if(e.style.display == 'block')
-			{
-				e.style.display = 'none';
-		 
-			}
-			else
-				e.style.display = 'block';
-		}
-		
-</script>
 
-
- 
-
-  
- 
         
 </head>
 <body>
@@ -155,11 +128,12 @@
                 <span class="header-title" style="color:white;">UCT Alumni Network</span>
                 <ul class="clearfix">
                     <li><!-- <a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> --></li>
+                                <li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-				<li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
+				
 				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
 				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>	
-				
+				<li><a href="https://drive.google.com/open?id=0B5hfZMerj_ABSks3RXI4RTJvOTg"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
 				<form id="logout_form" method="post" action="../logout">	
 					<li><a href="javascript:{}" onclick="document.getElementById('logout_form').submit(); return false;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
 				</form>

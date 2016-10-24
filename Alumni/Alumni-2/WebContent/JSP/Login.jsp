@@ -24,9 +24,9 @@
 <body>
 	<div class="nav-container">
 		<nav class="clearfix">
-			<a href="index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
+			<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 			<span class="header-title" style="color:white;">UCT Alumni Network</span>
-			<a><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
+			<a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:white;"></span></a>
 		</nav>
 	</div>	
 	
