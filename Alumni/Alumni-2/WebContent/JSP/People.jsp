@@ -215,7 +215,7 @@
                                          <div class="editor">
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
-                                             //populating form with fields from the result set
+                                             <!-- populating form with fields from the result set -->
                                              <form id="ViewProfile_form" method="post" action="../View_Profile">
 	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset1.getString(2)%>"> <%=resultset1.getString(2)+" "+resultset1.getString(3)%></button> 
 	                                        </form>
