@@ -75,8 +75,8 @@ public class Admin
 			    
 				PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Posts(PostId,Name,Surname,Caption) VALUES(?,?,?,?)");
 		        ps.setString(1, LocalDateTime.now().toString());
-		        ps.setString(2,"Admin");
-		        ps.setString(3, "");
+		        ps.setString(2,this.firstName);
+		        ps.setString(3, this.lastName);
 		        ps.setString(4,caption);
 		        //ps.setString(5, ProfilePic);
 		        //ps.setInt (5, 0);

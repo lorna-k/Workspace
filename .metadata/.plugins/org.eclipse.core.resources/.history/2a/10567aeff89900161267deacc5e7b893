@@ -265,7 +265,7 @@ public class DataAccess
 		
     }
     
-    public static void deleteUser(String data)
+    public void deleteUser(String data)
     {
     	System.out.println(data+" "+"was deleted");
     	
