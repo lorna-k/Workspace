@@ -34,7 +34,7 @@ public class Notify extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * This servlet is responsible for getting a post from the Pending_Users.jsp/System_Users.jsp/rejected_Users.jsp page and processing the inputs so that it may be transfered to the database and ready to be retrieved and displayed in the notifications page
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -43,6 +43,7 @@ public class Notify extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 *This servlet is responsible for getting a post from the Pending_Users.jsp/System_Users.jsp/rejected_Users.jsp page and processing the inputs so that it may be transfered to the database and ready to be retrieved and displayed in the notifications page
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -50,10 +51,10 @@ public class Notify extends HttpServlet {
 	String sendPost = request.getParameter("post");
         String notification = request.getParameter("notification"); //getting notification message
         
-        /*
+        
         if(!notification.equalsIgnoreCase("") )
     	{
-	*/		try 
+			try 
 			{
 
                         Calendar now = Calendar.getInstance();
@@ -106,10 +107,10 @@ public class Notify extends HttpServlet {
                        
                        Date date = new Date();
                        String strDateFormat = "h:mm a";
-                       SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+                       SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);//converting current time 
      
                        
-                       String thedate =  now.get(Calendar.DATE)+" "+thismonth+"   "+sdf.format(date);
+                       String thedate =  now.get(Calendar.DATE)+" "+thismonth+"   "+sdf.format(date);//manufacturing the date string to be inserted to database
                        
                         PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Notifications(ID,today,Message) VALUES(?,?,?)");
 		        ps.setString(1, "Admin");
@@ -130,7 +131,7 @@ public class Notify extends HttpServlet {
 			 response.sendRedirect("./JSP/PendingUsers.jsp");
 			
         
-	//}
+	}else{response.sendRedirect("./JSP/PendingUsers.jsp");}
 
 }
 }
