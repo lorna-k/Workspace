@@ -80,7 +80,7 @@
 	
         
 </head>
-    <body >
+    <body style="line-height:1;">
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
                 <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
@@ -136,14 +136,6 @@
                                 String search_1= request.getSession().getAttribute("searcher")+"";
                                 		//
                                 String search_2 =request.getSession().getAttribute("search")+"";
-                                		
-                                
-                                     
-                                        
-                             
-                                
-                                
-                          
                             
                                 	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
                                              //Opening connection to data in database
@@ -151,7 +143,8 @@
 
                                             Statement statement = connection.createStatement() ;
                                             ResultSet resultset = null;
-                                            resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Highest_Degree_Year,Highest_Degree,Major1,Major2,City,Occupation)) like lower('%"+search_2+"%')") ;
+                                            resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Occupation,Current_Company,Address_Line1,Address_Line2,City,Postal_Code,Phone,Email,Highest_Degree,Institution1,Major1,Major2,Highest_Degree_Year,High_School,High_School_Year,Job1,Job1_Company,Job1_Year,Job2,Job2_Company,Job2_Year,Skill1,Skill2,Skill3,Skill4,Skill5,Reference_Name1,Reference_Email1,Reference_Name2,Reference_Email2))  like lower('%"+search_2+"%') ") ;
+                                            ResultSetMetaData metaData = resultset.getMetaData();
                                             if(resultset.isBeforeFirst()){
                                                 
                                 	 while(resultset.next())
@@ -164,16 +157,28 @@
                                              <!-- Display name of user who posted-->
                                              
                                              <form id="ViewProfile_form" method="post" action="../View_Profile">
-	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
+	                                        	<button style="background:none!important;border:none;color: #D84D0A!important;margin-top: 1.5%; " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
 	                                        </form>
                                              
                                              
                                              <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                              </div>
+                                             
+												
+											 
+                                             
                                              <div class="post-body message_frame" style="color: grey;">
-                                                 <p>Occupation: <%=resultset.getString(4)%></p>
-                                                 <p>Highest Degree: <%=resultset.getString(12)%></p>
-                                                 <p>Current City: <%=resultset.getString(8)%></p>
+                                             	<div id="left" style="float:left;width:50%;">
+                                             		<p>Occupation: <%=resultset.getString(4)%></p>
+                                                 	<p>Company: <%=resultset.getString(5)%></p>
+                                                 	<p>Highest Degree: <%=resultset.getString(12)%></p>
+                                                 	<p>Recent grad year: <%=resultset.getString(16)%></p>
+                                             	</div>
+												<div id="right" style="float:right;"></div>
+                                                 <p>Email: <%=resultset.getString(11)%></p>
+                                                 <p>City: <%=resultset.getString(8)%></p>
+                                                 <p>Prev. jobs: <%=resultset.getString(19)%>,<%=resultset.getString(22)%></p>
+                                                 <p>Prev. companies: <%=resultset.getString(20)%>,<%=resultset.getString(23)%></p>
                                              </div>
 
                                          </div>
