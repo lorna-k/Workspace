@@ -16,7 +16,7 @@
     <%@ page import="java.text.DateFormat"%>
     <%@ page import="java.text.SimpleDateFormat"%>
     <%@ page import="java.util.Date"%>
-    
+ 
 
 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -178,15 +178,69 @@
                                   
                                 while(resultset.next())
                                 {
+                                	Calendar cal = Calendar.getInstance();
+                                	cal.setTime(resultset.getDate(1));
+                                	int month = cal.get(Calendar.MONTH)+1;
+                                	int day =cal.get(Calendar.DATE);
+                                    String thismonth= "";
+                                         switch (month) {
+                                             case 1:
+                                                 thismonth="Jan";
+                                                 break;
+                                             case 2:
+                                                 thismonth="Feb";
+                                                 break;
+                                             case 3:
+                                                 thismonth="Mar";
+                                                 break;
+                                             case 4:
+                                                 thismonth="Apr";
+                                                 break;
+                                             case 5:
+                                                 thismonth="May";
+                                                 break;
+                                             case 6:
+                                                 thismonth="Jun";
+                                                 break;
+                                             case 7:
+                                                 thismonth="Jul";
+                                                 break;
+                                             case 8:
+                                                 thismonth="Aug";
+                                                 break;
+                                             case 9:
+                                                 thismonth="Sept";
+                                                 break;
+                                             case 10:
+                                                 thismonth="Oct";
+                                                 break;
+                                             case 11:
+                                                 thismonth="Nov";
+                                                 break;
+                                             case 12:
+                                                 thismonth="Dec";
+                                                 break;
+                                             default:
+                                                 break;
+                                         }
+                                         
+                                         String thedate = day +" "+ thismonth; //manufacturing time stamp
+                                         
+                                         
+                                         String input = resultset.getString(1);
+                                         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                         DateFormat outputFormat = new SimpleDateFormat("KK:mm a"); //formatting date to 12 hour PM/AM
+                                         
                                 %>
                                 <div class="posts">
                                     <div class="editor">
                                         <div class="editor-header">
                                         <!-- Display name of user who posted-->
                                         
-                                        <form  method="post" action="../View_Profile">
+                                        <form  method="post" action="../View_Profile" style="width:50%;float:left;">
                                         	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
                                         </form>
+                                        <span style="float: right;padding: 1px 6px;"><%=thedate%></br><%=outputFormat.format(inputFormat.parse(input))%></span></br>
                                         
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                         </div>
