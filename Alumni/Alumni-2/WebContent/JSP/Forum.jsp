@@ -240,7 +240,7 @@
                                         <form  method="post" action="../View_Profile" style="width:50%;float:left;">
                                         	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
                                         </form>
-                                        <span style="float: right;padding: 1px 6px;"><%=thedate%></br><%=outputFormat.format(inputFormat.parse(input))%></span></br>
+                                        <span style="float: right;padding: 1px 6px;line-height: 1;color: #90949c;"><%=thedate%></br><%=outputFormat.format(inputFormat.parse(input))%></span></br>
                                         
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                         </div>
@@ -289,7 +289,7 @@
                                         <form method="post" action="../Like_Post">
 	                                        <div class="editor-buttons">
 	                                            <button  type="submit" style="background:none!important;border:none;color: #337ab7" name ="<%=resultset.getString(1)%>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-	                                             <span style="color:#ccc;"><%=resultset.getString(6)%> Likes</span>	                                            	                                            
+	                                             <span style="color:#90949c;"><%=resultset.getString(6)%> Likes</span>	                                            	                                            
 	                                        </div>
                                         </form>
                                         
@@ -354,7 +354,7 @@
                 
             </div>
         </div>
-        script for twitter feed
+        
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </body>
 </html>

@@ -109,7 +109,7 @@
 
 
 <div class="fixed-wrapper">
-  <div class="fixed-content" style="border-left: 1px solid gray; ">
+  <div class="fixed-content" style="border-left: 1px solid gray;border-left: 1px solid gray; /* -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.1), 0 0 16px rgba(0,0,0,0.1); */ box-shadow: inset 0 0 158px rgba(0,0,0,0.3), 0 0 80px rgba(0,0,0,0.3); background: #ddd; ">
     
     <%if(imageStatus.equals("0")){%>
     <div class="profile-photo">
@@ -124,37 +124,38 @@
     <%} %>
     
     
-    <label class="name-label"><%=resultset.getString(2)%>  <%=resultset.getString(3)%> </label>
+    <label class="name-label" style="font-family: 'Roboto','Open Sans', 'PT Sans', Arial, sans-serif;"><%=resultset.getString(2)%>  <%=resultset.getString(3)%> </label>
     <address>
-      <a name="email" href="mailto:<%=resultset.getString(11)%>"><%=resultset.getString(11)%> </a>
+      <a name="email" href="mailto:<%=resultset.getString(11)%>"><%=resultset.getString(11)%> </a></br>
+      <abbr title="Phone"><%=resultset.getString(10)%></abbr>   <!--Phone-->
     </address>
 
     <div class="personal-details">
-      <label ><%=resultset.getString(4)%></label><br>           <!--occupation-->
+      <label ><abbr title="Occupation"><%=resultset.getString(4)%></abbr></label><br>           <!--occupation-->
     </div>
      
     <div>
       <address>
-        <strong><%=resultset.getString(5)%></strong><br> <!-- company/institution -->
+        <strong><abbr title="company/institution"><%=resultset.getString(5)%></abbr></strong><br> <!-- company/institution -->
         <%=resultset.getString(6)%> <br> <!-- adressline1 -->
         <%=resultset.getString(7)%> <br> <!-- addressLine2 -->
         <%=resultset.getString(8)%> <br>
         <%=resultset.getString(9)%> <br>
-        <abbr title="Phone"></abbr> <%=resultset.getString(10)%> 
+          
       </address>
     </div>
-    <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn edit-profile-btn" style="margin:auto;">Edit Profile</a>
-    <a  href="UpdateCV.jsp" class="btn btn-default navbar-btn">Edit CV</a>               
+    <a  href="UpdateProfile.jsp" class="btn btn-default navbar-btn edit-profile-btn" style="margin: auto; border: 1px solid rgba(51, 122, 183, 0.44); box-shadow: inset 0 0 8px rgba(0,0,0,1.1), 0 0 16px rgba(0,0,0,0.1);">Edit Profile</a>
+    <a  href="UpdateCV.jsp" class="btn btn-default navbar-btn" style="margin: auto; border: 1px solid rgba(51, 122, 183, 0.44); box-shadow: inset 0 0 8px rgba(0,0,0,1.1), 0 0 16px rgba(0,0,0,0.1);">Edit CV</a>               
     
   </div>
 </div>
 <div class="content-offset" style="border-left: 1px solid gray; border-right: 1px solid gray;">
-  <div class="content-frame"> 
+  <div class="content-frame" style="text-align: center; font-weight: bold; font-family: 'Roboto','Open Sans', 'PT Sans', Arial, sans-serif !important;"> 
     <div id="header" class="row">
       <div class="header-padding">
         
         
-        <div class="header-content"> <h1>Curriculum Vitae</h1>   
+        <div class="header-content"> <h1 style="font-weight: bold;">Curriculum Vitae</h1>   
         </div>
       </div>
     </div>
