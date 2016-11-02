@@ -229,9 +229,17 @@
                                              <!-- <span>Posted <%=resultset1.getString(1)%></span> -->
                                              </div>
                                              <div class="post-body message_frame" style="color: grey;">
-                                                 <p>Occupation: <%=resultset1.getString(4)%></p>
-                                                 <p>Highest Degree: <%=resultset1.getString(12)%></p>
-                                                 <p>Current City: <%=resultset1.getString(8)%></p>
+                                             	<div id="left" style="float:left;width:50%;">
+                                             		<p>Occupation: <%=resultset1.getString(4)%></p>
+                                                 	<p>Company: <%=resultset1.getString(5)%></p>
+                                                 	<p>Highest Degree: <%=resultset1.getString(12)%></p>
+                                                 	<p>Recent grad year: <%=resultset1.getString(16)%></p>
+                                             	</div>
+												<div id="right" style="float:right;"></div>
+                                                 <p>Email: <%=resultset1.getString(11)%></p>
+                                                 <p>City: <%=resultset1.getString(8)%></p>
+                                                 <p>Prev. jobs: <%=resultset1.getString(19)%>,<%=resultset1.getString(22)%></p>
+                                                 <p>Prev. companies: <%=resultset1.getString(20)%>,<%=resultset1.getString(23)%></p>
                                              </div>
 
                                          </div>

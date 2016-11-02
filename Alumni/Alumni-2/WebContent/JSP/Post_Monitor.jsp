@@ -114,7 +114,7 @@
                     <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
                     <form action="../searchPost" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
-                		<select class="marshal_details" id="search-dropdown" name="searcher" style="background: #ccc;visibility:hidden;"> 
+                		<select class="marshal_details" id="search-dropdown" name="searcher1" style="background: #ccc;visibility:hidden;"> 
 							
 							<option value="ALL" selected="selected">All</option> 
 							<option value="First_Name">First Name</option>
@@ -128,7 +128,7 @@
 						</select> 
 
 			
-						<input id="search-text" type="text" name="search" placeholder="Search.." style="background: #ccc;">
+						<input id="search-text" type="text" name="search1" placeholder="Search.." style="background: #ccc;">
 						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
 						
 						</form>
@@ -138,9 +138,10 @@
                               
                             <%
                                 //values from the form search fields
-                                String search_1= request.getSession().getAttribute("searcher")+"";
+                                String search_1= request.getSession().getAttribute("searcher1")+"";
                                 		//
-                                String search_2 =request.getSession().getAttribute("search")+"";
+                                String search_2 =request.getSession().getAttribute("search1")+"";
+                                		
                             
                                 	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
                                              //Opening connection to data in database

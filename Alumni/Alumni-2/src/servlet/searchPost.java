@@ -35,12 +35,14 @@ public class searchPost extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String term= request.getParameter("searcher");
-		request.getSession().setAttribute("searcher", term);
-		String val= request.getParameter("search");
-		request.getSession().setAttribute("search", val);
+		String term1="";
+		term1=request.getParameter("searcher1");
+		request.getSession().setAttribute("searcher1", term1);
+		String val1="";
+		val1=request.getParameter("search1");
+		request.getSession().setAttribute("search1", val1);
+		System.out.println(val1);
 		
-		//System.out.println(term);
 		/*ResultSet rs=null;
 		if(term!="")
     	{
@@ -88,7 +90,7 @@ public class searchPost extends HttpServlet {
             System.out.println("Location: "+Location);
     	}*/
 		
-		 response.sendRedirect("./JSP/Post_Monitor.jsp");
+		response.sendRedirect("./JSP/Post_Monitor.jsp");
 		 /*request.getSession().setAttribute("searcher",null);
 		 request.getSession().setAttribute("search", null);*/
 	}
