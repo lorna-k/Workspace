@@ -82,7 +82,7 @@
 			</nav>
 		</div>
      <div class="left-navbar">
-		<a href="../index.html">Home</a>
+		<a href="Post_Monitor.jsp">Post Monitor</a>
                 <a href="PendingUsers.jsp">Pending Users</a>
                 <a href="SystemUsers.jsp">System Users</a>
 		<a href="RejectedUsers.jsp">Rejected Users</a>
@@ -90,14 +90,14 @@
 	</div>
 	<div class="right-content">
 	
-        <H1 align="center" style="margin-top:13vh;font-family:Aria"> Users</H1>
+        <H1 align="center" style="margin-top:13vh;font-family:Aria">Rejected Users</H1>
 
         <% 
             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
             Statement statement = connection.createStatement() ;
             ResultSet resultset = 
-            statement.executeQuery("select * from Users") ; 
+            statement.executeQuery("select * from Rejected_Users") ; 
         %>
         <div align="center">
 			<form action="${pageContext.request.contextPath}/ProcessRequest" method="post">

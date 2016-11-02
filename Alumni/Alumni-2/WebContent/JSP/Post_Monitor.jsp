@@ -1,5 +1,5 @@
 <%-- 
-    Document   : People
+    Document   : Post Monitor
     Created on : 16 Sep 2016, 3:53:14 PM
     Author     : Phuluso Ngwenya
 --%>
@@ -12,6 +12,11 @@
     <%@ page import="java.io.*"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ page import="java.time.LocalDateTime"%>
+    <%@ page import="java.util.Calendar"%>
+    <%@ page import="java.text.DateFormat"%>
+    <%@ page import="java.text.SimpleDateFormat"%>
+    <%@ page import="java.util.Date"%>
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
     
@@ -25,7 +30,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>People</title>
+	<title>Post Monitor</title>
 	<meta charset="UTF-8">
 	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,9 +112,9 @@
             <div class="wrapper" style="padding: 0px 100px;">
                 <div class="content-wrapper">
                     <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
-                    <form action="../search" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
+                    <form action="../searchPost" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
-                		<select class="marshal_details" id="search-dropdown" name="searcher" style="background: #ccc;"> 
+                		<select class="marshal_details" id="search-dropdown" name="searcher" style="background: #ccc;visibility:hidden;"> 
 							
 							<option value="ALL" selected="selected">All</option> 
 							<option value="First_Name">First Name</option>
@@ -143,12 +148,64 @@
 
                                             Statement statement = connection.createStatement() ;
                                             ResultSet resultset = null;
-                                            resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Occupation,Current_Company,Address_Line1,Address_Line2,City,Postal_Code,Phone,Email,Highest_Degree,Institution1,Major1,Major2,Highest_Degree_Year,High_School,High_School_Year,Job1,Job1_Company,Job1_Year,Job2,Job2_Company,Job2_Year,Skill1,Skill2,Skill3,Skill4,Skill5,Reference_Name1,Reference_Email1,Reference_Name2,Reference_Email2))  like lower('%"+search_2+"%') ") ;
+                                            resultset =  statement.executeQuery("Select * from Posts Where lower(concat(PostId,Name,Surname,Caption,likes,Location))  like lower('%"+search_2+"%') ") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
                                             if(resultset.isBeforeFirst()){
                                                 
                                 	 while(resultset.next())
                                          {
+                                		 Calendar cal = Calendar.getInstance();
+                                     	cal.setTime(resultset.getDate(1));
+                                     	int month = cal.get(Calendar.MONTH)+1;
+                                     	int day =cal.get(Calendar.DATE);
+                                         String thismonth= "";
+                                              switch (month) {
+                                                  case 1:
+                                                      thismonth="Jan";
+                                                      break;
+                                                  case 2:
+                                                      thismonth="Feb";
+                                                      break;
+                                                  case 3:
+                                                      thismonth="Mar";
+                                                      break;
+                                                  case 4:
+                                                      thismonth="Apr";
+                                                      break;
+                                                  case 5:
+                                                      thismonth="May";
+                                                      break;
+                                                  case 6:
+                                                      thismonth="Jun";
+                                                      break;
+                                                  case 7:
+                                                      thismonth="Jul";
+                                                      break;
+                                                  case 8:
+                                                      thismonth="Aug";
+                                                      break;
+                                                  case 9:
+                                                      thismonth="Sept";
+                                                      break;
+                                                  case 10:
+                                                      thismonth="Oct";
+                                                      break;
+                                                  case 11:
+                                                      thismonth="Nov";
+                                                      break;
+                                                  case 12:
+                                                      thismonth="Dec";
+                                                      break;
+                                                  default:
+                                                      break;
+                                              }
+                                              
+                                              String thedate = day +" "+ thismonth; //manufacturing time stamp
+                                              
+                                              
+                                              String input = resultset.getString(1);
+                                              DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                              DateFormat outputFormat = new SimpleDateFormat("KK:mm a"); //formatting date to 12 hour PM/AM
                                 		 
                                      %>
                                      <div class="posts">
@@ -161,24 +218,16 @@
 	                                        </form>
                                              
                                              
-                                             <!-- <span>Posted <%=resultset.getString(1)%></span> -->
+                                             <%=resultset.getString(1)%>
                                              </div>
                                              
 												
 											 
                                              
                                              <div class="post-body message_frame" style="color: grey;">
-                                             	<div id="left" style="float:left;width:50%;">
-                                             		<p>Occupation: <%=resultset.getString(4)%></p>
-                                                 	<p>Company: <%=resultset.getString(5)%></p>
-                                                 	<p>Highest Degree: <%=resultset.getString(12)%></p>
-                                                 	<p>Recent grad year: <%=resultset.getString(16)%></p>
-                                             	</div>
-												<div id="right" style="float:right;"></div>
-                                                 <p>Email: <%=resultset.getString(11)%></p>
-                                                 <p>City: <%=resultset.getString(8)%></p>
-                                                 <p>Prev. jobs: <%=resultset.getString(19)%>,<%=resultset.getString(22)%></p>
-                                                 <p>Prev. companies: <%=resultset.getString(20)%>,<%=resultset.getString(23)%></p>
+                                             	
+                                             		<p><%=resultset.getString(4)%></p>
+                                                 	
                                              </div>
 
                                          </div>
@@ -213,7 +262,7 @@
                                 
                                      Statement statement = connection.createStatement() ;
                                      ResultSet resultset1 = null;
-                                     resultset1 =  statement.executeQuery("Select * from CVs") ; //gets everything from CV database
+                                     resultset1 =  statement.executeQuery("Select * from Posts Where lower(concat(PostId,Name,Surname,Caption,likes,Location))  like lower('%"+search_2+"%')") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){
                                       while(resultset1.next()){%>
                                         <div class="posts">
@@ -226,12 +275,11 @@
 	                                        </form>
                                              
                                              
-                                             <!-- <span>Posted <%=resultset1.getString(1)%></span> -->
+                                             <%=resultset1.getString(1)%>
                                              </div>
                                              <div class="post-body message_frame" style="color: grey;">
-                                                 <p>Occupation: <%=resultset1.getString(4)%></p>
-                                                 <p>Highest Degree: <%=resultset1.getString(12)%></p>
-                                                 <p>Current City: <%=resultset1.getString(8)%></p>
+                                                 <p><%=resultset1.getString(4)%></p>
+                                                 
                                              </div>
 
                                          </div>

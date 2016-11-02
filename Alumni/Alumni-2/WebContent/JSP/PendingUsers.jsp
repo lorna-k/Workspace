@@ -62,6 +62,16 @@
         <script> 
         $('#nav').affix({});
         </script>
+        <script>
+
+    document.getElementById('post_button').onclick = changeColor;   
+
+    function changeColor() {
+    	document.getElementById('envelope').style.color = "yellow";
+        return false;
+    }   
+
+</script>
         
 </head>
  <body>
@@ -72,14 +82,15 @@
 				<ul class="clearfix">
 					<!--<li><a href="PendingUsers.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Monitor</a></li>-->
 					<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-					<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+					<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" id="envelope" aria-hidden="true"></span> Notifications</a></li>
 					<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
 					<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
 				</ul>
 				<a href="#" id="pull">Menu</a>
 			</nav>
 		</div>
-     	<div class="left-navbar">
+		<div>
+		<div class="left-navbar">
 		<a href="../index.html">Home</a>
                 <a href="PendingUsers.jsp">Pending Users</a>
                 <a href="SystemUsers.jsp">System Users</a>
@@ -141,7 +152,7 @@
                                         </div>
                                     <input class="write-post" name="notification" placeholder="Write a Notification" style="    width: 56%;height: 60px;    margin-bottom: 10px;"></input>
                                     <div class="editor-buttons">
-                                        <button   type="submit" class="post-btn" name="post" value="posting" >Post</button>
+                                        <button   id="post_button" type="submit" class="post-btn" name="post" value="posting" >Post</button>
                                         
                                     </div>
                                 </div>              
@@ -160,7 +171,10 @@
 	        
         </div>
          
-      </div>       
+      </div>    
+		
+		</div>
+     	   
              
     </BODY>
 </HTML>
