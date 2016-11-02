@@ -291,6 +291,32 @@ public class DataAccess
 	
 		
     }
+    public static void deletePost(String data)
+    {
+    	
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        String SQL = "Delete from Posts WHERE PostId ='"+data+"'";
+        try {
+            stmt.executeUpdate(SQL);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Removed From Posts ");
+	        
+			
+	
+		
+    }
 
     public void acceptedUser(String data)
     {

@@ -63,7 +63,8 @@ public class ProcessRequest extends HttpServlet {
 		DataAccess dataAccess=new DataAccess();
 		String accepted=request.getParameter("accept");
 		String rejected=request.getParameter("reject");
-                String deleted=request.getParameter("delete");
+        String deleted=request.getParameter("delete");
+        String remove=request.getParameter("remove");
 		
 		//# Possible request 1
 		//Admin Processing users requests from the Pending user table
@@ -77,6 +78,11 @@ public class ProcessRequest extends HttpServlet {
 		{
 			dataAccess.rejectedUser(rejected);
 			response.sendRedirect("./JSP/PendingUsers.jsp");
+		}
+		else if (request.getParameter("remove") != null)
+		{
+			dataAccess.deletePost(remove);
+			response.sendRedirect("./JSP/Post_Monitor.jsp");
 		}
 		else if (request.getParameter("delete") != null)
 		{

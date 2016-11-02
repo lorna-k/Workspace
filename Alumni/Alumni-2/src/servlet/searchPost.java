@@ -41,7 +41,7 @@ public class searchPost extends HttpServlet {
 		String val1="";
 		val1=request.getParameter("search1");
 		request.getSession().setAttribute("search1", val1);
-		System.out.println(val1);
+		//System.out.println(val1);
 		
 		/*ResultSet rs=null;
 		if(term!="")

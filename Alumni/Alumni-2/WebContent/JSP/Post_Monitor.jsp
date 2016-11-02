@@ -39,6 +39,7 @@
 	<link  rel="stylesheet" href="../css/animate.css" />
 	<link  rel="stylesheet" href="../css/nav_style.css" />
 	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/admin_styles.css">
         <link rel="stylesheet" href="../css/forum.css">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -93,6 +94,7 @@
                 
                 <ul class="clearfix">
                     <li><!-- <a href="Forum.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> --></li>
+                    
                                 <li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 				
@@ -108,6 +110,14 @@
                 <a href="#" id="pull">Menu</a>
             </nav>
         </div>
+        <div class="left-navbar">
+		<a href="Post_Monitor.jsp">Post Monitor</a>
+                <a href="PendingUsers.jsp">Pending Users</a>
+                <a href="SystemUsers.jsp">System Users</a>
+		<a href="RejectedUsers.jsp">Rejected Users</a>
+
+	</div>
+        
         <div class="page">
             <div class="wrapper" style="padding: 0px 100px;">
                 <div class="content-wrapper">
@@ -128,7 +138,7 @@
 						</select> 
 
 			
-						<input id="search-text" type="text" name="search1" placeholder="Search.." style="background: #ccc;">
+						<input id="search-text" type="text" name="search1" placeholder="Search by any post text" style="background: #ccc;">
 						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
 						
 						</form>
@@ -149,7 +159,7 @@
 
                                             Statement statement = connection.createStatement() ;
                                             ResultSet resultset = null;
-                                            resultset =  statement.executeQuery("Select * from Posts Where lower(concat(PostId,Name,Surname,Caption,likes,Location))  like lower('%"+search_2+"%') ") ;
+                                            resultset =  statement.executeQuery("select * from Posts Where concat(PostId,Name,Caption) like lower('%"+search_2+"%') ORDER BY PostId DESC") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
                                             if(resultset.isBeforeFirst()){
                                                 
@@ -207,6 +217,8 @@
                                               String input = resultset.getString(1);
                                               DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                               DateFormat outputFormat = new SimpleDateFormat("KK:mm a"); //formatting date to 12 hour PM/AM
+                                              
+                                              String id=resultset.getString(1);
                                 		 
                                      %>
                                      <div class="posts">
@@ -214,8 +226,9 @@
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
                                              
-                                             <form id="ViewProfile_form" method="post" action="../View_Profile">
-	                                        	<button style="background:none!important;border:none;color: #D84D0A!important;margin-top: 1.5%; " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
+                                             <form action="${pageContext.request.contextPath}/ProcessRequest" method="post">
+	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset.getString(2)+" "+resultset.getString(3)%></label>
+	                                        	<button type="submit" name="remove" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
 	                                        </form>
                                              
                                              
@@ -245,7 +258,7 @@
                                          </div>
                                          <div class="post-body message_frame" style="color: grey;">
                                              <p>Search "<%=search_2%>" Not found</p>
-                                             <p>Enter a Valid search value</p>
+                                             <p>Enter another search value</p>
                                             
                                          </div>
 
