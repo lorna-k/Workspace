@@ -26,6 +26,7 @@
         response.sendRedirect("Login.jsp");
     }
     %>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +102,9 @@
                 </ul>
                 <a href="#" id="pull">Menu</a>
             </nav>
+            
         </div>
+        
         <div class="left-navbar">
 		<a href="PendingUsers.jsp">Pending Users</a>
         <a href="SystemUsers.jsp">System Users</a>
@@ -110,30 +113,14 @@
 		<a href="Notifications_Admin.jsp">Notifications</a>
 		<a href="Reported_Posts.jsp">Reported Posts</a>
 
-	</div>
+		</div>
         
         <div class="page">
             <div class="wrapper" style="padding: 0px 100px;">
+            <h1 style="padding: 0px 100px;">Reported Posts</h1>
                 <div class="content-wrapper">
                     <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
-                    <div style="padding: 0px 100px;margin-top: 4%;">
-                    <form method="post" action="../Notify"  >
-                            <div class="post-box">
-                                <div class="editor">
-                                    <div class="editor-header">
-                                        
-                                        <span style="margin-left: 36%; color: black; line-height: 2;"> Post to Notifications</span>  
-                                        
-                                        </div>
-                                    <input class="write-post" name="notification" placeholder="Write a Notification"></input>
-                                    <div class="editor-buttons">
-                                        <button id="post_button" type="submit" class="post-btn" name="post" value="posting" >Post</button>
-            
-                                    </div>
-                                </div>              
-                            </div>
-                           </form> </div>
-                    <form action="../searchNotification" method="post" class="form-group" style="width: 100%;margin-left: 10%;">
+                    <form action="../searchReportedPost" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher2" style="background: #ccc;visibility:hidden;"> 
 							
@@ -159,27 +146,78 @@
                               
                             <%
                                 //values from the form search fields
-                                String searcher_2= request.getSession().getAttribute("searcher2")+"";
+                                String search_1= request.getSession().getAttribute("searcher1")+"";
                                 		//
-                                String search_2 =request.getSession().getAttribute("search2")+"";
+                                String search_2 =request.getSession().getAttribute("search1")+"";
                                 		
-                                
-                                	if((searcher_2.equalsIgnoreCase("ALL"))){	
+                            
+                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
                                              //Opening connection to data in database
                                             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
                                             Statement statement = connection.createStatement() ;
                                             ResultSet resultset = null;
-                                            resultset =  statement.executeQuery("select * from Notifications Where concat(ID,today,Message) like lower('%"+search_2+"%')") ;
+                                            resultset =  statement.executeQuery("select * from Reported_Posts Where concat(PostId,Name,Caption) like lower('%"+search_2+"%') ORDER BY PostId DESC") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
-                                            
                                             if(resultset.isBeforeFirst()){
-                                            	 System.out.println("Qadidi");
+                                                
                                 	 while(resultset.next())
                                          {
-                                		
-                                              String id=resultset.getString(2);
+                                		 Calendar cal = Calendar.getInstance();
+                                     	cal.setTime(resultset.getDate(1));
+                                     	int month = cal.get(Calendar.MONTH)+1;
+                                     	int day =cal.get(Calendar.DATE);
+                                         String thismonth= "";
+                                              switch (month) {
+                                                  case 1:
+                                                      thismonth="Jan";
+                                                      break;
+                                                  case 2:
+                                                      thismonth="Feb";
+                                                      break;
+                                                  case 3:
+                                                      thismonth="Mar";
+                                                      break;
+                                                  case 4:
+                                                      thismonth="Apr";
+                                                      break;
+                                                  case 5:
+                                                      thismonth="May";
+                                                      break;
+                                                  case 6:
+                                                      thismonth="Jun";
+                                                      break;
+                                                  case 7:
+                                                      thismonth="Jul";
+                                                      break;
+                                                  case 8:
+                                                      thismonth="Aug";
+                                                      break;
+                                                  case 9:
+                                                      thismonth="Sept";
+                                                      break;
+                                                  case 10:
+                                                      thismonth="Oct";
+                                                      break;
+                                                  case 11:
+                                                      thismonth="Nov";
+                                                      break;
+                                                  case 12:
+                                                      thismonth="Dec";
+                                                      break;
+                                                  default:
+                                                      break;
+                                              }
                                               
+                                              String thedate = day +" "+ thismonth; //manufacturing time stamp
+                                              
+                                              
+                                              String input = resultset.getString(1);
+                                              DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                              DateFormat outputFormat = new SimpleDateFormat("KK:mm a"); //formatting date to 12 hour PM/AM
+                                              
+                                              String id=resultset.getString(1);
+                                		 
                                      %>
                                      <div class="posts">
                                          <div class="editor">
@@ -187,12 +225,12 @@
                                              <!-- Display name of user who posted-->
                                              
                                              <form action="${pageContext.request.contextPath}/ProcessRequest" method="post">
-	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset.getString(1)%></label>
-	                                        	<button type="submit" name="remove1" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
+	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset.getString(2)+" "+resultset.getString(3)%></label>
+	                                        	<button type="submit" name="removeReported" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
 	                                        </form>
                                              
                                              
-                                             <%=resultset.getString(3)%>
+                                             <%=resultset.getString(1)%>
                                              </div>
                                              
 												
@@ -200,7 +238,7 @@
                                              
                                              <div class="post-body message_frame" style="color: grey;">
                                              	
-                                             		<p><%=resultset.getString(3)%></p>
+                                             		<p><%=resultset.getString(4)%></p>
                                                  	
                                              </div>
 
@@ -236,32 +274,24 @@
                                 
                                      Statement statement = connection.createStatement() ;
                                      ResultSet resultset1 = null;
-                                     resultset1 =  statement.executeQuery("Select * from Notifications") ; //gets everything from CV database
+                                     resultset1 =  statement.executeQuery("Select * from Reported_Posts Where lower(concat(PostId,Name,Surname,Caption,likes,Location))  like lower('%"+search_2+"%')") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){
-                                      while(resultset1.next()){
-                                    	  String id=resultset1.getString(2);
-                                      %>
+                                      while(resultset1.next()){%>
                                         <div class="posts">
                                          <div class="editor">
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
-                                             
-                                             <form action="${pageContext.request.contextPath}/ProcessRequest" method="post">
-	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset1.getString(1)%></label>
-	                                        	<button type="submit" name="remove1" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
+                                             <!-- populating form with fields from the result set -->
+                                             <form id="ViewProfile_form" method="post" action="../View_Profile">
+	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset1.getString(2)%>"> <%=resultset1.getString(2)+" "+resultset1.getString(3)%></button> 
 	                                        </form>
                                              
                                              
-                                             <%=resultset1.getString(3)%>
+                                             <%=resultset1.getString(1)%>
                                              </div>
-                                             
-												
-											 
-                                             
                                              <div class="post-body message_frame" style="color: grey;">
-                                             	
-                                             		<p><%=resultset1.getString(3)%></p>
-                                                 	
+                                                 <p><%=resultset1.getString(4)%></p>
+                                                 
                                              </div>
 
                                          </div>

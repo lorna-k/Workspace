@@ -162,7 +162,7 @@
         <div id="section1" class="container-fluid">
           <h3 class="cv-section">Education</h3>
           <!-- degree major 1 major 2 -->
-          <p><strong><%=resultset.getString(12) %> <%=resultset.getString(14)%> <%=resultset.getString(15)%></strong> <br>
+          <p><strong><%=resultset.getString(12) %>  <%=resultset.getString(14)%> <%=resultset.getString(15)%></strong> <br>
             <%=resultset.getString(13)%><br>
             <span class="year"><%=resultset.getString(16)%> </span><br> <!--  year --> 
             <p><strong><%=resultset.getString(17)%></strong> <br> <span class="year"><%=resultset.getString(18)%></span> </p>       <!-- high School year -->

@@ -67,8 +67,8 @@
 					<input placeholder="Enter a password" class="form-control" name="passwrd" type="password" />
 				</div>
                     <div class="form-group">
-                        <label for="name">Account Type:</label>
-                        <select name="accountType">
+                        <label for="name" >Account Type:</label>
+                        <select name="accountType" type="text">
                         	<option value="placeholder" class disabled selected>Select type</option>
                             <option value="Student">Student</option>
                             <option value="Staff">Staff</option>

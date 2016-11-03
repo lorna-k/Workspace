@@ -98,6 +98,7 @@
 		<a href="RejectedUsers.jsp">Rejected Users</a>
 		<a href="Post_Monitor.jsp">Post Monitor</a>
 		<a href="Notifications_Admin.jsp">Notifications</a>
+		<a href="Reported_Posts.jsp">Reported Posts</a>
 
 	</div>
 	<div class="right-content">

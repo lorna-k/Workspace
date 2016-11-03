@@ -289,10 +289,13 @@
                                         <form method="post" action="../Like_Post">
 	                                        <div class="editor-buttons">
 	                                            <button  type="submit" style="background:none!important;border:none;color: #337ab7" name ="<%=resultset.getString(1)%>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-	                                             <span style="color:#90949c;"><%=resultset.getString(6)%> Likes</span>	                                            	                                            
+	                                             <span style="color:#90949c;"><%=resultset.getString(6)%> Likes</span>	 
+	                                                                                      	                                            
 	                                        </div>
                                         </form>
-                                        
+                                        <form method="post" action="${pageContext.request.contextPath}/ProcessRequest">
+	                                         <button  type="submit" style="background:none!important;border:none;color: #337ab7;float: right;" name ="report" value="<%=resultset.getString(1)%>">Report</button>
+	                                    </form>  
                                         
                                         <div class='textContainer_Truncate '>
                                             
