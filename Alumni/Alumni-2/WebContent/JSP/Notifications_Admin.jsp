@@ -171,14 +171,14 @@
                                             ResultSet resultset = null;
                                             resultset =  statement.executeQuery("select * from Notifications Where concat(ID,today,Message) like lower('%"+search_2+"%')") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
-                                            System.out.println("wwwwwwwww");
+                                            
                                             if(resultset.isBeforeFirst()){
                                             	 System.out.println("Qadidi");
                                 	 while(resultset.next())
                                          {
                                 		
                                               String id=resultset.getString(2);
-                                              System.out.println(id);
+                                              
                                      %>
                                      <div class="posts">
                                          <div class="editor">
@@ -237,22 +237,30 @@
                                      ResultSet resultset1 = null;
                                      resultset1 =  statement.executeQuery("Select * from Notifications") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){
-                                      while(resultset1.next()){%>
+                                      while(resultset1.next()){
+                                    	  String id=resultset1.getString(2);
+                                      %>
                                         <div class="posts">
                                          <div class="editor">
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
-                                             <!-- populating form with fields from the result set -->
-                                             <form id="ViewProfile_form" method="post" action="../View_Profile">
-	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset1.getString(1)%>"> <%=resultset1.getString(1)%></button> 
+                                             
+                                             <form action="${pageContext.request.contextPath}/ProcessRequest" method="post">
+	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset1.getString(1)%></label>
+	                                        	<button type="submit" name="remove1" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
 	                                        </form>
                                              
                                              
-                                             <%=resultset1.getString(1)%>
+                                             <%=resultset1.getString(3)%>
                                              </div>
+                                             
+												
+											 
+                                             
                                              <div class="post-body message_frame" style="color: grey;">
-                                                 <p><%=resultset1.getString(3)%></p>
-                                                 
+                                             	
+                                             		<p><%=resultset1.getString(3)%></p>
+                                                 	
                                              </div>
 
                                          </div>
