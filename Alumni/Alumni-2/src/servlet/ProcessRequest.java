@@ -68,6 +68,7 @@ public class ProcessRequest extends HttpServlet {
         String remove1=request.getParameter("remove1");
         String report=request.getParameter("report");
         String removeReported=request.getParameter("removeReported");
+        String keepReported=request.getParameter("keepReported");
         
 		
 		//# Possible request 1
@@ -96,6 +97,11 @@ public class ProcessRequest extends HttpServlet {
 		else if (request.getParameter("removeReported") != null)
 		{
 			dataAccess.deleteReportedPost(removeReported);
+			response.sendRedirect("./JSP/Reported_Posts.jsp");
+		}
+		else if (request.getParameter("keepReported") != null)
+		{
+			dataAccess.keepReportedPost(keepReported);
 			response.sendRedirect("./JSP/Reported_Posts.jsp");
 		}
 		else if (request.getParameter("report") != null)

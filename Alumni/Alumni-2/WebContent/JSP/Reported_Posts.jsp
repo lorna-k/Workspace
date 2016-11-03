@@ -220,13 +220,14 @@
                                 		 
                                      %>
                                      <div class="posts">
-                                         <div class="editor">
+                                         <div class="editor" style="margin-bottom: 17px;">
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
                                              
                                              <form action="${pageContext.request.contextPath}/ProcessRequest" method="post">
 	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset.getString(2)+" "+resultset.getString(3)%></label>
 	                                        	<button type="submit" name="removeReported" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
+	                                        	<button type="submit" name="keepReported" value="<%=id%>" style="float: right; border: 1px solid black; color: #46b932; background: black; height: 23px; width: 45px; text-align: center; border-radius: 17px; z-index: 1; margin-top: 12%; margin-right: -7%;">Keep</button>
 	                                        </form>
                                              
                                              

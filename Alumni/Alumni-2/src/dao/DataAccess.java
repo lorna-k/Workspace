@@ -127,7 +127,7 @@ public class DataAccess
     {
     	System.out.println(data+" "+"was reported");
     	
-	        PreparedStatement ps=DBUtils.getPreparedSatement("insert into Reported_Posts  SELECT PostId, Name, Surname, Caption FROM Posts where PostId ='" +data +"';");
+	        PreparedStatement ps=DBUtils.getPreparedSatement("insert IGNORE into Reported_Posts (SELECT PostId, Name, Surname, Caption FROM Posts where PostId ='" +data +"');");
 	        
 	        
 	        ps.executeUpdate();
@@ -325,6 +325,35 @@ public class DataAccess
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
 	        System.out.println("Reported post Removed");
+	        
+			
+	
+		
+    }
+    public static void keepReportedPost(String data)
+    {
+    	
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        
+	        String SQL1 = "Delete from Reported_Posts WHERE PostId ='"+data+"'";
+	        			   
+        try {
+           
+            stmt.executeUpdate(SQL1);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Reported Restored");
 	        
 			
 	
