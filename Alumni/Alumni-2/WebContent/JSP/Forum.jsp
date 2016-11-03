@@ -32,6 +32,9 @@
     %>
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
+    <%//Opening connection to data in database
+    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,7 +173,7 @@
                             <div class="feeds">
                                 <!-- Opening connection to data in database -->
                             <%
-                                Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                               
                                 
                                 Statement statement = connection.createStatement() ;
                                 ResultSet resultset =  statement.executeQuery("select * from Posts ORDER BY PostId desc") ;
@@ -252,7 +255,7 @@
                                         	request.getSession().setAttribute("imageID",resultset.getString(1));
                                         	System.out.println(request.getSession().getAttribute("imageID"));
                                         %>
-                                        <div class="post-body message_frame" style="word-wrap: break-word;">
+                                        <div class="post-body message_frame" >
                                              <p><%=resultset.getString(4)%></p>
                                              
                                             
@@ -301,9 +304,9 @@
                                             
                                             <div class="list-comments">
                                             <% 
-                                                Connection connection2 = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                               
                                                 
-                                                Statement statement2 = connection2.createStatement() ;
+                                                Statement statement2 = connection.createStatement() ;
                                                 ResultSet resultset2 =  statement2.executeQuery("select * from Comments WHERE ID = '"+resultset.getString(1)+"' ORDER BY ID desc") ;
                                                 while(resultset2.next())
                                                 {

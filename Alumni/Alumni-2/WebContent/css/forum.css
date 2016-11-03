@@ -106,7 +106,7 @@ textarea.vert { resize:vertical; }
   -moz-box-shadow: 3px 0px 3px 0px #cecece;
   -webkit-box-shadow: 3px 0px 3px 0px #cecece;
   box-shadow: 2px 0px 2px 0px #cecece;
-
+  word-wrap: break-word;
 }
 .post-btn{
   border:1px solid gray; 

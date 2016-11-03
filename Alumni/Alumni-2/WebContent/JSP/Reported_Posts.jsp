@@ -19,6 +19,10 @@
     <%@ page import="java.util.Date"%>
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
+    <%//Opening connection to data in database
+    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+
+    Statement statement = connection.createStatement() ;%>
     
     <%-- Security check: Prohibit access for unauthorised users--%>
     <%
@@ -149,13 +153,10 @@
                                 String search_1= request.getSession().getAttribute("searcher2")+"";
                                 		//
                                 String search_2 =request.getSession().getAttribute("search2")+"";
-                                		
-                            
+                                
                                 	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
-                                             //Opening connection to data in database
-                                            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-
-                                            Statement statement = connection.createStatement() ;
+                                             
+                                           
                                             ResultSet resultset = null;
                                             resultset =  statement.executeQuery("select * from Reported_Posts Where concat(PostId,Name,Caption) like lower('%"+search_2+"%') ORDER BY PostId DESC") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
@@ -270,10 +271,8 @@
                                 }
                                 else if(search_2.equalsIgnoreCase("null"))
                                 {
-                                    //Opening connection to data in database
-                                    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-                                
-                                     Statement statement = connection.createStatement() ;
+                                   
+                                    
                                      ResultSet resultset1 = null;
                                      resultset1 =  statement.executeQuery("select * from Reported_Posts ORDER BY PostId DESC") ;
                                      if(resultset1.isBeforeFirst()){

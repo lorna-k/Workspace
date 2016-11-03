@@ -12,6 +12,13 @@
     <%@ page import="java.io.*"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        <%@ page import="java.io.*"%>
+    <%@ page import="java.time.LocalDateTime"%>
+    <%@ page import="java.util.Calendar"%>
+    <%@ page import="java.text.DateFormat"%>
+    <%@ page import="java.text.SimpleDateFormat"%>
+    <%@ page import="java.util.Date"%>
+ 
     
 <%-- Security check: Prohibit access for unauthorised users--%>
 <%
@@ -138,6 +145,58 @@ e.style.display = 'block';
                                   
                                 while(resultset.next())
                                 {
+                                	Calendar cal = Calendar.getInstance();
+                                	cal.setTime(resultset.getDate(2));
+                                	int month = cal.get(Calendar.MONTH)+1;
+                                	int day =cal.get(Calendar.DATE);
+                                    String thismonth= "";
+                                         switch (month) {
+                                             case 1:
+                                                 thismonth="Jan";
+                                                 break;
+                                             case 2:
+                                                 thismonth="Feb";
+                                                 break;
+                                             case 3:
+                                                 thismonth="Mar";
+                                                 break;
+                                             case 4:
+                                                 thismonth="Apr";
+                                                 break;
+                                             case 5:
+                                                 thismonth="May";
+                                                 break;
+                                             case 6:
+                                                 thismonth="Jun";
+                                                 break;
+                                             case 7:
+                                                 thismonth="Jul";
+                                                 break;
+                                             case 8:
+                                                 thismonth="Aug";
+                                                 break;
+                                             case 9:
+                                                 thismonth="Sept";
+                                                 break;
+                                             case 10:
+                                                 thismonth="Oct";
+                                                 break;
+                                             case 11:
+                                                 thismonth="Nov";
+                                                 break;
+                                             case 12:
+                                                 thismonth="Dec";
+                                                 break;
+                                             default:
+                                                 break;
+                                         }
+                                         
+                                         String thedate = day +" "+ thismonth; //manufacturing time stamp
+                                         
+                                         
+                                         String input = resultset.getString(2);
+                                         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                         DateFormat outputFormat = new SimpleDateFormat("KK:mm a"); //formatting date to 12 hour PM/AM
                                 %>
                                 <div class="posts">
                                     <div class="editor" style="border: 1px solid #ccc;border-radius: 4px;background-color: #455868;color: whitesmoke;">
@@ -154,7 +213,7 @@ e.style.display = 'block';
                                             <p><%=resultset.getString(3)%></p>
                                         </div>
                                          <div class="post-body date_today">
-                                            <p><%=resultset.getString(2)%></p>
+                                            <span style="float: right;padding: 1px 6px;line-height: 1;color: #90949c;"><%=thedate%></br><%=outputFormat.format(inputFormat.parse(input))%></span>
                                         </div>
                                         
                                         

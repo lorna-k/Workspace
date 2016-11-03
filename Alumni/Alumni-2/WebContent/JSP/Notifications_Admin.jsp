@@ -19,6 +19,10 @@
     <%@ page import="java.util.Date"%>
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
+    <%//Opening connection to data in database
+    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+
+    Statement statement = connection.createStatement() ;%>
     
     <%-- Security check: Prohibit access for unauthorised users--%>
     <%
@@ -125,7 +129,7 @@
                                         <span style="margin-left: 36%; color: black; line-height: 2;"> Post to Notifications</span>  
                                         
                                         </div>
-                                    <input class="write-post" name="notification" placeholder="Write a Notification"></input>
+                                    <textarea class="write-post" name="notification" placeholder="Write a Notification"></textarea>
                                     <div class="editor-buttons">
                                         <button id="post_button" type="submit" class="post-btn" name="post" value="posting" >Post</button>
             
@@ -162,19 +166,17 @@
                                 String searcher_2= request.getSession().getAttribute("searcher2")+"";
                                 		//
                                 String search_2 =request.getSession().getAttribute("search2")+"";
-                                		
+                              	
                                 
                                 	if((searcher_2.equalsIgnoreCase("ALL")) ){	
-                                             //Opening connection to data in database
-                                            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-
-                                            Statement statement = connection.createStatement() ;
+                                             
+                                            
                                             ResultSet resultset = null;
                                             resultset =  statement.executeQuery("select * from Notifications Where concat(ID,today,Message) like lower('%"+search_2+"%')") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
                                             
                                             if(resultset.isBeforeFirst()){
-                                            	 System.out.println("Qadidi");
+                                            	
                                 	 while(resultset.next())
                                          {
                                 		
@@ -231,10 +233,8 @@
                                 }
                                 else if(search_2.equalsIgnoreCase("null"))
                                 {
-                                    //Opening connection to data in database
-                                    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
                                 
-                                     Statement statement = connection.createStatement() ;
+                                    
                                      ResultSet resultset1 = null;
                                      resultset1 =  statement.executeQuery("Select * from Notifications") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){

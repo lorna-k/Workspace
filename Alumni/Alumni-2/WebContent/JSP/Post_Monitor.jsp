@@ -146,13 +146,13 @@
                                 String search_1= request.getSession().getAttribute("searcher1")+"";
                                 		//
                                 String search_2 =request.getSession().getAttribute("search1")+"";
-                                		
-                            
-                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
-                                             //Opening connection to data in database
-                                            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                //Opening connection to data in database	
+                                Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
-                                            Statement statement = connection.createStatement() ;
+                                Statement statement = connection.createStatement() ;
+                                	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
+                                            
+                                            
                                             ResultSet resultset = null;
                                             resultset =  statement.executeQuery("select * from Posts Where concat(PostId,Name,Caption) like lower('%"+search_2+"%') ORDER BY PostId DESC") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
@@ -266,10 +266,8 @@
                                 }
                                 else if(search_2.equalsIgnoreCase("null"))
                                 {
-                                    //Opening connection to data in database
-                                    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-                                
-                                     Statement statement = connection.createStatement() ;
+                                    
+                                 
                                      ResultSet resultset1 = null;
                                      resultset1 =  statement.executeQuery("Select * from Posts ORDER BY PostId DESC") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){

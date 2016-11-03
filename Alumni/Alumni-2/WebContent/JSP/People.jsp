@@ -16,6 +16,10 @@
     <% Class.forName("com.mysql.jdbc.Driver"); %>
     
     <%-- Security check: Prohibit access for unauthorised users--%>
+    <%//Opening connection to data in database
+    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+
+    Statement statement = connection.createStatement() ;%>
     <%
         if (request.getSession().getAttribute("currentUserName") == null){
         response.sendRedirect("Login.jsp");
@@ -138,10 +142,7 @@
                                 String search_2 =request.getSession().getAttribute("search")+"";
                             
                                 	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
-                                             //Opening connection to data in database
-                                            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-
-                                            Statement statement = connection.createStatement() ;
+                                             
                                             ResultSet resultset = null;
                                             resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Occupation,Current_Company,Address_Line1,Address_Line2,City,Postal_Code,Phone,Email,Highest_Degree,Institution1,Major1,Major2,Highest_Degree_Year,High_School,High_School_Year,Job1,Job1_Company,Job1_Year,Job2,Job2_Company,Job2_Year,Skill1,Skill2,Skill3,Skill4,Skill5,Reference_Name1,Reference_Email1,Reference_Name2,Reference_Email2))  like lower('%"+search_2+"%') ") ;
                                             ResultSetMetaData metaData = resultset.getMetaData();
@@ -208,10 +209,7 @@
                                 }
                                 if(search_2.equalsIgnoreCase("null"))
                                 {
-                                    //Opening connection to data in database
-                                    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-                                
-                                     Statement statement = connection.createStatement() ;
+                                   
                                      ResultSet resultset1 = null;
                                      resultset1 =  statement.executeQuery("Select * from CVs") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){
