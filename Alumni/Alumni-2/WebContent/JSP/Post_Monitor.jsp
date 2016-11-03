@@ -117,7 +117,7 @@
             <div class="wrapper" style="padding: 0px 100px;">
                 <div class="content-wrapper">
                     <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
-                    <form action="../searchPost" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
+                    <form id="searchForm" action="../searchPost" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher1" style="background: #ccc;visibility:hidden;"> 
 							
@@ -134,7 +134,7 @@
 
 			
 						<input id="search-text" type="text" name="search1" placeholder="Search by any post text" style="background: #ccc;">
-						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
+						<button class="icon" id="search-button"   onclick="onSubmitForm()" name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
 						
 						</form>
                     
@@ -264,23 +264,26 @@
                                 	 
                                  <%}
                                 }
-                                if(search_2.equalsIgnoreCase("null"))
+                                else if(search_2.equalsIgnoreCase("null"))
                                 {
                                     //Opening connection to data in database
                                     Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
                                 
                                      Statement statement = connection.createStatement() ;
                                      ResultSet resultset1 = null;
-                                     resultset1 =  statement.executeQuery("Select * from Posts Where lower(concat(PostId,Name,Surname,Caption,likes,Location))  like lower('%"+search_2+"%')") ; //gets everything from CV database
+                                     resultset1 =  statement.executeQuery("Select * from Posts ORDER BY PostId DESC") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){
-                                      while(resultset1.next()){%>
+                                      while(resultset1.next()){
+                                    	  String id=resultset1.getString(1);
+                                      %>
                                         <div class="posts">
                                          <div class="editor">
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
                                              <!-- populating form with fields from the result set -->
-                                             <form id="ViewProfile_form" method="post" action="../View_Profile">
-	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset1.getString(2)%>"> <%=resultset1.getString(2)+" "+resultset1.getString(3)%></button> 
+                                             <form action="${pageContext.request.contextPath}/ProcessRequest" method="post">
+	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset1.getString(2)+" "+resultset1.getString(3)%></label>
+	                                        	<button type="submit" name="remove" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
 	                                        </form>
                                              
                                              
@@ -305,5 +308,14 @@
                 </div>
 </div>
                 </div>
+                <script>
+function onSubmitForm() {
+	var frm = document.getElementById("searchForm");
+	   frm.submit(); // Submit
+	   frm.reset();  // Reset
+	   return false;
+}
+</script>
+                
     </body>
 </html>

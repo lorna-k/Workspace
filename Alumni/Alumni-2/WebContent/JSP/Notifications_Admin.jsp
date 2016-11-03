@@ -133,7 +133,7 @@
                                 </div>              
                             </div>
                            </form> </div>
-                    <form action="../searchNotification" method="post" class="form-group" style="width: 100%;margin-left: 10%;">
+                    <form id="searchForm" action="../searchNotification" method="post" class="form-group" style="width: 100%;margin-left: 10%;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher2" style="background: #ccc;visibility:hidden;"> 
 							
@@ -150,7 +150,7 @@
 
 			
 						<input id="search-text" type="text" name="search2" placeholder="Search by any post text" style="background: #ccc;">
-						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
+						<button class="icon" id="search-button"    onclick="onSubmitForm()" name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
 						
 						</form>
                     
@@ -164,7 +164,7 @@
                                 String search_2 =request.getSession().getAttribute("search2")+"";
                                 		
                                 
-                                	if((searcher_2.equalsIgnoreCase("ALL"))){	
+                                	if((searcher_2.equalsIgnoreCase("ALL")) ){	
                                              //Opening connection to data in database
                                             Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
 
@@ -229,7 +229,7 @@
                                 	 
                                  <%}
                                 }
-                                if(search_2.equalsIgnoreCase("null"))
+                                else if(search_2.equalsIgnoreCase("null"))
                                 {
                                     //Opening connection to data in database
                                     Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
@@ -278,5 +278,15 @@
                 </div>
 </div>
                 </div>
+                <script>
+function onSubmitForm() {
+	
+	var frm = document.getElementById("searchForm");
+	   frm.submit(); // Submit
+	   frm.reset();  // Reset
+	   return false;
+}
+</script>
+                
     </body>
 </html>

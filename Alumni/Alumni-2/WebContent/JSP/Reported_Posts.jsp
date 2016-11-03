@@ -120,7 +120,7 @@
             <h1 style="padding: 0px 100px;">Reported Posts</h1>
                 <div class="content-wrapper">
                     <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
-                    <form action="../searchReportedPost" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
+                    <form id="searchForm" action="../searchReportedPost" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
                 		<select class="marshal_details" id="search-dropdown" name="searcher2" style="background: #ccc;visibility:hidden;"> 
 							
@@ -137,7 +137,7 @@
 
 			
 						<input id="search-text" type="text" name="search2" placeholder="Search by any post text" style="background: #ccc;">
-						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
+						<button class="icon" id="search-button"  onclick="onSubmitForm()"  name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
 						
 						</form>
                     
@@ -146,9 +146,9 @@
                               
                             <%
                                 //values from the form search fields
-                                String search_1= request.getSession().getAttribute("searcher1")+"";
+                                String search_1= request.getSession().getAttribute("searcher2")+"";
                                 		//
-                                String search_2 =request.getSession().getAttribute("search1")+"";
+                                String search_2 =request.getSession().getAttribute("search2")+"";
                                 		
                             
                                 	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
@@ -268,23 +268,27 @@
                                 	 
                                  <%}
                                 }
-                                if(search_2.equalsIgnoreCase("null"))
+                                else if(search_2.equalsIgnoreCase("null"))
                                 {
                                     //Opening connection to data in database
                                     Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
                                 
                                      Statement statement = connection.createStatement() ;
                                      ResultSet resultset1 = null;
-                                     resultset1 =  statement.executeQuery("Select * from Reported_Posts Where lower(concat(PostId,Name,Surname,Caption,likes,Location))  like lower('%"+search_2+"%')") ; //gets everything from CV database
+                                     resultset1 =  statement.executeQuery("select * from Reported_Posts ORDER BY PostId DESC") ;
                                      if(resultset1.isBeforeFirst()){
-                                      while(resultset1.next()){%>
+                                      while(resultset1.next()){
+                                    	  String id=resultset1.getString(1);
+                                      %>
                                         <div class="posts">
-                                         <div class="editor">
+                                         <div class="editor" style="margin-bottom: 17px;">
                                              <div class="editor-header">
                                              <!-- Display name of user who posted-->
                                              <!-- populating form with fields from the result set -->
-                                             <form id="ViewProfile_form" method="post" action="../View_Profile">
-	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset1.getString(2)%>"> <%=resultset1.getString(2)+" "+resultset1.getString(3)%></button> 
+                                             <form id="ViewProfile_form" "${pageContext.request.contextPath}/ProcessRequest" method="post">
+	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset1.getString(2)+" "+resultset1.getString(3)%></label>
+	                                        	<button type="submit" name="removeReported" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
+	                                        	<button type="submit" name="keepReported" value="<%=id%>" style="float: right; border: 1px solid black; color: #46b932; background: black; height: 23px; width: 45px; text-align: center; border-radius: 17px; z-index: 1; margin-top: 12%; margin-right: -7%;">Keep</button> 
 	                                        </form>
                                              
                                              
@@ -309,5 +313,14 @@
                 </div>
 </div>
                 </div>
+                <script>
+function onSubmitForm() {
+	var frm = document.getElementById("searchForm");
+	   frm.submit(); // Submit
+	   frm.reset();  // Reset
+	   return false;
+}
+</script>
+                
     </body>
 </html>
