@@ -154,7 +154,7 @@
                                         <a href="CV.jsp"> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>  
                                         
                                         </div>
-                                    <input class="write-post" name="caption" placeholder="Write a post"></input>
+                                    <textarea  class="write-post" cols="76" rows="5" name="caption" placeholder="Write a post"></textarea>
                                     <div class="editor-buttons">
                                         <button  type="submit" class="post-btn" name="post" value="posting" >Post</button>
                            
@@ -252,7 +252,7 @@
                                         	request.getSession().setAttribute("imageID",resultset.getString(1));
                                         	System.out.println(request.getSession().getAttribute("imageID"));
                                         %>
-                                        <div class="post-body message_frame">
+                                        <div class="post-body message_frame" style="word-wrap: break-word;">
                                              <p><%=resultset.getString(4)%></p>
                                              
                                             
