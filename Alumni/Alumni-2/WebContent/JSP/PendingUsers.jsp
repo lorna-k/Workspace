@@ -80,21 +80,24 @@
 				<a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
 				<span class="header-title" style="color:white;">UCT Alumni Network</span>
 				<ul class="clearfix">
-					<!--<li><a href="PendingUsers.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Monitor</a></li>-->
-					<li><a href="Forum.jsp"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
-					<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" id="envelope" aria-hidden="true"></span> Notifications</a></li>
-					<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>			
-					<li><a href="../index.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>	
-				</ul>
+                    
+				
+				<form id="logout_form" method="post" action="../logout">	
+					<li style="float: right;"><a href="javascript:{}" onclick="document.getElementById('logout_form').submit(); return false;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li> 
+				</form>
+				
+                </ul>
 				<a href="#" id="pull">Menu</a>
 			</nav>
 		</div>
 		<div>
 		<div class="left-navbar">
-		<a href="Post_Monitor.jsp">Post Monitor</a>
-                <a href="PendingUsers.jsp">Pending Users</a>
-                <a href="SystemUsers.jsp">System Users</a>
+		
+        <a href="PendingUsers.jsp">Pending Users</a>
+        <a href="SystemUsers.jsp">System Users</a>
 		<a href="RejectedUsers.jsp">Rejected Users</a>
+		<a href="Post_Monitor.jsp">Post Monitor</a>
+		<a href="Notifications_Admin.jsp">Notifications</a>
 
 	</div>
 	<div class="right-content">
@@ -142,22 +145,6 @@
 		        </TABLE>
 		        
 	        </form>
-	        <form method="post" action="../Notify">
-                            <div class="post-box">
-                                <div class="editor">
-                                    <div class="editor-header">
-                                        
-                                        <h1 style="font-family: Aria;" > Post Notification</h1>
-                                        
-                                        </div>
-                                    <input class="write-post" name="notification" placeholder="Write a Notification" style="    width: 56%;height: 60px;    margin-bottom: 10px;"></input>
-                                    <div class="editor-buttons">
-                                        <button   id="post_button" type="submit" class="post-btn" name="post" value="posting" >Post</button>
-                                        
-                                    </div>
-                                </div>              
-                            </div>
-               </form> 
 	        
 	        
 <!--	        <ul style="list-style: none;">

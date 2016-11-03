@@ -317,6 +317,32 @@ public class DataAccess
 	
 		
     }
+    public static void deleteNotification(String data)
+    {
+    	
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        String SQL = "Delete from Notifications WHERE today ='"+data+"'";
+        try {
+            stmt.executeUpdate(SQL);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Removed From Notification ");
+	        
+			
+	
+		
+    }
 
     public void acceptedUser(String data)
     {

@@ -128,10 +128,10 @@ public class Notify extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 response.sendRedirect("./JSP/PendingUsers.jsp");
+			 response.sendRedirect("./JSP/Notifications_Admin.jsp");
 			
         
-	}else{response.sendRedirect("./JSP/PendingUsers.jsp");}
+	}else{response.sendRedirect("./JSP/Notifications_Admin.jsp");}
 
 }
 }
