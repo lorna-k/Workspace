@@ -16,7 +16,7 @@
     <%@ page import="java.text.DateFormat"%>
     <%@ page import="java.text.SimpleDateFormat"%>
     <%@ page import="java.util.Date"%>
-    
+ 
 
 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -32,6 +32,9 @@
     %>
 
     <% Class.forName("com.mysql.jdbc.Driver"); %>
+    <%//Opening connection to data in database
+    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,7 +134,7 @@
                                 <li><a href="Forum.jsp" onclick="resettoggle('comments_')"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Forum</a></li>
 				<li><a href="CV.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
 				
-				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Notifications</a></li>
+				<li><a href="Notifications.jsp"><span class="glyphicon glyphicon-envelope" id="envelope" aria-hidden="true"></span> Notifications</a></li>
 				<li><a href="People.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> People</a></li>	
 				<li><a href="https://drive.google.com/open?id=0B5hfZMerj_ABSks3RXI4RTJvOTg"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
 				<form id="logout_form" method="post" action="../logout">	
@@ -154,7 +157,7 @@
                                         <a href="CV.jsp"> <%= request.getSession().getAttribute("currentUserName") %>  <%= request.getSession().getAttribute("currentUserSurname") %></a>  
                                         
                                         </div>
-                                    <input class="write-post" name="caption" placeholder="Write a post"></input>
+                                    <textarea  class="write-post" cols="76" rows="5" name="caption" placeholder="Write a post"></textarea>
                                     <div class="editor-buttons">
                                         <button  type="submit" class="post-btn" name="post" value="posting" >Post</button>
                            
@@ -170,7 +173,7 @@
                             <div class="feeds">
                                 <!-- Opening connection to data in database -->
                             <%
-                                Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                               
                                 
                                 Statement statement = connection.createStatement() ;
                                 ResultSet resultset =  statement.executeQuery("select * from Posts ORDER BY PostId desc") ;
@@ -178,15 +181,69 @@
                                   
                                 while(resultset.next())
                                 {
+                                	Calendar cal = Calendar.getInstance();
+                                	cal.setTime(resultset.getDate(1));
+                                	int month = cal.get(Calendar.MONTH)+1;
+                                	int day =cal.get(Calendar.DATE);
+                                    String thismonth= "";
+                                         switch (month) {
+                                             case 1:
+                                                 thismonth="Jan";
+                                                 break;
+                                             case 2:
+                                                 thismonth="Feb";
+                                                 break;
+                                             case 3:
+                                                 thismonth="Mar";
+                                                 break;
+                                             case 4:
+                                                 thismonth="Apr";
+                                                 break;
+                                             case 5:
+                                                 thismonth="May";
+                                                 break;
+                                             case 6:
+                                                 thismonth="Jun";
+                                                 break;
+                                             case 7:
+                                                 thismonth="Jul";
+                                                 break;
+                                             case 8:
+                                                 thismonth="Aug";
+                                                 break;
+                                             case 9:
+                                                 thismonth="Sept";
+                                                 break;
+                                             case 10:
+                                                 thismonth="Oct";
+                                                 break;
+                                             case 11:
+                                                 thismonth="Nov";
+                                                 break;
+                                             case 12:
+                                                 thismonth="Dec";
+                                                 break;
+                                             default:
+                                                 break;
+                                         }
+                                         
+                                         String thedate = day +" "+ thismonth; //manufacturing time stamp
+                                         
+                                         
+                                         String input = resultset.getString(1);
+                                         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                         DateFormat outputFormat = new SimpleDateFormat("KK:mm a"); //formatting date to 12 hour PM/AM
+                                         
                                 %>
                                 <div class="posts">
                                     <div class="editor">
                                         <div class="editor-header">
                                         <!-- Display name of user who posted-->
                                         
-                                        <form  method="post" action="../View_Profile">
+                                        <form  method="post" action="../View_Profile" style="width:50%;float:left;">
                                         	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
                                         </form>
+                                        <span style="float: right;padding: 1px 6px;line-height: 1;color: #90949c;"><%=thedate%></br><%=outputFormat.format(inputFormat.parse(input))%></span></br>
                                         
                                         <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                         </div>
@@ -198,7 +255,7 @@
                                         	request.getSession().setAttribute("imageID",resultset.getString(1));
                                         	System.out.println(request.getSession().getAttribute("imageID"));
                                         %>
-                                        <div class="post-body message_frame">
+                                        <div class="post-body message_frame" >
                                              <p><%=resultset.getString(4)%></p>
                                              
                                             
@@ -235,18 +292,21 @@
                                         <form method="post" action="../Like_Post">
 	                                        <div class="editor-buttons">
 	                                            <button  type="submit" style="background:none!important;border:none;color: #337ab7" name ="<%=resultset.getString(1)%>"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-	                                             <span style="color:#ccc;"><%=resultset.getString(6)%> Likes</span>	                                            	                                            
+	                                             <span style="color:#90949c;"><%=resultset.getString(6)%> Likes</span>	 
+	                                                                                      	                                            
 	                                        </div>
                                         </form>
-                                        
+                                        <form method="post" action="${pageContext.request.contextPath}/ProcessRequest">
+	                                         <button  type="submit" style="background:none!important;border:none;color: #337ab7;float: right;" name ="report" value="<%=resultset.getString(1)%>">Report</button>
+	                                    </form>  
                                         
                                         <div class='textContainer_Truncate '>
                                             
                                             <div class="list-comments">
                                             <% 
-                                                Connection connection2 = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+                                               
                                                 
-                                                Statement statement2 = connection2.createStatement() ;
+                                                Statement statement2 = connection.createStatement() ;
                                                 ResultSet resultset2 =  statement2.executeQuery("select * from Comments WHERE ID = '"+resultset.getString(1)+"' ORDER BY ID desc") ;
                                                 while(resultset2.next())
                                                 {
@@ -300,7 +360,7 @@
                 
             </div>
         </div>
-        script for twitter feed
+        
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </body>
 </html>

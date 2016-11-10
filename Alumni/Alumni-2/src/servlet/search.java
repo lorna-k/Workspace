@@ -43,10 +43,16 @@ public class search extends HttpServlet {
 	{
 		// TODO Auto-generated method stub
 		
-		String term= request.getParameter("searcher");
+		String term=""; 
+				term = request.getParameter("searcher");
 		request.getSession().setAttribute("searcher", term);
-		String val= request.getParameter("search");
+		String val= "";
+				val=request.getParameter("search");
 		request.getSession().setAttribute("search", val);
+		
+		
+		
+		
 		
 		//System.out.println(term);
 		/*ResultSet rs=null;
@@ -96,7 +102,9 @@ public class search extends HttpServlet {
             System.out.println("Location: "+Location);
     	}*/
 		
-		 response.sendRedirect("./JSP/People.jsp");
+			response.sendRedirect("./JSP/People.jsp");
+		
+			
 		 /*request.getSession().setAttribute("searcher",null);
 		 request.getSession().setAttribute("search", null);*/
 	}

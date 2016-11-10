@@ -123,6 +123,16 @@ public class DataAccess
 	        ps.executeUpdate();
     	}
     }
+    public void reportPost(String data) throws ClassNotFoundException,SQLException
+    {
+    	System.out.println(data+" "+"was reported");
+    	
+	        PreparedStatement ps=DBUtils.getPreparedSatement("insert IGNORE into Reported_Posts (SELECT PostId, Name, Surname, Caption FROM Posts where PostId ='" +data +"');");
+	        
+	        
+	        ps.executeUpdate();
+    	
+    }
     
     public boolean loginUser(String id,String password,HttpServletRequest request) throws ClassNotFoundException, SQLException 
     {
@@ -286,6 +296,119 @@ public class DataAccess
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
 	        System.out.println("Removed From Users ");
+	        
+			
+	
+		
+    }
+    public static void deleteReportedPost(String data)
+    {
+    	
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        String SQL = "Delete from Posts WHERE PostId ='"+data+"'";
+	        String SQL1 = "Delete from Reported_Posts WHERE PostId ='"+data+"'";
+	        			   
+        try {
+            stmt.executeUpdate(SQL);
+            stmt.executeUpdate(SQL1);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Reported post Removed");
+	        
+			
+	
+		
+    }
+    public static void keepReportedPost(String data)
+    {
+    	
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        
+	        String SQL1 = "Delete from Reported_Posts WHERE PostId ='"+data+"'";
+	        			   
+        try {
+           
+            stmt.executeUpdate(SQL1);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Reported Restored");
+	        
+			
+	
+		
+    }
+    public static void deletePost(String data)
+    {
+    	
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        String SQL = "Delete from Posts WHERE PostId ='"+data+"'";
+	        String SQL1 = "Delete from Reported_Posts WHERE PostId ='"+data+"'";
+	        			   
+        try {
+            stmt.executeUpdate(SQL);
+            stmt.executeUpdate(SQL1);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Removed From Posts ");
+	        
+			
+	
+		
+    }
+    public static void deleteNotification(String data)
+    {
+    	
+    	
+    		    
+	        //Deleting the user from the users databse
+	        //ResultSet deleteUser=DBUtils.getPreparedSatement("Delete from Users WHERE ID ='"+data+"'");
+	        
+	        Statement stmt=null;
+        try {
+            stmt = DBUtils.getConnection().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        String SQL = "Delete from Notifications WHERE today ='"+data+"'";
+        try {
+            stmt.executeUpdate(SQL);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	        System.out.println("Removed From Notification ");
 	        
 			
 	

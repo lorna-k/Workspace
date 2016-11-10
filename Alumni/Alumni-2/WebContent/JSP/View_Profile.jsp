@@ -106,7 +106,7 @@
           
 
 <div class="fixed-wrapper">
-  <div class="fixed-content" style="border-left: 1px solid gray;">
+  <div class="fixed-content" style="border-left: 1px solid gray;border-left: 1px solid gray; border-left: 1px solid gray; /* -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.1), 0 0 16px rgba(0,0,0,0.1); */ box-shadow: inset 0 0 158px rgba(0,0,0,0.3), 0 0 80px rgba(0,0,0,0.3); background: #ddd;">
     
     
     <%if(imageStatus.equals("0")){%>
@@ -144,12 +144,12 @@
   </div>
 </div>
 <div class="content-offset">
-  <div class="content-frame"> 
+  <div class="content-frame" style="text-align: center; font-weight: bold; font-family: 'Roboto','Open Sans', 'PT Sans', Arial, sans-serif !important;"> 
     <div id="header" class="row">
       <div class="header-padding">
         
         
-        <div class="header-content"> <h1>Curriculum Vitae</h1>   
+        <div class="header-content"> <h1 Style="font-weight: bold;">Curriculum Vitae</h1>   
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@
         <div id="section1" class="container-fluid">
           <h3 class="cv-section">Education</h3>
           <!-- degree major 1 major 2 -->
-          <p><strong><%=resultset.getString(12) %> <%=resultset.getString(14)%> <%=resultset.getString(15)%></strong> <br>
+          <p><strong><%=resultset.getString(12) %>  <%=resultset.getString(14)%> <%=resultset.getString(15)%></strong> <br>
             <%=resultset.getString(13)%><br>
             <span class="year"><%=resultset.getString(16)%> </span><br> <!--  year --> 
             <p><strong><%=resultset.getString(17)%></strong> <br> <span class="year"><%=resultset.getString(18)%></span> </p>       <!-- high School year -->

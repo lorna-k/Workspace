@@ -161,9 +161,9 @@
                 City<br>
                 <input name="city" value="<%=city%>" class="input-box"><br>
                 Postal Code<br>
-                <input name="phone" value="<%=postalCode%>" class="input-box"><br>
+                <input name="postalCode" value="<%=postalCode%>" class="input-box"><br>
                 Phone<br>
-                <input name="postalCode" value="<%=phone%>" class="input-box"><br>
+                <input name="phone" value="<%=phone%>" class="input-box"><br>
                 Email<br>
                 <input type="email" value="<%=email%>" name="email" class="input-box"><br>
 

@@ -104,8 +104,8 @@ public class Notify extends HttpServlet {
                                     break;
                             }
                             
-                       
-                       Date date = new Date();
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                            Date date = new Date();
                        String strDateFormat = "h:mm a";
                        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);//converting current time 
      
@@ -115,7 +115,7 @@ public class Notify extends HttpServlet {
                         PreparedStatement ps=DBUtils.getPreparedSatement("INSERT INTO Notifications(ID,today,Message) VALUES(?,?,?)");
 		        ps.setString(1, "Admin");
 
-		        ps.setString(2,thedate);
+		        ps.setString(2,LocalDateTime.now().toString());
 		        ps.setString(3,request.getParameter("notification"));
 		       
 
@@ -128,10 +128,10 @@ public class Notify extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 response.sendRedirect("./JSP/PendingUsers.jsp");
+			 response.sendRedirect("./JSP/Notifications_Admin.jsp");
 			
         
-	}else{response.sendRedirect("./JSP/PendingUsers.jsp");}
+	}else{response.sendRedirect("./JSP/Notifications_Admin.jsp");}
 
 }
 }

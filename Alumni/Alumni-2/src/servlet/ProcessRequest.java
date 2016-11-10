@@ -63,7 +63,13 @@ public class ProcessRequest extends HttpServlet {
 		DataAccess dataAccess=new DataAccess();
 		String accepted=request.getParameter("accept");
 		String rejected=request.getParameter("reject");
-                String deleted=request.getParameter("delete");
+        String deleted=request.getParameter("delete");
+        String remove=request.getParameter("remove");
+        String remove1=request.getParameter("remove1");
+        String report=request.getParameter("report");
+        String removeReported=request.getParameter("removeReported");
+        String keepReported=request.getParameter("keepReported");
+        
 		
 		//# Possible request 1
 		//Admin Processing users requests from the Pending user table
@@ -77,6 +83,36 @@ public class ProcessRequest extends HttpServlet {
 		{
 			dataAccess.rejectedUser(rejected);
 			response.sendRedirect("./JSP/PendingUsers.jsp");
+		}
+		else if (request.getParameter("remove") != null)
+		{
+			dataAccess.deletePost(remove);
+			response.sendRedirect("./JSP/Post_Monitor.jsp");
+		}
+		else if (request.getParameter("remove1") != null)
+		{
+			dataAccess.deleteNotification(remove1);
+			response.sendRedirect("./JSP/Notifications_Admin.jsp");
+		}
+		else if (request.getParameter("removeReported") != null)
+		{
+			dataAccess.deleteReportedPost(removeReported);
+			response.sendRedirect("./JSP/Reported_Posts.jsp");
+		}
+		else if (request.getParameter("keepReported") != null)
+		{
+			dataAccess.keepReportedPost(keepReported);
+			response.sendRedirect("./JSP/Reported_Posts.jsp");
+		}
+		else if (request.getParameter("report") != null)
+		{
+			try {
+				dataAccess.reportPost(report);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			response.sendRedirect("./JSP/Forum.jsp");
 		}
 		else if (request.getParameter("delete") != null)
 		{
