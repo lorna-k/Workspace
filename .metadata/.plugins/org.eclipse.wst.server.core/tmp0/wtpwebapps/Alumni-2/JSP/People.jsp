@@ -16,6 +16,10 @@
     <% Class.forName("com.mysql.jdbc.Driver"); %>
     
     <%-- Security check: Prohibit access for unauthorised users--%>
+    <%//Opening connection to data in database
+    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
+
+    Statement statement = connection.createStatement() ;%>
     <%
         if (request.getSession().getAttribute("currentUserName") == null){
         response.sendRedirect("Login.jsp");
@@ -80,7 +84,7 @@
 	
         
 </head>
-    <body >
+    <body style="line-height:1;">
         <div class="nav-container" style="position:fixed; top:0; left:0; right:0; z-index:1">
             <nav class="clearfix">
                 <a href="../index.html" class="nav-title"><img class="nav-logo" src="../uct-logo.png"></a>
@@ -109,7 +113,7 @@
                     <div class="content" style= "margin-left: auto; margin-right: auto;    overflow: hidden !important;">
                     <form action="../search" method="post" class="form-group" style="width: 100%;margin-left: 100px;">
                 
-                		<select class="marshal_details" id="search-dropdown" name="searcher"> 
+                		<select class="marshal_details" id="search-dropdown" name="searcher" style="background: #ccc;"> 
 							
 							<option value="ALL" selected="selected">All</option> 
 							<option value="First_Name">First Name</option>
@@ -123,8 +127,8 @@
 						</select> 
 
 			
-						<input id="search-text" type="text" name="search" placeholder="Search.." >
-						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;"></i></button>
+						<input id="search-text" type="text" name="search" placeholder="Search.." style="background: #ccc;">
+						<button class="icon" id="search-button"    name="submit" type="submit"><i class="glyphicon glyphicon-search" style="margin-top: 3px;background: #ccc;"></i></button>
 						
 						</form>
                     
@@ -136,22 +140,12 @@
                                 String search_1= request.getSession().getAttribute("searcher")+"";
                                 		//
                                 String search_2 =request.getSession().getAttribute("search")+"";
-                                		
-                                
-                                     
-                                        
-                             
-                                
-                                
-                          
                             
                                 	if((search_1.equalsIgnoreCase("ALL")||search_1.equalsIgnoreCase("Highest_Degree_Year")||search_1.equalsIgnoreCase("Highest_Degree")||search_1.equalsIgnoreCase("First_Name")||search_1.equalsIgnoreCase("Current_Company")||search_1.equalsIgnoreCase("Last_Name")||search_1.equalsIgnoreCase("Major1")||search_1.equalsIgnoreCase("Occupation")||search_1.equalsIgnoreCase("City"))){	
-                                             //Opening connection to data in database
-                                            Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-
-                                            Statement statement = connection.createStatement() ;
+                                             
                                             ResultSet resultset = null;
-                                            resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Highest_Degree_Year,Highest_Degree,Major1,Major2,City,Occupation)) like lower('%"+search_2+"%')") ;
+                                            resultset =  statement.executeQuery("Select * from CVs Where lower(concat(ID,First_Name,Last_Name,Occupation,Current_Company,Address_Line1,Address_Line2,City,Postal_Code,Phone,Email,Highest_Degree,Institution1,Major1,Major2,Highest_Degree_Year,High_School,High_School_Year,Job1,Job1_Company,Job1_Year,Job2,Job2_Company,Job2_Year,Skill1,Skill2,Skill3,Skill4,Skill5,Reference_Name1,Reference_Email1,Reference_Name2,Reference_Email2))  like lower('%"+search_2+"%') ") ;
+                                            ResultSetMetaData metaData = resultset.getMetaData();
                                             if(resultset.isBeforeFirst()){
                                                 
                                 	 while(resultset.next())
@@ -164,16 +158,28 @@
                                              <!-- Display name of user who posted-->
                                              
                                              <form id="ViewProfile_form" method="post" action="../View_Profile">
-	                                        	<button style="background:none!important;border:none;color: #D84D0A " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
+	                                        	<button style="background:none!important;border:none;color: #D84D0A!important;margin-top: 1.5%; " type="submit" name ="<%=resultset.getString(2)%>"> <%=resultset.getString(2)+" "+resultset.getString(3)%></button> 
 	                                        </form>
                                              
                                              
                                              <!-- <span>Posted <%=resultset.getString(1)%></span> -->
                                              </div>
+                                             
+												
+											 
+                                             
                                              <div class="post-body message_frame" style="color: grey;">
-                                                 <p>Occupation: <%=resultset.getString(4)%></p>
-                                                 <p>Highest Degree: <%=resultset.getString(12)%></p>
-                                                 <p>Current City: <%=resultset.getString(8)%></p>
+                                             	<div id="left" style="float:left;width:50%;">
+                                             		<p>Occupation: <%=resultset.getString(4)%></p>
+                                                 	<p>Company: <%=resultset.getString(5)%></p>
+                                                 	<p>Highest Degree: <%=resultset.getString(12)%></p>
+                                                 	<p>Recent grad year: <%=resultset.getString(16)%></p>
+                                             	</div>
+												<div id="right" style="float:right;"></div>
+                                                 <p>Email: <%=resultset.getString(11)%></p>
+                                                 <p>City: <%=resultset.getString(8)%></p>
+                                                 <p>Prev. jobs: <%=resultset.getString(19)%>,<%=resultset.getString(22)%></p>
+                                                 <p>Prev. companies: <%=resultset.getString(20)%>,<%=resultset.getString(23)%></p>
                                              </div>
 
                                          </div>
@@ -203,10 +209,7 @@
                                 }
                                 if(search_2.equalsIgnoreCase("null"))
                                 {
-                                    //Opening connection to data in database
-                                    Connection connection = DriverManager.getConnection("jdbc:mysql://137.158.160.145:3306/ngwphu001", "ngwphu001", "eupheyei");
-                                
-                                     Statement statement = connection.createStatement() ;
+                                   
                                      ResultSet resultset1 = null;
                                      resultset1 =  statement.executeQuery("Select * from CVs") ; //gets everything from CV database
                                      if(resultset1.isBeforeFirst()){
@@ -224,9 +227,17 @@
                                              <!-- <span>Posted <%=resultset1.getString(1)%></span> -->
                                              </div>
                                              <div class="post-body message_frame" style="color: grey;">
-                                                 <p>Occupation: <%=resultset1.getString(4)%></p>
-                                                 <p>Highest Degree: <%=resultset1.getString(12)%></p>
-                                                 <p>Current City: <%=resultset1.getString(8)%></p>
+                                             	<div id="left" style="float:left;width:50%;">
+                                             		<p>Occupation: <%=resultset1.getString(4)%></p>
+                                                 	<p>Company: <%=resultset1.getString(5)%></p>
+                                                 	<p>Highest Degree: <%=resultset1.getString(12)%></p>
+                                                 	<p>Recent grad year: <%=resultset1.getString(16)%></p>
+                                             	</div>
+												<div id="right" style="float:right;"></div>
+                                                 <p>Email: <%=resultset1.getString(11)%></p>
+                                                 <p>City: <%=resultset1.getString(8)%></p>
+                                                 <p>Prev. jobs: <%=resultset1.getString(19)%>,<%=resultset1.getString(22)%></p>
+                                                 <p>Prev. companies: <%=resultset1.getString(20)%>,<%=resultset1.getString(23)%></p>
                                              </div>
 
                                          </div>
