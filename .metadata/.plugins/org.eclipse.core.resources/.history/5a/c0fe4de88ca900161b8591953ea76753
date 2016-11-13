@@ -251,9 +251,9 @@
                                         <%if(resultset.getString(8)!=null || resultset.getString(2).equals("Wandile")) 
                                         {
                                         	
-                                        	//request.getSession().setAttribute("imageID",null);
-                                        	//request.getSession().setAttribute("imageID",resultset.getString(1));
-                                            //System.out.println(request.getSession().getAttribute("imageID"));
+                                        	request.getSession().setAttribute("imageID",null);
+                                        	request.getSession().setAttribute("imageID",resultset.getString(1));
+                                        	System.out.println(request.getSession().getAttribute("imageID"));
                                         %>
                                         <div class="post-body message_frame" >
                                              <p><%=resultset.getString(4)%></p>

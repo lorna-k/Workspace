@@ -230,9 +230,7 @@
 	                                        	<button type="submit" name="removeReported" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
 	                                        	<button type="submit" name="keepReported" value="<%=id%>" style="float: right; border: 1px solid black; color: #46b932; background: black; height: 23px; width: 45px; text-align: center; border-radius: 17px; z-index: 1; margin-top: 12%; margin-right: -7%;">Keep</button>
 	                                        </form>
-                                             
-                                             
-                                             <%=resultset.getString(1)%>
+       
                                              </div>
                                              
 												
@@ -291,7 +289,7 @@
 	                                        </form>
                                              
                                              
-                                             <%=resultset1.getString(1)%>
+                                            
                                              </div>
                                              <div class="post-body message_frame" style="color: grey;">
                                                  <p><%=resultset1.getString(4)%></p>

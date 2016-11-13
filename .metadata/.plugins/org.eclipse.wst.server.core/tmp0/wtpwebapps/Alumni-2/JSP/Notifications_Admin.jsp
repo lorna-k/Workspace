@@ -252,7 +252,7 @@
 	                                        </form>
                                              
                                              
-                                             <%=resultset1.getString(3)%>
+       
                                              </div>
                                              
 												
