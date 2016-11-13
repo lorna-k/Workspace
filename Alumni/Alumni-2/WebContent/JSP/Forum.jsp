@@ -262,7 +262,9 @@
 
                                             <% 
                                             if(!(resultset.getString(2).equals("Wandile")))
-                                            {%>
+                                            {
+                                            	request.getSession().setAttribute("imageID",resultset.getString(1));
+                                            %>
 
                                             
                                             <img style="max-height:400px;width:600px" src="${pageContext.request.contextPath}/Post?id=${resultset.getString(1)}">
