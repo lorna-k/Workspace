@@ -225,9 +225,10 @@
 	                                        	<label style="background: none!important; border: none; color: #D84D0A!important; margin-top: 1.5%; font-weight: normal; margin-left: 1.5%;" > <%=resultset.getString(2)+" "+resultset.getString(3)%></label>
 	                                        	<button type="submit" name="remove" value="<%=id%>" style="float: right; border: 1px solid black; color: orange; background: black; width: 23px; height: 23px; text-align: center;border-radius: 17px; z-index: 1;margin-right: -2%;">X</button> 
 	                                        </form>
+	                                        
                                              
                                              
-                                             <%=resultset.getString(1)%>
+                                             
                                              </div>
                                              
 												
@@ -285,7 +286,7 @@
 	                                        </form>
                                              
                                              
-                                             <%=resultset1.getString(1)%>
+                                             
                                              </div>
                                              <div class="post-body message_frame" style="color: grey;">
                                                  <p><%=resultset1.getString(4)%></p>
