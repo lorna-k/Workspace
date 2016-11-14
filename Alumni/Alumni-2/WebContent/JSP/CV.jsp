@@ -131,12 +131,12 @@
     </address>
 
     <div class="personal-details">
-      <label ><abbr title="Occupation"><%=resultset.getString(4)%></abbr></label><br>           <!--occupation-->
+      <label ><%=resultset.getString(4)%></label><br>           <!--occupation-->
     </div>
      
     <div>
       <address>
-        <strong><abbr title="company/institution"><%=resultset.getString(5)%></abbr></strong><br> <!-- company/institution -->
+        <strong><%=resultset.getString(5)%></strong><br> <!-- company/institution -->
         <%=resultset.getString(6)%> <br> <!-- adressline1 -->
         <%=resultset.getString(7)%> <br> <!-- addressLine2 -->
         <%=resultset.getString(8)%> <br>
