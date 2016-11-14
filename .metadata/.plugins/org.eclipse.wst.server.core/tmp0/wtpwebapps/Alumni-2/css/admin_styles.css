@@ -1,0 +1,39 @@
+.left-navbar{
+	position: fixed;
+	top:100px;
+	float: left;
+	margin-top: 2px;
+	margin-left: 50px;
+	width: 13%;
+	min-height: 300px;
+	background-color: #455868;
+	margin-bottom: 10px;
+}
+
+.right-content{
+	position: relative;
+	float: right;
+	margin-top: 2px;
+	width: 84%;
+	margin-bottom: 10px;
+}
+.left-navbar a{
+	font-size: 20px;
+	display: block;
+	border-bottom:0.1px solid white;
+	width: 100%;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: #fff;
+	text-decoration: none;
+	font-family: Open Sans, serif;
+	line-height: 50px;
+}
+.left-navbar li:hover{
+	background: rgba(0, 0, 0, .4);
+}
+.left-navbar a:hover{
+	color: #1FBAD6;
+	text-decoration: none;
+}
